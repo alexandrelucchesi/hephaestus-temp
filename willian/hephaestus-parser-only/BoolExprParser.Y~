@@ -1,0 +1,50 @@
+{
+module BoolExprSintaticScanner (parseFunction) where
+
+import BoolExprLexicalScanner
+import BasicTypes
+
+}
+
+%name expr
+%tokentype { Token }
+%error { parseError }
+
+%token
+    let  { TokenLet }
+    of   { TokenOf }
+    int  { TokenInt $$ }
+    var  { TokenSym $$ }
+    '='  { TokenEq }
+    add  { TokenAdd $$ } 
+    sub  { TokenSub $$ } 
+    '('  { TokenLParen }
+    ')'  { TokenRParen }
+
+%left '+' '-'
+%left '*' '/'
+
+%%
+
+Functions:list(Func)			{ $1 }
+
+Func:let var of list(var) '=' Expr	{ FuncDecl $2 $4 $6 }
+
+Expr:	Expr add Expr			{ Add $1 $3 }
+	| Expr sub Expr			{ Sub $1 $3 }
+	| '(' Expr ')'			{ $2 }
+	| int				{ Const $1 }
+	| var				{ ExpId $1 }
+
+list(p):p				{ [$1] }
+	| p list(p)			{ $1 : $2 }
+
+{
+
+parseError :: [Token] -> a
+parseError _ = error "Parse error"
+
+parseFunction :: String -> Expression
+parseFunction = expr . scanTokens
+
+}
