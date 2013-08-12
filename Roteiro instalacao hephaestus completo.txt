@@ -1,0 +1,48 @@
+tudo usando sudo
+
+sudo apt-get install haskell-platform
+
+sudo cabal update
+
+$ cabal install hxt
+$ cabal install hxt-relaxtng
+
+Para interface gráfica, precisamos instalar gtk2hs e suas dependências. Na máquina UBUNTU que estou usando, precisei instalar duas libs:
+
+$ sudo apt-get install libpango1.0-dev
+$ sudo apt-get install libgtk2.0-dev
+$ sudo apt-get install glade
+$ sudo apt-get install libglade2-dev
+
+
+Para em seguida:
+
+$ cabal install gtk2hs-buildtools
+$ export PATH=$PATH:$USER_HOME/.cabal/bin
+
+http://blog.jedf.com/
+sudo ln ~/.cabal/bin/gtk2hsC2hs /usr/bin/gtk2hsC2hs
+sudo ln ~/.cabal/bin/gtk2hsHookGenerator /usr/bin/gtk2hsHookGenerator
+sudo ln ~/.cabal/bin/gtk2hsTypeGen /usr/bin/gtk2hsTypeGen
+
+$ cabal install glib
+$ cabal install gtk # demora não desligar...
+$ cabal install glade
+
+
+$ cabal install bimap-0.2
+$ cabal install bitset-1.4.0
+$ parse-dimacs-1.2
+
+$ git clone https://github.com/rbonifacio/funsat.git #$ git clone git@github.com:rbonifacio/funsat.git # https
+$ cd funsat
+$ runhaskell Setup.hs configure --user --- tudo sudo!
+$ runhaskell Setup.hs build 
+$ runhaskell Setup.hs install
+http://gitorious.org/hephaestus/hephaestus/archive-tarball/hephaestus-7.4.1
+
+
+
+
+
+
