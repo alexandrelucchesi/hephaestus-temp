@@ -1,0 +1,7 @@
+name=teste
+feature-model=/home/willian/Dropbox/allHephaestusRelated/hephaestus/samples/MobileMedia/featureModel.xml
+configuration-model=/home/willian/Dropbox/allHephaestusRelated/hephaestus/samples/MobileMedia/configurationModel.xml
+instance-model=/home/willian/Dropbox/allHephaestusRelated/hephaestus/samples/MobileMedia/instanceModel.xml
+component-model=/home/willian/Dropbox/allHephaestusRelated/hephaestus/samples/MobileMedia/componentModel.txt
+source-dir=/home/willian/Dropbox/allHephaestusRelated/hephaestus/samples/MobileMedia/src/
+target-dir=/home/willian/Dropbox/allHephaestusRelated/hephaestus/samples/MobileMedia/out/
