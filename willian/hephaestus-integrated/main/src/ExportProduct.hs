@@ -17,6 +17,8 @@ import UseCaseModel.PrettyPrinter.Latex
 import UseCaseModel.PrettyPrinter.LatexUserActions
 import UseCaseModel.PrettyPrinter.XML
 
+import PlasmaCutter
+
 import qualified BasicTypes as Core
 
 exportProduct :: FilePath -> FilePath -> InstanceModel -> IO ()
