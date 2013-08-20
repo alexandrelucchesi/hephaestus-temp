@@ -1,0 +1,634 @@
+\documentclass{article}
+
+\usepackage{a4wide}
+
+%% ODER: format ==         = "\mathrel{==}"
+%% ODER: format /=         = "\neq "
+%
+%
+\makeatletter
+\@ifundefined{lhs2tex.lhs2tex.sty.read}%
+  {\@namedef{lhs2tex.lhs2tex.sty.read}{}%
+   \newcommand\SkipToFmtEnd{}%
+   \newcommand\EndFmtInput{}%
+   \long\def\SkipToFmtEnd#1\EndFmtInput{}%
+  }\SkipToFmtEnd
+
+\newcommand\ReadOnlyOnce[1]{\@ifundefined{#1}{\@namedef{#1}{}}\SkipToFmtEnd}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\DeclareFontFamily{OT1}{cmtex}{}
+\DeclareFontShape{OT1}{cmtex}{m}{n}
+  {<5><6><7><8>cmtex8
+   <9>cmtex9
+   <10><10.95><12><14.4><17.28><20.74><24.88>cmtex10}{}
+\DeclareFontShape{OT1}{cmtex}{m}{it}
+  {<-> ssub * cmtt/m/it}{}
+\newcommand{\texfamily}{\fontfamily{cmtex}\selectfont}
+\DeclareFontShape{OT1}{cmtt}{bx}{n}
+  {<5><6><7><8>cmtt8
+   <9>cmbtt9
+   <10><10.95><12><14.4><17.28><20.74><24.88>cmbtt10}{}
+\DeclareFontShape{OT1}{cmtex}{bx}{n}
+  {<-> ssub * cmtt/bx/n}{}
+\newcommand{\tex}[1]{\text{\texfamily#1}}	% NEU
+
+\newcommand{\Sp}{\hskip.33334em\relax}
+
+
+\newcommand{\Conid}[1]{\mathit{#1}}
+\newcommand{\Varid}[1]{\mathit{#1}}
+\newcommand{\anonymous}{\kern0.06em \vbox{\hrule\@width.5em}}
+\newcommand{\plus}{\mathbin{+\!\!\!+}}
+\newcommand{\bind}{\mathbin{>\!\!\!>\mkern-6.7mu=}}
+\newcommand{\rbind}{\mathbin{=\mkern-6.7mu<\!\!\!<}}% suggested by Neil Mitchell
+\newcommand{\sequ}{\mathbin{>\!\!\!>}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\usepackage{polytable}
+
+%mathindent has to be defined
+\@ifundefined{mathindent}%
+  {\newdimen\mathindent\mathindent\leftmargini}%
+  {}%
+
+\def\resethooks{%
+  \global\let\SaveRestoreHook\empty
+  \global\let\ColumnHook\empty}
+\newcommand*{\savecolumns}[1][default]%
+  {\g@addto@macro\SaveRestoreHook{\savecolumns[#1]}}
+\newcommand*{\restorecolumns}[1][default]%
+  {\g@addto@macro\SaveRestoreHook{\restorecolumns[#1]}}
+\newcommand*{\aligncolumn}[2]%
+  {\g@addto@macro\ColumnHook{\column{#1}{#2}}}
+
+\resethooks
+
+\newcommand{\onelinecommentchars}{\quad-{}- }
+\newcommand{\commentbeginchars}{\enskip\{-}
+\newcommand{\commentendchars}{-\}\enskip}
+
+\newcommand{\visiblecomments}{%
+  \let\onelinecomment=\onelinecommentchars
+  \let\commentbegin=\commentbeginchars
+  \let\commentend=\commentendchars}
+
+\newcommand{\invisiblecomments}{%
+  \let\onelinecomment=\empty
+  \let\commentbegin=\empty
+  \let\commentend=\empty}
+
+\visiblecomments
+
+\newlength{\blanklineskip}
+\setlength{\blanklineskip}{0.66084ex}
+
+\newcommand{\hsindent}[1]{\quad}% default is fixed indentation
+\let\hspre\empty
+\let\hspost\empty
+\newcommand{\NB}{\textbf{NB}}
+\newcommand{\Todo}[1]{$\langle$\textbf{To do:}~#1$\rangle$}
+
+\EndFmtInput
+\makeatother
+%
+%
+%
+%
+%
+%
+% This package provides two environments suitable to take the place
+% of hscode, called "plainhscode" and "arrayhscode". 
+%
+% The plain environment surrounds each code block by vertical space,
+% and it uses \abovedisplayskip and \belowdisplayskip to get spacing
+% similar to formulas. Note that if these dimensions are changed,
+% the spacing around displayed math formulas changes as well.
+% All code is indented using \leftskip.
+%
+% Changed 19.08.2004 to reflect changes in colorcode. Should work with
+% CodeGroup.sty.
+%
+\ReadOnlyOnce{polycode.fmt}%
+\makeatletter
+
+\newcommand{\hsnewpar}[1]%
+  {{\parskip=0pt\parindent=0pt\par\vskip #1\noindent}}
+
+% can be used, for instance, to redefine the code size, by setting the
+% command to \small or something alike
+\newcommand{\hscodestyle}{}
+
+% The command \sethscode can be used to switch the code formatting
+% behaviour by mapping the hscode environment in the subst directive
+% to a new LaTeX environment.
+
+\newcommand{\sethscode}[1]%
+  {\expandafter\let\expandafter\hscode\csname #1\endcsname
+   \expandafter\let\expandafter\endhscode\csname end#1\endcsname}
+
+% "compatibility" mode restores the non-polycode.fmt layout.
+
+\newenvironment{compathscode}%
+  {\par\noindent
+   \advance\leftskip\mathindent
+   \hscodestyle
+   \let\\=\@normalcr
+   \(\pboxed}%
+  {\endpboxed\)%
+   \par\noindent
+   \ignorespacesafterend}
+
+\newcommand{\compaths}{\sethscode{compathscode}}
+
+% "plain" mode is the proposed default.
+% It should now work with \centering.
+% This required some changes. The old version
+% is still available for reference as oldplainhscode.
+
+\newenvironment{plainhscode}%
+  {\hsnewpar\abovedisplayskip
+   \advance\leftskip\mathindent
+   \hscodestyle
+   \let\hspre\(\let\hspost\)%
+   \pboxed}%
+  {\endpboxed%
+   \hsnewpar\belowdisplayskip
+   \ignorespacesafterend}
+
+\newenvironment{oldplainhscode}%
+  {\hsnewpar\abovedisplayskip
+   \advance\leftskip\mathindent
+   \hscodestyle
+   \let\\=\@normalcr
+   \(\pboxed}%
+  {\endpboxed\)%
+   \hsnewpar\belowdisplayskip
+   \ignorespacesafterend}
+
+% Here, we make plainhscode the default environment.
+
+\newcommand{\plainhs}{\sethscode{plainhscode}}
+\newcommand{\oldplainhs}{\sethscode{oldplainhscode}}
+\plainhs
+
+% The arrayhscode is like plain, but makes use of polytable's
+% parray environment which disallows page breaks in code blocks.
+
+\newenvironment{arrayhscode}%
+  {\hsnewpar\abovedisplayskip
+   \advance\leftskip\mathindent
+   \hscodestyle
+   \let\\=\@normalcr
+   \(\parray}%
+  {\endparray\)%
+   \hsnewpar\belowdisplayskip
+   \ignorespacesafterend}
+
+\newcommand{\arrayhs}{\sethscode{arrayhscode}}
+
+% The mathhscode environment also makes use of polytable's parray 
+% environment. It is supposed to be used only inside math mode 
+% (I used it to typeset the type rules in my thesis).
+
+\newenvironment{mathhscode}%
+  {\parray}{\endparray}
+
+\newcommand{\mathhs}{\sethscode{mathhscode}}
+
+% texths is similar to mathhs, but works in text mode.
+
+\newenvironment{texthscode}%
+  {\(\parray}{\endparray\)}
+
+\newcommand{\texths}{\sethscode{texthscode}}
+
+% The framed environment places code in a framed box.
+
+\def\codeframewidth{\arrayrulewidth}
+\RequirePackage{calc}
+
+\newenvironment{framedhscode}%
+  {\parskip=\abovedisplayskip\par\noindent
+   \hscodestyle
+   \arrayrulewidth=\codeframewidth
+   \tabular{@{}|p{\linewidth-2\arraycolsep-2\arrayrulewidth-2pt}|@{}}%
+   \hline\framedhslinecorrect\\{-1.5ex}%
+   \let\endoflinesave=\\
+   \let\\=\@normalcr
+   \(\pboxed}%
+  {\endpboxed\)%
+   \framedhslinecorrect\endoflinesave{.5ex}\hline
+   \endtabular
+   \parskip=\belowdisplayskip\par\noindent
+   \ignorespacesafterend}
+
+\newcommand{\framedhslinecorrect}[2]%
+  {#1[#2]}
+
+\newcommand{\framedhs}{\sethscode{framedhscode}}
+
+% The inlinehscode environment is an experimental environment
+% that can be used to typeset displayed code inline.
+
+\newenvironment{inlinehscode}%
+  {\(\def\column##1##2{}%
+   \let\>\undefined\let\<\undefined\let\\\undefined
+   \newcommand\>[1][]{}\newcommand\<[1][]{}\newcommand\\[1][]{}%
+   \def\fromto##1##2##3{##3}%
+   \def\nextline{}}{\) }%
+
+\newcommand{\inlinehs}{\sethscode{inlinehscode}}
+
+% The joincode environment is a separate environment that
+% can be used to surround and thereby connect multiple code
+% blocks.
+
+\newenvironment{joincode}%
+  {\let\orighscode=\hscode
+   \let\origendhscode=\endhscode
+   \def\endhscode{\def\hscode{\endgroup\def\@currenvir{hscode}\\}\begingroup}
+   %\let\SaveRestoreHook=\empty
+   %\let\ColumnHook=\empty
+   %\let\resethooks=\empty
+   \orighscode\def\hscode{\endgroup\def\@currenvir{hscode}}}%
+  {\origendhscode
+   \global\let\hscode=\orighscode
+   \global\let\endhscode=\origendhscode}%
+
+\makeatother
+\EndFmtInput
+%
+
+
+
+\title{A Simple Module for Experimenting with Advice Compositions}
+
+\author{Rodrigo Bonif\'{a}cio}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This document is a \emph{Literate Haskell} (LHS) module, proposed for 
+experimenting with advice compositions. Basically, it allow us to 
+understand the effect of applying the different types of advices 
+(Before, After, and Around) using the Home Banking product line. 
+
+
+
+\section{List of Scenarios}
+
+The scenarios shown in Figures~\ref{} are considered in this module:
+Using our approach, a scenario could be extended by some advice, if a selection of features was selected or not. 
+Nevertheless, in this document we are primarly interested in testing and evaluating the 
+\texttt{evalFunction}, which takes as input an advice \texttt{adv} and a 
+scenario \texttt{sc}, and then returns a new scenario that is the result of composition 
+between them. One interesting point about using LHS is that one could show other scenarios in 
+this document, just introducing a command sucha as: 
+
+\begin{tabbing}\tt
+~\char92{}perform\char123{}let~s~\char61{}~show~\char40{}scenarioToLatex~SCID\char41{}~in~putStrLn~\char40{}formatString~s\char41{}\char125{}
+\end{tabbing}
+
+This command guides the lhs2tex compile to call the GHC Interpreter and 
+to evaluate the \texttt{let ...} expression. 
+
+\begin{figure}
+
+\subsubsection*{Scenario sc01} \begin{tabbing} {\bf Description:} \= This scenario allows a customer to withdraw money from a previously selected account \\ {\bf From steps:} \> start \\ {\bf To steps:} \> end \\ \end{tabbing} \begin{tabular}{|p{0.4in}|p{1.2in}|p{1.2in}|p{1.2in}|p{1.2in}|} \hline Id & User Action & Condition & System Response & Annotations \\ \hline sc0101 & The customer selects the withdraw option. & - & The system creates a new withdrawal and asks for the amount to withdraw. & \\ \hline sc0102 & The customer fills in the amount to withdraw. & - & The system retrieves the current balance of the selected account. & \\ \hline sc0103 & - & - & The system verifies that the requested amount is not greater than current balance plus U\$ 5000.00 & authentication \\ \hline sc0104 & - & - & The bank system withdraws the amount from the account. & transaction \\ \hline sc0105 & - & - & The cash money is provided to the customer. & \\ \hline \end{tabular}
+\caption{Withdraw money transaction.}
+\label{fig:sc01}
+\end{figure}
+
+\newpage
+
+\section{List of Advice}
+
+Next we enumerate each advice considered in this module. First, 
+{\bf Advice ADV01} models the PIN authentication mechanism. It is applied 
+after each step marked with the \texttt{authentication} tag.
+
+\begin{figure}[htb]
+ 
+\begin{tabbing} {\bf Pointcut:} \= {\bf AFTER} AnnotationRef "authentication"\\ \end{tabbing} \begin{tabular}{|p{0.4in}|p{1.2in}|p{1.2in}|p{1.2in}|p{1.2in}|} \hline Id & User Action & Condition & System Response & Annotations \\ \hline adv0101 & - & - & The system asks the customer to enter her personal identification number. & \\ \hline adv0102 & The customer fills in the personal identification number. & - & The system authenticates the customer's personal identification number. & \\ \hline \end{tabular}
+ \caption{PIN authentication advice.}
+ \label{fig:adv01}
+\end{figure}
+
+Therefore, calling \texttt{evalFunction adv01 sc01} leads to the 
+scenario shown in Figure~\ref{fig:eval-adv01}. 
+
+\begin{figure}[htb]
+ 
+\begin{tabular}{|p{0.4in}|p{1.2in}|p{1.2in}|p{1.2in}|p{1.2in}|} \hline Id & User Action & Condition & System Response & Annotations \\ \hline sc0101 & The customer selects the withdraw option. & - & The system creates a new withdrawal and asks for the amount to withdraw. & \\ \hline sc0102 & The customer fills in the amount to withdraw. & - & The system retrieves the current balance of the selected account. & \\ \hline sc0103 & - & - & The system verifies that the requested amount is not greater than current balance plus U\$ 5000.00 & authentication \\ \hline adv0101 & - & - & The system asks the customer to enter her personal identification number. & \\ \hline adv0102 & The customer fills in the personal identification number. & - & The system authenticates the customer's personal identification number. & \\ \hline sc0104 & - & - & The bank system withdraws the amount from the account. & transaction \\ \hline sc0105 & - & - & The cash money is provided to the customer. & \\ \hline \end{tabular}
+ \caption{The effect of applying \texttt{evaluateAdvice adv01 sc01}.}
+ \label{fig:eval-adv01}
+\end{figure}
+
+\newpage
+
+Note that the evaluation of the PIN advice, regarding the first scenario, just introduces 
+the steps related to the PIN authentication, after any step marked with the ``authentication'' 
+tag. Consider now a different advice, which starts a transaction before any step marked with 
+the ``transaction'' tag, then it returns to the flow of events of the scenario, and finally commit a transaction. 
+In order to model an extension such as that, we design the \emph{Around Advice} depicted in  
+Figure~\ref{fig:adv02}.
+
+\begin{figure}[htb]
+ 
+\begin{tabbing} {\bf Pointcut:} \= {\bf AROUND} AnnotationRef "transaction"\\ \end{tabbing} \begin{tabular}{|p{0.4in}|p{1.2in}|p{1.2in}|p{1.2in}|p{1.2in}|} \hline Id & User Action & Condition & System Response & Annotations \\ \hline adv0201 & - & - & The transaction handler starts the processing of a transaction. & \\ \hline \multicolumn{5}{c}{{\bf PROCEED}} \\ \hline adv0202 & - & - & An entry with the transaction information is logged to the overview of the completed transactions of the customers account. & \\ \hline adv0203 & - & - & The transaction is removed from the transaction queue. & \\ \hline \end{tabular}
+ \caption{Around Advice for the transaction concern. After the first step, it should \emph{Proceed} with the scenario flow and 
+  then perform the remaining two steps (adv0202, adv0203).}
+ \label{fig:adv02}
+\end{figure}
+
+\newpage
+
+Figure~\ref{fig:eval-adv02} shows the effect of evaluating the Transaction concern advice with respect to the 
+withdraw scenario. 
+
+\begin{figure}[htb]
+ 
+\begin{tabular}{|p{0.4in}|p{1.2in}|p{1.2in}|p{1.2in}|p{1.2in}|} \hline Id & User Action & Condition & System Response & Annotations \\ \hline sc0101 & The customer selects the withdraw option. & - & The system creates a new withdrawal and asks for the amount to withdraw. & \\ \hline sc0102 & The customer fills in the amount to withdraw. & - & The system retrieves the current balance of the selected account. & \\ \hline sc0103 & - & - & The system verifies that the requested amount is not greater than current balance plus U\$ 5000.00 & authentication \\ \hline adv0201 & - & - & The transaction handler starts the processing of a transaction. & \\ \hline sc0104 & - & - & The bank system withdraws the amount from the account. & transaction \\ \hline sc0105 & - & - & The cash money is provided to the customer. & \\ \hline adv0202 & - & - & An entry with the transaction information is logged to the overview of the completed transactions of the customers account. & \\ \hline adv0203 & - & - & The transaction is removed from the transaction queue. & \\ \hline \end{tabular}
+ \caption{The effect of applying \texttt{evaluateAdvice adv02 sc01}.}
+ \label{fig:eval-adv02}
+\end{figure}
+
+So, just to understand the effect of the PROCEED construct. Suppose that a specifier forgot to 
+introduce the PROCEED clause in the advice of Figure~\ref{fig:adv02}. The result of applying 
+this \emph{wrong} asset to the withdraw scenario is depicted in Figure~\ref{fig:eval-adv03}. Notice 
+that steps \texttt{sc0104} and \texttt{sc0105} are not present in the resulting scenario. This occurs 
+because, without the PROCEED construct, all steps of the scenario that follows a specific joinpoint 
+are ignored.  
+
+\begin{figure}[htb]
+ 
+\begin{tabular}{|p{0.4in}|p{1.2in}|p{1.2in}|p{1.2in}|p{1.2in}|} \hline Id & User Action & Condition & System Response & Annotations \\ \hline sc0101 & The customer selects the withdraw option. & - & The system creates a new withdrawal and asks for the amount to withdraw. & \\ \hline sc0102 & The customer fills in the amount to withdraw. & - & The system retrieves the current balance of the selected account. & \\ \hline sc0103 & - & - & The system verifies that the requested amount is not greater than current balance plus U\$ 5000.00 & authentication \\ \hline adv0201 & - & - & The transaction handler starts the processing of a transaction. & \\ \hline adv0202 & - & - & An entry with the transaction information is logged to the overview of the completed transactions of the customers account. & \\ \hline adv0203 & - & - & The transaction is removed from the transaction queue. & \\ \hline \end{tabular}
+ \caption{The effect of applying \texttt{evaluateAdvice adv03 sc01}.}
+ \label{fig:eval-adv03}
+\end{figure}
+
+\newpage 
+
+\section{The input code}
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{15}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{16}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{17}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{31}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{40}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{109}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{sc01}\mathbin{::}\Conid{Scenario}{}\<[E]%
+\\
+\>[B]{}\Varid{sc01}\mathrel{=}\Conid{Scenario}\;\text{\tt \char34 sc01\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}\text{\tt \char34 This~scenario~allows~a~customer~to~withdraw~money~from~a~previously~selected~account\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}[\mskip1.5mu \Conid{IdRef}\;\text{\tt \char34 start\char34}\mskip1.5mu]\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}[\mskip1.5mu \Varid{sc0101},\Varid{sc0102},\Varid{sc0103},\Varid{sc0104},\Varid{sc0105}\mskip1.5mu]\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}[\mskip1.5mu \Conid{IdRef}\;\text{\tt \char34 end\char34}\mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{adv01}\mathbin{::}\Conid{Advice}{}\<[E]%
+\\
+\>[B]{}\Varid{adv01}\mathrel{=}\Conid{AfterAdvice}\;[\mskip1.5mu \Conid{AnnotationRef}\;\text{\tt \char34 authentication\char34}\mskip1.5mu]\;[\mskip1.5mu \Varid{adv0101},\Varid{adv0102}\mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{adv02}\mathbin{::}\Conid{Advice}{}\<[E]%
+\\
+\>[B]{}\Varid{adv02}\mathrel{=}\Conid{AroundAdvice}\;[\mskip1.5mu \Conid{AnnotationRef}\;\text{\tt \char34 transaction\char34}\mskip1.5mu]\;[\mskip1.5mu \Varid{adv0201},\Varid{adv02P},\Varid{adv0202},\Varid{adv0203}\mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{adv03}\mathbin{::}\Conid{Advice}{}\<[E]%
+\\
+\>[B]{}\Varid{adv03}\mathrel{=}\Conid{AroundAdvice}\;[\mskip1.5mu \Conid{AnnotationRef}\;\text{\tt \char34 transaction\char34}\mskip1.5mu]\;[\mskip1.5mu \Varid{adv0201},\Varid{adv0202},\Varid{adv0203}\mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{sc0101}\mathbin{::}\Conid{Step}{}\<[E]%
+\\
+\>[B]{}\Varid{sc0101}\mathrel{=}\Conid{Step}\;\text{\tt \char34 sc0101\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 The~customer~selects~the~withdraw~option.\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 The~system~creates~a~new~withdrawal~and~asks~for~the~amount~to~withdraw.\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{sc0102}\mathbin{::}\Conid{Step}{}\<[E]%
+\\
+\>[B]{}\Varid{sc0102}\mathrel{=}\Conid{Step}\;\text{\tt \char34 sc0102\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 The~customer~fills~in~the~amount~to~withdraw.\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 The~system~retrieves~the~current~balance~of~the~selected~account.\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{sc0103}\mathbin{::}\Conid{Step}{}\<[E]%
+\\
+\>[B]{}\Varid{sc0103}\mathrel{=}\Conid{Step}\;\text{\tt \char34 sc0103\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 The~system~verifies~that~the~requested~amount~is~not~greater~than~current~balance~plus~U\$~5000.00\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}[\mskip1.5mu \text{\tt \char34 authentication\char34}\mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{sc0104}\mathbin{::}\Conid{Step}{}\<[E]%
+\\
+\>[B]{}\Varid{sc0104}\mathrel{=}\Conid{Step}\;\text{\tt \char34 sc0104\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 The~bank~system~withdraws~the~amount~from~the~account.\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}[\mskip1.5mu \text{\tt \char34 transaction\char34}\mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{sc0105}\mathbin{::}\Conid{Step}{}\<[E]%
+\\
+\>[B]{}\Varid{sc0105}\mathrel{=}\Conid{Step}\;\text{\tt \char34 sc0105\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}\text{\tt \char34 The~cash~money~is~provided~to~the~customer.\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{15}{}\<[15]%
+\>[15]{}[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{adv0101}\mathbin{::}\Conid{Step}{}\<[E]%
+\\
+\>[B]{}\Varid{adv0101}\mathrel{=}\Conid{Step}\;\text{\tt \char34 adv0101\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}\text{\tt \char34 -~\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}\text{\tt \char34 The~system~asks~the~customer~to~enter~her~personal~identification~number.\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{adv0102}\mathbin{::}\Conid{Step}{}\<[E]%
+\\
+\>[B]{}\Varid{adv0102}\mathrel{=}\Conid{Step}\;\text{\tt \char34 adv0102\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}\text{\tt \char34 The~customer~fills~in~the~personal~identification~number.\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}\text{\tt \char34 -~\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}\text{\tt \char34 The~system~authenticates~the~customer's~personal~identification~number.\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{adv0201}\mathbin{::}\Conid{Step}{}\<[E]%
+\\
+\>[B]{}\Varid{adv0201}\mathrel{=}\Conid{Step}\;\text{\tt \char34 adv0201\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{16}{}\<[16]%
+\>[16]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{16}{}\<[16]%
+\>[16]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{16}{}\<[16]%
+\>[16]{}\text{\tt \char34 The~transaction~handler~starts~the~processing~of~a~transaction.\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{16}{}\<[16]%
+\>[16]{}[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{adv02P}\mathbin{::}\Conid{Step}{}\<[E]%
+\\
+\>[B]{}\Varid{adv02P}\mathrel{=}\Conid{Proceed}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{adv0202}\mathbin{::}\Conid{Step}{}\<[E]%
+\\
+\>[B]{}\Varid{adv0202}\mathrel{=}\Conid{Step}\;\text{\tt \char34 adv0202\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{16}{}\<[16]%
+\>[16]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{16}{}\<[16]%
+\>[16]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{16}{}\<[16]%
+\>[16]{}\text{\tt \char34 An~entry~with~the~transaction~information~is~logged~to~the~overview~of~the~completed~transactions~of~the~customers~account.\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{16}{}\<[16]%
+\>[16]{}[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\\
+\>[B]{}\Varid{adv0203}\mathbin{::}\Conid{Step}{}\<[E]%
+\\
+\>[B]{}\Varid{adv0203}\mathrel{=}\Conid{Step}\;\text{\tt \char34 adv0203\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}\text{\tt \char34 -\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}\text{\tt \char34 The~transaction~is~removed~from~the~transaction~queue.\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{17}{}\<[17]%
+\>[17]{}[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{test1}\mathrel{=}\Conid{TestCase}\;(\Varid{assertEqual}\;\text{\tt \char34 expected~ids~before~weaving\char34}\;[\mskip1.5mu \text{\tt \char34 sc0101\char34},\text{\tt \char34 sc0102\char34},\text{\tt \char34 sc0103\char34},\text{\tt \char34 sc0104\char34},\text{\tt \char34 sc0105\char34}\mskip1.5mu]\;{}\<[109]%
+\>[109]{}[\mskip1.5mu \Varid{sId}\;\Varid{s}\mid \Varid{s}\leftarrow \Varid{steps}\;\Varid{sc01}\mskip1.5mu]){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{test2}\mathrel{=}\Conid{TestCase}\;(\Varid{assertEqual}\;\text{\tt \char34 expected~ids~after~weaving\char34}\;{}\<[E]%
+\\
+\>[B]{}\hsindent{31}{}\<[31]%
+\>[31]{}[\mskip1.5mu \text{\tt \char34 sc0101\char34}{}\<[E]%
+\\
+\>[B]{}\hsindent{31}{}\<[31]%
+\>[31]{},\text{\tt \char34 sc0102\char34}{}\<[E]%
+\\
+\>[B]{}\hsindent{31}{}\<[31]%
+\>[31]{},\text{\tt \char34 sc0103\char34}{}\<[E]%
+\\
+\>[B]{}\hsindent{31}{}\<[31]%
+\>[31]{},\text{\tt \char34 adv0101\char34}{}\<[E]%
+\\
+\>[B]{}\hsindent{31}{}\<[31]%
+\>[31]{},\text{\tt \char34 adv0102\char34}{}\<[E]%
+\\
+\>[B]{}\hsindent{31}{}\<[31]%
+\>[31]{},\text{\tt \char34 sc0104\char34}{}\<[E]%
+\\
+\>[B]{}\hsindent{31}{}\<[31]%
+\>[31]{},\text{\tt \char34 sc0105\char34}\mskip1.5mu]\;[\mskip1.5mu \Varid{sId}\;\Varid{s}\mid \Varid{s}\leftarrow \Varid{steps}\;(\Varid{evaluateAdvice}\;\Varid{adv01}\;\Varid{sc01})\mskip1.5mu]){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{tests}\mathrel{=}\Conid{TestList}\;[\mskip1.5mu \Conid{TestLabel}\;\text{\tt \char34 test1\char34}\;\Varid{test1},\Conid{TestLabel}\;\text{\tt \char34 test2\char34}\;\Varid{test2}\mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{formatString}\mathbin{::}\Conid{String}\to \Conid{String}{}\<[E]%
+\\
+\>[B]{}\Varid{formatString}\mathrel{=}\Varid{removeCifrao}\mathbin{\circ}\Varid{removeCR}\mathbin{\circ}\Varid{removeBLCommand}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{removeCifrao}\mathbin{::}\Conid{String}\to \Conid{String}{}\<[E]%
+\\
+\>[B]{}\Varid{removeCifrao}\;\Varid{s}\mathrel{=}{}\<[E]%
+\\
+\>[B]{}\mathbf{let}\;\Varid{st}\mathrel{=}\Varid{words}\;\Varid{s}{}\<[E]%
+\\
+\>[B]{}\mathbf{in}\;\Varid{unwords}\;[\mskip1.5mu \mathbf{if}\;\Varid{c}\equiv \text{\tt \char34 U\$\char34}\;\mathbf{then}\;\text{\tt \char34 U\char92 \char92 \$\char34}\;{}\<[40]%
+\>[40]{}\mathbf{else}\;\Varid{c}\mid \Varid{c}\leftarrow \Varid{st}\mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{removeCR}\mathbin{::}\Conid{String}\to \Conid{String}{}\<[E]%
+\\
+\>[B]{}\Varid{removeCR}\;\Varid{s}\mathrel{=}{}\<[15]%
+\>[15]{}[\mskip1.5mu \mathbf{if}\;\Varid{c}\equiv \text{\tt '\char92 n'}\;\mathbf{then}\;\text{\tt '~'}\;\mathbf{else}\;\Varid{c}\mid \Varid{c}\leftarrow \Varid{s}\mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{removeBLCommand}\mathbin{::}\Conid{String}\to \Conid{String}{}\<[E]%
+\\
+\>[B]{}\Varid{removeBLCommand}\;\Varid{s}\mathrel{=}\Varid{replaceString}\;\text{\tt \char34 \char92 \char92 bl\char34}\;\text{\tt \char34 \char92 \char92 \char92 \char92 ~\char92 \char92 hline\char34}\;\Varid{s}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+
+
+
+
+\end{document}

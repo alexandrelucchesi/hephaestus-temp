@@ -1,0 +1,66 @@
+<configurationModel>
+
+	<configuration>
+		<expression>withdraw</expression>
+		<transformation>
+			<name>selectScenarios</name>
+			<args>SC01</args>
+		</transformation>
+	</configuration>
+	
+	<configuration>
+		<expression>buyStocks</expression>
+		<transformation>
+			<name>selectScenarios</name>
+			<args>SC03</args>
+		</transformation>
+	</configuration>
+
+	<configuration>
+		<expression>transfer</expression>
+		<transformation>
+			<name>selectScenarios</name>
+			<args>SC02</args>
+		</transformation>
+	</configuration>
+
+	<configuration>
+		<expression>PIN</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ADV01</args>
+		</transformation>
+	</configuration>
+	
+	<configuration>
+		<expression>And(biometrics, fingerprint)</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ADV02</args>
+		</transformation>
+	</configuration>
+
+	<configuration>
+		<expression>detailedTransaction</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ADV03</args>
+		</transformation>
+	</configuration>
+
+	<configuration>
+		<expression>fraudDetection</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ADV04</args>
+		</transformation>
+	</configuration>
+
+	<configuration>
+		<expression>operationlimit</expression>
+		<transformation>
+			<name>bindParameter</name>
+			<args>LIMIT, operationlimit</args>
+		</transformation>
+	</configuration>
+</configurationModel>

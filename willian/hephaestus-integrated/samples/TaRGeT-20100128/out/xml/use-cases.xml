@@ -1,0 +1,4202 @@
+<phone xmlns="user-view.target.v20090401">
+	<featureId>01</featureId>
+	<useCase>
+		<id>UC_05</id>
+		<name>Creating a Project from Blank Work Area</name>
+		<description>Create a TaRGeT project.</description>
+		<flow>
+			<id>UC_05_SC_1</id>
+			<description>Create a new project.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Go to "File" option in the menu bar.</action>
+				<condition>The TaRGeT is already started up. No project is opened.
+				</condition>
+				<response>The "New Project" option is enabled in the drop down menu.
+					The Close Project option is disabled.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Select the "New Project" option. [FR_TARGET_0020]</action>
+				<condition>-</condition>
+				<response>The "New Project" screen is displayed. The default project
+					name is displayed in the "Project Name" field. The default project
+					location is displayed in the "Destination Folder" field.</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Click on "Finish" button.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed. A new project work area is
+					displayed. The project folder is created in the specified location.
+					[FR_TARGET_0110, FR_TARGET_0010]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_05_SC_2</id>
+			<description>Type a valid project name.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>3M</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Type a valid project name.</action>
+				<condition>-</condition>
+				<response>The "Project Name" field is filled. [FR_TARGET_0025]
+				</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_05_SC_3</id>
+			<description>Cancel the project creation.</description>
+			<fromSteps>2M,1A,1C</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Click on the "Cancel" button.</action>
+				<condition>-</condition>
+				<response>The tool goes back to the window it was before the project
+					creation.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_05_SC_4</id>
+			<description>Browse destination folder.</description>
+			<fromSteps>2M,1A</fromSteps>
+			<toSteps>3M</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Browse and select the location in which the project shall be
+					created.</action>
+				<condition>-</condition>
+				<response>The "Destination Folder" field is filled.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_05_SC_5</id>
+			<description>Create the project using shortcut.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1H</stepId>
+				<action>Press CTRL+N.</action>
+				<condition>-</condition>
+				<response>The "New Project" screen is displayed. The default project
+					name is displayed in the "Project Name" field. The default project
+					location is displayed in the "Destination Folder" field.
+					[FR_TARGET_0020]</response>
+			</step>
+			<step>
+				<stepId>2H</stepId>
+				<action>Click on "Finish" button.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed. A new project work area is
+					displayed. The project folder is created in the specified location.
+					[FR_TARGET_0110, FR_TARGET_0010]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_05_SC_6</id>
+			<description>Type an invalid project name.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1D</stepId>
+				<action>Type an invalid project name (e.g. with one of the following
+					characters ":\/<>?*).</action>
+				<condition>-</condition>
+				<response>A message is displayed indicating that some characters are
+					not allowed. The "Finish" button is disabled. [FR_TARGET_0025]
+				</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_05_SC_7</id>
+			<description>No project name is typed.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1E</stepId>
+				<action>Type a blank project name. [FR_TARGET_0025]</action>
+				<condition>-</condition>
+				<response>A message is displayed indicating that a name must be
+					specified. The "Finish" button is disabled.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_05_SC_8</id>
+			<description>Project directory already exists.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1F</stepId>
+				<action>Type a valid project name. [FR_TARGET_0025]</action>
+				<condition>-</condition>
+				<response>The "Project Name" field is filled.</response>
+			</step>
+			<step>
+				<stepId>2F</stepId>
+				<action>Browse and select the location in which there is a directory
+					with the same name of the project.</action>
+				<condition>-</condition>
+				<response>The "Destination Folder" field is filled.</response>
+			</step>
+			<step>
+				<stepId>3F</stepId>
+				<action>Click on "Finish" button.</action>
+				<condition>-</condition>
+				<response>A dialog is displayed indicating that the project folder
+					already exists. The dialog asks if the user you want to proceed and
+					erase all content of the folder. [FR_TARGET_0020]</response>
+			</step>
+			<step>
+				<stepId>4F</stepId>
+				<action>Click on "Yes" button.</action>
+				<condition>-</condition>
+				<response>All the folder contents is deleted and the new project is
+					created.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_05_SC_9</id>
+			<description>Do not delete all folder contents.</description>
+			<fromSteps>3F</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1G</stepId>
+				<action>Click on "No" button.</action>
+				<condition>-</condition>
+				<response>The focus goes back to the "New Project" window.
+				</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_20</id>
+		<name>Opening an Existing Project from Blank Work Area</name>
+		<description>Open an existing project.</description>
+		<flow>
+			<id>UC_20_SC_1</id>
+			<description>Open an existing project.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Go to "File" option in the menu bar.</action>
+				<condition>TaRGeT is already started up. No project is opened.
+				</condition>
+				<response>The "Open Project" option is enabled.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Select the "Open Project" option. [FR_TARGET_0040]</action>
+				<condition>-</condition>
+				<response>The "Open Project" window is displayed. No project is
+					selected. The "Finish" button is disabled.</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Browse and select an existing project.</action>
+				<condition>-</condition>
+				<response>The "Project Name" field is now filled. The "Finish"
+					button is enabled.</response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Click on "Finish" button.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed indicating that the selected
+					existing project is being opened. After, the existing project is
+					opened. The project work area is displayed. [FR_TARGET_0110]
+				</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_20_SC_2</id>
+			<description>Cancel the project opening.</description>
+			<fromSteps>2M,3M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Click on "Cancel" button.</action>
+				<condition>-</condition>
+				<response>The tool goes to the blank work area. No project is
+					opened. [FR_TARGET_0225]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_20_SC_3</id>
+			<description>Open using shortcut.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>3M</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Press CTRL+O.</action>
+				<condition>-</condition>
+				<response>The "Open Project" window is displayed. No project is
+					selected. The "Finish" button is disabled. [FR_TARGET_0040]
+				</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_25</id>
+		<name>Opening an Existing Project from an Already Opened Project
+		</name>
+		<description>A project is already opened.</description>
+		<flow>
+			<id>UC_25_SC_1</id>
+			<description>Open an existing project from an already opened project.
+			</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>UC_20#3M</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Go to "File" option in the menu bar.</action>
+				<condition>TaRGeT is already started up. A project is already
+					opened.</condition>
+				<response>The "Open Project" option is enabled.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Select the "Open Project" option. [FR_TARGET_0040]</action>
+				<condition>-</condition>
+				<response>A dialog box is displayed informing that the current
+					project will be closed in order to open another one.</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Click on "Yes" button.</action>
+				<condition>-</condition>
+				<response>The "Open Project" screen is displayed.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_25_SC_2</id>
+			<description>Cancel the project opening.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Click on "No" button.</action>
+				<condition>-</condition>
+				<response>The dialog box is closed and the current project work area
+					is displayed.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_26</id>
+		<name>Refreshing a Project</name>
+		<description>Refresh a project.</description>
+		<flow>
+			<id>UC_26_SC_1</id>
+			<description>Refresh a project.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>UC_90#1M</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Go to "Project" option in the menu bar.</action>
+				<condition>-</condition>
+				<response>A menu with two options shall appear: "Refresh
+					Automatically" and "Refresh Project". "Refresh Automatically"
+					option is checked. [FR_TARGET_0015]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_26_SC_2</id>
+			<description>"Refresh automatically" option disabled.</description>
+			<fromSteps>1M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Click in "Refresh Automatically" option.</action>
+				<condition>TaRGeT is already started up. A project is already
+					opened.</condition>
+				<response>"Refresh Automatically" option is not checked.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Open an already imported Use Case Document with the
+					Microsoft Word (outside the TaRGeT).</action>
+				<condition>There is at least one imported Use Case Document.
+					[FR_TARGET_0100]</condition>
+				<response>The document is opened in the default viewer outside the
+					TaRGeT.</response>
+			</step>
+			<step>
+				<stepId>3A</stepId>
+				<action>Modify any field in Use Case Document and save the document.
+				</action>
+				<condition>-</condition>
+				<response>The document is modified.</response>
+			</step>
+			<step>
+				<stepId>4A</stepId>
+				<action>Go back to TaRGeT work area.</action>
+				<condition>-</condition>
+				<response>The project is not refreshed.</response>
+			</step>
+			<step>
+				<stepId>5A</stepId>
+				<action>Go to "Project" in the menu bar and select "Refresh project"
+					option.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed while the project is being
+					refreshed. [FR_TARGET_0110, FR_TARGET_0015]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_26_SC_3</id>
+			<description>"Refresh automatically" option enabled.</description>
+			<fromSteps>1M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Go to "Project" in the menu bar and select "Refresh project"
+					option.</action>
+				<condition>-</condition>
+				<response>The project is refreshed. [FR_TARGET_0015]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_26_SC_4</id>
+			<description>Using the Refresh shortcut.</description>
+			<fromSteps>3A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Press CTRL+R.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed while the project is being
+					refreshed. [FR_TARGET_0110, FR_TARGET_0015]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_30</id>
+		<name>Importing Valid Use Case Documents</name>
+		<description>Import Use Case Documents.</description>
+		<flow>
+			<id>UC_30_SC_1</id>
+			<description>Import Use Case Documents.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Go to "Artifacts" option in the menu bar.</action>
+				<condition>TaRGeT is started up. A project is already opened.
+				</condition>
+				<response>The "Import Use Case Documents" option is enabled.
+				</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Select "Import Use Case Documents" option. [FR_TARGET_0100]
+				</action>
+				<condition>-</condition>
+				<response>The "Import Documents" window is displayed. The "Finish"
+					button is disabled.</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Select "Add Document" button and browse a valid Use Case
+					Document.</action>
+				<condition>No document is imported.</condition>
+				<response>
+					The selected document path is inserted in the "Documents To Import"
+					list. The "Finish" button is enabled. @addDocument
+		    </response>
+			</step>
+			<step>
+				<stepId>ADV01_1_1</stepId>
+				<action>Select the file type of the use case document.</action>
+				<condition>-</condition>
+				<response>Only files in the format of the selected file type are
+					displayed. </response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Click on "Finish" button.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed indicating that the
+					document(s) is (are) being processed and imported.[FR_TARGET_0110]
+				</response>
+			</step>
+			<step>
+				<stepId>5M</stepId>
+				<action>Wait the progress bar.</action>
+				<condition>-</condition>
+				<response>The imported document(s) is (are) placed in a specific
+					folder and displayed in the "Artifacts" View. The imported use
+					cases are displayed in the "Use Cases" View. @endOfImportDocument
+					[FR_TARGET_0010, FR_TARGET_0015]</response>
+			</step>
+			<step>
+				<stepId>ADV01_2_1</stepId>
+				<action>-</action>
+				<condition>-</condition>
+				<response>The use case documents that were in MS Word format were
+					transformed into XML files.    
+	      </response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_30_SC_2</id>
+			<description>Import another document.</description>
+			<fromSteps>3M</fromSteps>
+			<toSteps>4M</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Select "Add Document" button and browse another valid Use
+					Case Document. The document must not have duplicated feature ids,
+					when compared with the already browsed document.</action>
+				<condition>Another document has to be inserted on the "Documents To
+					Import" list.</condition>
+				<response>The selected document path is inserted in the "Documents
+					To Import" list.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_30_SC_3</id>
+			<description>Cancel the importing.</description>
+			<fromSteps>2M,3M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Click on "Cancel" button.</action>
+				<condition>-</condition>
+				<response>The focus goes back to the project work area.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_30_SC_4</id>
+			<description>Import through shortcut.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>3M</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Press CTRL+I.</action>
+				<condition>-</condition>
+				<response>The "Import Documents" window is displayed. The "Finish"
+					button is disabled.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_35</id>
+		<name>Importing a Use Case Document With Duplicated Feature ID</name>
+		<description>Use Case Document has duplicated feature ID.
+		</description>
+		<flow>
+			<id>UC_35_SC_1</id>
+			<description>Imported Use Case Document has duplicated feature ID.
+			</description>
+			<fromSteps>UC_30#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Select "Add Document" button and browse a Use Case Document
+					with duplicated feature ID. This means that the document contains
+					at least two features with the same ID.</action>
+				<condition>There is no imported document.</condition>
+				<response>The selected document path is inserted in the "Documents
+					To Import" list. The "Finish" button is enabled.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Click on "Finish" button.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed indicating that the document
+					is being processed. [FR_TARGET_0110]</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Wait the progress bar.</action>
+				<condition>-</condition>
+				<response>An error dialog is displayed indicating that the document
+					that has duplicated feature id [FR_TARGET_0125]</response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Click on "OK" button.</action>
+				<condition>-</condition>
+				<response>The selected document(s) will not be imported. The focus
+					goes back to "Import Documents" window.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_40</id>
+		<name>Importing a Use Case Document With Duplicated Use Case ID</name>
+		<description>Use Case Document has duplicated use case ID.
+		</description>
+		<flow>
+			<id>UC_40_SC_1</id>
+			<description>Imported Use Case Document has duplicated use case ID.
+			</description>
+			<fromSteps>UC_30#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Select "Add Document" button and browse a Use Case Document
+					with duplicated use case ID. This means that the document contains
+					a feature that has at least two use cases with the same ID.
+				</action>
+				<condition>No document is imported.</condition>
+				<response>The selected document path is inserted in the "Documents
+					To Import" list. The "Finish" button is enabled.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Click on "Finish" button.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed indicating that the document
+					is being processed. [FR_TARGET_0110]</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Wait the progress bar.</action>
+				<condition>-</condition>
+				<response>An error dialog is displayed indicating the document that
+					has duplicated use case ID. [FR_TARGET_0125]</response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Click on "OK" button.</action>
+				<condition>-</condition>
+				<response>The selected document(s) will not be imported. The focus
+					goes back to "Import Documents" window.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_45</id>
+		<name>Importing a Use Case Document With Invalid Structure</name>
+		<description>Use Case Document has invalid structure.</description>
+		<flow>
+			<id>UC_45_SC_1</id>
+			<description>Imported Use Case Document has an invalid structure.
+			</description>
+			<fromSteps>UC_30#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Select "Add Document" button and browse a Use Case Document
+					with invalid structure.</action>
+				<condition>No document is imported.</condition>
+				<response>The selected document path is inserted in the "Documents
+					To Import" list. The "Finish" button is enabled.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Click on "Finish" button.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed indicating that the document
+					is being processed. [FR_TARGET_0110]</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Wait the progress bar.</action>
+				<condition>-</condition>
+				<response>An error dialog is displayed indicating the document that
+					has an error. [FR_TARGET_0125]</response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Click on "OK" button.</action>
+				<condition>-</condition>
+				<response>The selected document(s) will not be imported. The focus
+					goes back to "Import Documents" window.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_45_SC_2</id>
+			<description>Import another document.</description>
+			<fromSteps>1M</fromSteps>
+			<toSteps>2M</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Click on "Add Document" button and browse another valid Use
+					Case Document.</action>
+				<condition>Another document has to be imported.</condition>
+				<response>The selected document path is inserted in the "Documents
+					To Import" list.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_45_SC_3</id>
+			<description>Cancel the importing.</description>
+			<fromSteps>4M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Click on "Cancel" button.</action>
+				<condition>-</condition>
+				<response>The focus goes back to the project work area.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_50</id>
+		<name>Importing a Use Case Document with an Empty Mandatory Field
+		</name>
+		<description>Use Case Document has an empty mandatory field.
+		</description>
+		<flow>
+			<id>UC_50_SC_1</id>
+			<description>Selected Use Case Document has an empty mandatory field.
+			</description>
+			<fromSteps>UC_30#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Select "Add Document" button and browse a Use Case Document
+					with an empty mandatory field.</action>
+				<condition>No document is imported.</condition>
+				<response>The selected document path is inserted in the "Documents
+					To Import" list. The "Finish" button is enabled.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Click on "Finish" button.</action>
+				<condition>-</condition>
+				<response>An error dialog is displayed indicating that the document
+					has an error in the xml structure. [FR_TARGET_0125]</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Click on "OK" button.</action>
+				<condition>-</condition>
+				<response>The selected document(s) will not be imported. The focus
+					goes back to "Import Documents" window.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_55</id>
+		<name>Importing a Use Case Document With Invalid Step ID References
+		</name>
+		<description>Use Case Document has invalid id references.
+		</description>
+		<flow>
+			<id>UC_55_SC_1</id>
+			<description>The selected Use Case Document contains invalid id
+				references.</description>
+			<fromSteps>UC_30#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Select "Add Document" button and browse a Use Case Document
+					with invalid ID references.</action>
+				<condition>No document is imported.</condition>
+				<response>The selected document path is inserted in the "Documents
+					To Import" list. The "Finish" button is enabled.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Click on "Finish" button.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed indicating that the document
+					is being processed. [FR_TARGET_0110]</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Wait the progress bar.</action>
+				<condition>-</condition>
+				<response>A warning message is displayed indicating that the
+					document contains errors.</response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Click on "OK" button.</action>
+				<condition>-</condition>
+				<response>The imported document is placed in the documents folder
+					and is displayed in the "Artifacts" View. The imported use cases
+					are displayed in the "Use Cases" View. A special icon indicates the
+					use cases with invalid references. Also the error view displays
+					details about invalid id references and/or duplicated ids.
+					[FR_TARGET_0010, FR_TARGET_0120]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_55_SC_2</id>
+			<description>Import another valid document.</description>
+			<fromSteps>1M</fromSteps>
+			<toSteps>2M</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Select "Add Document" button and browse another valid Use
+					Case Document.</action>
+				<condition>Another document has to be imported.</condition>
+				<response>The selected document path is inserted in the "Documents
+					To Import" list.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_63</id>
+		<name>Importing a Use Case Document with a Feature Already Imported.
+		</name>
+		<description>The documents have at least one feature with same name
+			and ID. Another Use Case Document is already imported.</description>
+		<flow>
+			<id>UC_63_SC_1</id>
+			<description>A Use Case Document is already imported. The Use Case
+				Documents have at least one common feature with same ID and name.
+			</description>
+			<fromSteps>UC_30#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Select "Add Document" button and browse a valid Use Case
+					Document. The document and the already imported document have at
+					least one common feature with same ID and name and the use cases
+					IDs are different.</action>
+				<condition>There is at least one valid document imported in the
+					project.</condition>
+				<response>The "Import Documents" window is displayed. The "Finish"
+					button is enabled.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Click on "Finish" button.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed indicating that the
+					document(s) is (are) being processed and imported. [FR_TARGET_0110]
+				</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Wait the progress bar.</action>
+				<condition>-</condition>
+				<response>The imported document is placed in a specific folder and
+					displayed in the "Artifacts" view. The imported use cases are
+					displayed in the "Use Cases" view. The feature icon in the "Use
+					Cases" view shows that the feature was merged. [FR_TARGET_0010,
+					FR_TARGET_0100]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_63_SC_2</id>
+			<description>A Use Case Document is already imported. The Use Case
+				Documents have at least one common feature with same ID and
+				different names.</description>
+			<fromSteps>UC_30#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Select "Add Document" button and browse a valid Use Case
+					Document. The document and the already imported document have at
+					least one common feature with same ID but different names and the
+					use cases IDs are different.</action>
+				<condition>There is at least one valid document imported in the
+					project.</condition>
+				<response>The "Import Documents" window is displayed. The "Finish"
+					button is enabled.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Click on "Finish" button.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed indicating that the
+					document(s) is (are) being processed and imported. [FR_TARGET_0110]
+				</response>
+			</step>
+			<step>
+				<stepId>3A</stepId>
+				<action>Wait the progress bar.</action>
+				<condition>-</condition>
+				<response>The imported document is placed in a specific folder and
+					displayed in the "Artifacts" View. The imported use cases are
+					displayed in the "Use Cases" View. The feature icon in the "Use
+					Cases" view shows that the feature was merged. A new warning is
+					displayed in the "Error" view indicating that the features have
+					same ID but different names. [FR_TARGET_0010, FR_TARGET_0100,
+					FR_TARGET_0120]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_63_SC_3</id>
+			<description>The document contains a feature with same ID of another
+				feature that belongs to a previously imported document.
+			</description>
+			<fromSteps>UC_30#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Select "Add Document" button and browse a valid Use Case
+					Document. The document and the already imported document have at
+					least one common feature with same ID. The features have at least
+					one use case with same ID.</action>
+				<condition>There is at least one valid imported document.
+				</condition>
+				<response>The selected document path is inserted in the "Documents
+					To Import" list.</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Click on "Finish" button.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed indicating that the document
+					is being processed. [FR_TARGET_0110]</response>
+			</step>
+			<step>
+				<stepId>3B</stepId>
+				<action>Wait the progress bar.</action>
+				<condition>-</condition>
+				<response>An error dialog is displayed indicating the document that
+					has an error. [FR_TARGET_0125]</response>
+			</step>
+			<step>
+				<stepId>4B</stepId>
+				<action>Click on "OK" button.</action>
+				<condition>-</condition>
+				<response>The selected document(s) will not be imported. The focus
+					goes back to "Import Documents" window.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_70</id>
+		<name>Viewing Valid Use Case in HTML Format</name>
+		<description>Viewing Use Case Documents in HTML format.</description>
+		<flow>
+			<id>UC_70_SC_1</id>
+			<description>View valid Use Case Documents in HTML format in the main
+				panel, by double-clicking the use case.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Double-click on a use case in the "Use Cases" view.</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					one imported valid Use Case Document.</condition>
+				<response>The selected Use Case is displayed in HTML format in the
+					main panel. [FR_TARGET_0130]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_70_SC_2</id>
+			<description>View Use Case Documents in HTML format in the main
+				panel, by right-clicking the use case.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Right-click on a use case in the "Use Cases" view.</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					one imported valid Use Case Document.</condition>
+				<response>A drop down menu is displayed with two options.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Select "Open in default view" option.</action>
+				<condition>-</condition>
+				<response>The selected Use Case is displayed in HTML format in the
+					main panel. [FR_TARGET_0130]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_70_SC_3</id>
+			<description>View Use Case Documents in HTML format in the default
+				browser, by right-clicking the use case.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Right-click on a use case in the "Use Cases" view.</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					one imported valid Use Case Document.</condition>
+				<response>A drop down menu is displayed with two options.</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Select "Open with default browser" option.</action>
+				<condition>-</condition>
+				<response>The selected Use Case is displayed in HTML format in the
+					default browser. [FR_TARGET_0130]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_71</id>
+		<name>Viewing Invalid Use Case in HTML Format</name>
+		<description>Viewing Use Case Documents in HTML format when they have
+			some error.</description>
+		<flow>
+			<id>UC_71_SC_1</id>
+			<description>View Use Case Documents with duplicated step ID in HTML
+				format in the main panel, by double-clicking the use case.
+			</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Double-click on a use case with duplicated step ID in the
+					"Use Cases" view.</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					one imported use case with duplicated step ID.</condition>
+				<response>The selected Use Case is displayed in HTML format in the
+					main panel. The duplicated steps IDs are highlighted.
+					[FR_TARGET_0130]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_71_SC_2</id>
+			<description>View Use Case Documents with invalid step ID reference
+				in HTML format in the main panel, by right-clicking the use case.
+			</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Right-click on a use case with invalid step ID reference in
+					the "Use Cases" view.</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					one imported use case with invalid step ID reference.</condition>
+				<response>A drop down menu is displayed with two options.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Select "Open in default view" option.</action>
+				<condition>-</condition>
+				<response>The selected Use Case is displayed in HTML format in the
+					main panel. The invalid step ID reference is highlighted.
+					[FR_TARGET_0130]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_71_SC_3</id>
+			<description>View Use Case Documents with invalid step ID reference
+				in HTML format in the default browser, by right-clicking the use
+				case.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Right-click on a use case with invalid step ID reference in
+					the "Use Cases" view.</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					one imported use case with invalid step ID reference.</condition>
+				<response>A drop down menu is displayed with two options.</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Select "Open with default browser" option.</action>
+				<condition>-</condition>
+				<response>The selected Use Case is displayed in HTML format in the
+					default browser. The invalid step ID reference is highlighted.
+					[FR_TARGET_0130]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_80</id>
+		<name>Renaming a Document</name>
+		<description>Renaming Use Case or Test Suite Documents in TaRGeT.
+		</description>
+		<flow>
+			<id>UC_80_SC_1</id>
+			<description>Rename a test suite document.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Right-click on a generated test suite document in the
+					"Artifacts" view.</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					one already generated test suite.</condition>
+				<response>A drop down menu is displayed.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Click on "Rename" option in the drop down menu.
+					[FR_TARGET_0001]</action>
+				<condition>-</condition>
+				<response>A dialog is popped up with a text field.</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Change the document name to a valid name and click on "OK"
+					button. [FR_TARGET_0025]</action>
+				<condition>-</condition>
+				<response>The document is renamed.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_80_SC_2</id>
+			<description>Rename a Use Case Document.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Right-click on a Use Case Document in the "Artifacts" view.
+				</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					one imported Use Case Document.</condition>
+				<response>A drop down menu is displayed.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Click on "Rename" option in the drop down menu.
+					[FR_TARGET_0001]</action>
+				<condition>-</condition>
+				<response>A dialog is popped up with a text field.</response>
+			</step>
+			<step>
+				<stepId>3A</stepId>
+				<action>Change the document name to a valid name and click on "OK"
+					button. [FR_TARGET_0025]</action>
+				<condition>-</condition>
+				<response>The document is renamed.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_80_SC_3</id>
+			<description>Select to rename more than one document.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>In the "Artifacts" view, Select more than one document and
+					right-click on the selection. [FR_TARGET_0001]</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					two documents (test suite or Use Case Documents).</condition>
+				<response>A drop down menu is displayed. The "Rename" option is
+					disabled.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_80_SC_4</id>
+			<description>Type an invalid document name.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Try to change the document name to an invalid name (e.g. a
+					name containing "<" or "*" characters). [FR_TARGET_0025]</action>
+				<condition>-</condition>
+				<response>A message is displayed indicating that the name is
+					invalid. The "OK" button is disabled.</response>
+			</step>
+			<step>
+				<stepId>2C</stepId>
+				<action>Click on "Cancel" button.</action>
+				<condition>-</condition>
+				<response>The focus goes back to the main window.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_80_SC_5</id>
+			<description>Type an invalid document name and retype a valid name.
+			</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1D</stepId>
+				<action>Try to change the document name to an invalid name (e.g. a
+					name containing "<" or "*" characters). [FR_TARGET_0025]</action>
+				<condition>-</condition>
+				<response>A message is displayed indicating that the name is
+					invalid. The "OK" button is disabled.</response>
+			</step>
+			<step>
+				<stepId>2D</stepId>
+				<action>Erase the invalid name and type a valid name.</action>
+				<condition>-</condition>
+				<response>The OK button is enabled.</response>
+			</step>
+			<step>
+				<stepId>3D</stepId>
+				<action>Click on the OK button</action>
+				<condition>-</condition>
+				<response>The document is renamed.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_80_SC_6</id>
+			<description>Cancel the rename.</description>
+			<fromSteps>2D</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1E</stepId>
+				<action>Click on "Cancel" button.</action>
+				<condition>-</condition>
+				<response>The focus goes back to the main window.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_80_SC_7</id>
+			<description>Type a document name that is being used by another use
+				case document.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>2C,2D</toSteps>
+			<step>
+				<stepId>1F</stepId>
+				<action>Right-click on a Use Case Document in the "Artifacts" view.
+				</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					two use cases.</condition>
+				<response>A drop down menu is displayed. The "Rename" option is
+					enabled.</response>
+			</step>
+			<step>
+				<stepId>2F</stepId>
+				<action>Click on "Rename" option in the drop down menu.
+					[FR_TARGET_0001]</action>
+				<condition>-</condition>
+				<response>A dialog is popped up with a text field.</response>
+			</step>
+			<step>
+				<stepId>3F</stepId>
+				<action>Type a name that is already in use.</action>
+				<condition>-</condition>
+				<response>A message is displayed indicating that the name is already
+					in use. The "OK" button is disabled.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_80_SC_8</id>
+			<description>Type a test suite file name that is being used by
+				another test suite file.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>2F</toSteps>
+			<step>
+				<stepId>1G</stepId>
+				<action>Right-click on a test case document in the "Artifacts" view.
+				</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					two test suites.</condition>
+				<response>A drop down menu is displayed. The "Rename" option is
+					enabled.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_80_SC_9</id>
+			<description>Type an empty name.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>2C</toSteps>
+			<step>
+				<stepId>1H</stepId>
+				<action>Type an empty name. [FR_TARGET_0025]</action>
+				<condition>-</condition>
+				<response>A message is displayed indicating that the name must not
+					be empty. The "OK" button is disabled.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_85</id>
+		<name>Deleting a Document</name>
+		<description>Deleting Use Cases or Test Suite Documents in TaRGeT.
+		</description>
+		<flow>
+			<id>UC_85_SC_1</id>
+			<description>Delete a test suite document.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Right-click on a generated test suite document in the
+					"Artifacts" view.</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					one already generated test suite.</condition>
+				<response>A drop down menu is displayed.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Click on "Delete" option in the drop down menu.
+					[FR_TARGET_0003]</action>
+				<condition>-</condition>
+				<response>A dialog is displayed asking a confirmation.</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Click on "Yes" button.</action>
+				<condition>-</condition>
+				<response>The document(s) is (are) deleted. The project work area is
+					refreshed. [FR_TARGET_0015]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_85_SC_2</id>
+			<description>Delete a Use Case Document that is not referred by
+				another document.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Right-click on a Use Case Document in the "Artifacts" view.
+				</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					one imported Use Case Document. The imported documents do not refer
+					to a use case of another imported document.</condition>
+				<response>A drop down menu is displayed.</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Click on "Delete" option in the drop down menu.
+					[FR_TARGET_0003]</action>
+				<condition>-</condition>
+				<response>A dialog is displayed asking a confirmation.</response>
+			</step>
+			<step>
+				<stepId>3B</stepId>
+				<action>Click on "Yes" button.</action>
+				<condition>-</condition>
+				<response>The document(s) is(are) deleted. The project work area is
+					refreshed. [FR_TARGET_0015]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_85_SC_3</id>
+			<description>Delete a Use Case Document that is referred by another
+				document.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Right-click on a Use Case Document in the "Artifacts" view.
+					The selected document is referred by a use case of another imported
+					document.</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					two imported Use Case Documents. A use case is referred by another
+					use case from a different document.</condition>
+				<response>A drop down menu is displayed.</response>
+			</step>
+			<step>
+				<stepId>2C</stepId>
+				<action>Click on "Delete" option in the drop down menu.
+					[FR_TARGET_0003]</action>
+				<condition>-</condition>
+				<response>A dialog is displayed asking a confirmation and informing
+					that the document is being referred by another document.</response>
+			</step>
+			<step>
+				<stepId>3C</stepId>
+				<action>Click on "Yes" button.</action>
+				<condition>-</condition>
+				<response>The document(s) is(are) deleted. The project work area is
+					refreshed. Some invalid reference errors are displayed in "Error"
+					view. [FR_TARGET_0015, FR_TARGET_0120]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_85_SC_4</id>
+			<description>Delete more than one generated test suite.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>2M</toSteps>
+			<step>
+				<stepId>1D</stepId>
+				<action>In the "Artifacts" view, Select more than one test suite
+					document and right-click on the selection.</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					two generated test suites.</condition>
+				<response>A drop down menu is displayed.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_85_SC_5</id>
+			<description>Delete one test suite and one Use Case Document that is
+				being referenced.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1E</stepId>
+				<action>In the "Artifacts" view, Select one test suite document and
+					a Use Case Document, and right-click on the selection.</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					two imported Use Case Document and at least one generated test
+					suite. The imported Use Case Document is referenced by another
+					imported document.</condition>
+				<response>A drop down menu is displayed.</response>
+			</step>
+			<step>
+				<stepId>2E</stepId>
+				<action>Click on "Delete" option in the drop down menu.
+					[FR_TARGET_0003]</action>
+				<condition>-</condition>
+				<response>A dialog is displayed asking a confirmation and informing
+					that the document is being referred by another document.</response>
+			</step>
+			<step>
+				<stepId>3E</stepId>
+				<action>Click on "Yes" button.</action>
+				<condition>-</condition>
+				<response>The document(s) is(are) deleted. The project work area is
+					refreshed. Some invalid reference errors are displayed in "Error"
+					view. [FR_TARGET_0015, FR_TARGET_0120]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_85_SC_6</id>
+			<description>Delete two Use Case Documents.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>2C</toSteps>
+			<step>
+				<stepId>1F</stepId>
+				<action>In the "Artifacts" view, Select one test suite two Use Case
+					Documents, and right-click on the selection. One of the selected
+					documents refers to the other.</action>
+				<condition>A project is opened in TaRGeT. The project has two
+					imported Use Case Document. One imported Use Case Document is
+					referenced by the other.</condition>
+				<response>A drop down menu is displayed.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_85_SC_7</id>
+			<description>Cancel the document deletion.</description>
+			<fromSteps>2M,2C</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Click on "No" button.</action>
+				<condition>-</condition>
+				<response>The document(s) is (are) not deleted.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_106</id>
+		<name>Searching in Use Case Document</name>
+		<description>Searching in Use Case Document.</description>
+		<flow>
+			<id>UC_106_SC_1</id>
+			<description>Perform a search when some valid Use Case Documents are
+				already imported.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Choose "Tools" option in the menu bar.</action>
+				<condition>TaRGeT is started up. A project is already opened. There
+					is at least one document imported. No error is listed in the
+					"Error" list.</condition>
+				<response>A drop down menu is displayed. "Search" option is
+					available.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Choose "Search" option in the drop down menu.</action>
+				<condition>-</condition>
+				<response>"Search" window is displayed. [FR_TARGET_0135]</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Type a query in the input area.</action>
+				<condition>-</condition>
+				<response>The "Find" field is filled.</response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Click on "Search" button.</action>
+				<condition>-</condition>
+				<response>The search results are displayed in "Search Results" View.
+					Verify if the results are in accordance to the query.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_106_SC_2</id>
+			<description>Cancel the search.</description>
+			<fromSteps>3M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Click on "Cancel" button.</action>
+				<condition>-</condition>
+				<response>The focus goes back to the work area.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_106_SC_3</id>
+			<description>Using the specific field "Use Case Identifier".
+			</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>
+					"Type a query for serching based on use case Id, i.e. "ucid:
+					<use_case_id>
+						". A use case with id
+						<use_case_id> must be contained in the project.
+				</action>
+				<condition>-</condition>
+				<response>The "Find" field is filled.</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Click on "Search" button.</action>
+				<condition>-</condition>
+				<response>At least one use case is displayed in "Search Results"
+					View. [FR_TARGET_0135]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_106_SC_4</id>
+			<description>Using the specific field "From Step".</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>4M</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Type "from step: START" in the input area.</action>
+				<condition>-</condition>
+				<response>The "Find" field is filled.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_106_SC_5</id>
+			<description>Using shortcut.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>3M</toSteps>
+			<step>
+				<stepId>1D</stepId>
+				<action>Press CTRL+F</action>
+				<condition>-</condition>
+				<response>"Search" window is displayed. [FR_TARGET_0135]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_107</id>
+		<name>Viewing Search Results</name>
+		<description>Viewing search results.</description>
+		<flow>
+			<id>UC_107_SC_1</id>
+			<description>View found Use Case Documents in HTML format by
+				double-clicking the use case.</description>
+			<fromSteps>UC_106#4M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Double-click on a use case in the "Search Results" view.
+				</action>
+				<condition>-</condition>
+				<response>The selected Use Case is displayed in HTML format in the
+					main panel. The search results are highlighted. [FR_TARGET_0130]
+				</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_135</id>
+		<name>Viewing the About Window</name>
+		<description>Displaying the About Window.</description>
+		<flow>
+			<id>UC_135_SC_1</id>
+			<description>Access the about window.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Choose "Help" option in the menu bar.</action>
+				<condition>The TaRGeT is already started up.</condition>
+				<response>A drop down menu is displayed. [FR_TARGET_0205]</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Choose "About TaRGeT" option in the drop down menu.</action>
+				<condition>-</condition>
+				<response>"About" window is displayed. The content of the windows is
+					detailed in TaRGeT requirements document. [FR_TARGET_0210]
+				</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_140</id>
+		<name>Viewing the Help Window</name>
+		<description>Displaying the Help Window.</description>
+		<flow>
+			<id>UC_140_SC_1</id>
+			<description>Access the help window.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Choose "Help" option in the menu bar.</action>
+				<condition>The TaRGeT is already started up.</condition>
+				<response>A drop down menu is displayed.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Choose "Help Contents" option in the drop down menu.
+				</action>
+				<condition>-</condition>
+				<response>"Help" window is displayed. [FR_TARGET_0205]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_01</id>
+		<name>Opening TaRGeT</name>
+		<description>It describes how the TaRGeT should behave when it is
+			started up.</description>
+		<flow>
+			<id>UC_01_SC_3</id>
+			<description>Start up the TaRGeT when Java runtime environment is not
+				installed in the machine.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Try to start the TaRGeT.</action>
+				<condition>The Java runtime environment is not installed in the
+					machine (see requirements for further information about Java
+					version). [ER_TARGET_0020]</condition>
+				<response>A message is displayed informing that no JRE is installed.
+					The TaRGeT is not started up. [FR_TARGET_0230]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_01_SC_1</id>
+			<description>Start up the TaRGeT with .NET and Java runtime
+				environment installed.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Start the TaRGeT.</action>
+				<condition>The .NET and Java runtime environment are installed in
+					the machine (see requirements for further information about Java
+					and .NET versions) [ER_TARGET_0020, ER_TARGET_0025]</condition>
+				<response>The (Motorola) splash screen is displayed. Verify the
+					requirements document to check the splash screen. [FR_TARGET_0220]
+				</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Wait some seconds.</action>
+				<condition>-</condition>
+				<response>The TaRGeT is started. No TaRGeT project is opened. A
+					background image is displayed (see requirements document for more
+					details). [FR_TARGET_0225]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_01_SC_2</id>
+			<description>Start up the TaRGeT when .NET runtime environment is not
+				installed in the machine.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Try to start the TaRGeT.</action>
+				<condition>Java runtime environment is installed in the machine. The
+					.NET runtime environment is not installed in the machine (see
+					requirements for further information about Java and .NET versions).
+					[ER_TARGET_0020, ER_TARGET_0025]</condition>
+				<response>A message is displayed informing that an error has
+					occurred and asking the user to see the log file. [FR_TARGET_0230]
+				</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_130</id>
+		<name>Generating Test Suites Changing Test Case Field Parameters
+		</name>
+		<description>Configuring test case fields.</description>
+		<flow>
+			<id>UC_130_SC_1</id>
+			<description>Configuring test cases parameters.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Go to "Tools" in the menu bar.</action>
+				<condition>There is an already created project with at least one
+					imported use case without errors. [FR_TARGET_0100]</condition>
+				<response>A drop down menu is displayed with "Search", "Preferences"
+					and "On The Fly Generation" options. The "Preferences" option is
+					available.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Select "Preferences" option.</action>
+				<condition>-</condition>
+				<response>The Preferences wizard is displayed with "Test Case ID",
+					"Test Case Initial ID", "Empty Field", "Objective Prefix", "Print
+					Use Case Description", "Print Flow Description" and "Keep
+					Requirements" fields.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_130_SC_2</id>
+			<description>Cancel the preferences.</description>
+			<fromSteps>2B,2C,2D,2E,2F,2G,2H,2I,2J,2K</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Press "Cancel" button.</action>
+				<condition>-</condition>
+				<response>The field was not changed, the preferences screen is
+					closed and the focus goes back to the main window. [FR_TARGET_0231]
+				</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_130_SC_3</id>
+			<description>Changing "Objective Prefix" field.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Type a wanted prefix in the "Objective prefix" field and
+					press OK button.</action>
+				<condition>The "Print Flow Description" field in the Preferences
+					window cannot be "None"</condition>
+				<response>The preferences configuration is changed. [FR_TARGET_0231]
+				</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Go to "On The Fly Generation" and select each test case from
+					the list.</action>
+				<condition>-</condition>
+				<response>All test cases contain their objective field with the
+					prefix defined by the user. [FR_TARGET_0235, ,FR_TARGET_0237]
+				</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_130_SC_4</id>
+			<description>Changing "Empty Field" parameter.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Type a wanted content in the "Empty Field" field and press
+					OK button.</action>
+				<condition>The "Print Flow Description" and "Print Use case
+					description" fields is configured to "None"</condition>
+				<response>The preferences configuration is changed. [FR_TARGET_0231]
+				</response>
+			</step>
+			<step>
+				<stepId>2C</stepId>
+				<action>Go to "On The Fly Generation" and select each test case from
+					the list.</action>
+				<condition>-</condition>
+				<response>In all test cases, the fields that are empty in the Use
+					Case Document are filled with this content defined by the user.
+					[FR_TARGET_0235, ,FR_TARGET_0237]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_130_SC_5</id>
+			<description>Changing "Test Case Id" parameter to a fixed value.
+			</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1D</stepId>
+				<action>
+					Type "
+					<tc_featureid>
+						_TESTE_
+						<tc_id>" in the "Test Case Id" field and press OK button.
+				</action>
+				<condition>-</condition>
+				<response>The preferences configuration is changed. [FR_TARGET_0231]
+				</response>
+			</step>
+			<step>
+				<stepId>2D</stepId>
+				<action>Go to "On The Fly Generation" and select each test case from
+					the list.</action>
+				<condition>-</condition>
+				<response>All Test Case Id fields are filled according the standard
+					defined by the user. [FR_TARGET_0235, ,FR_TARGET_0237]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_130_SC_7</id>
+			<description>Changing "Print Use Case Description" parameter to
+				"All".</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1F</stepId>
+				<action>Choose the "ALL" option in the "Print Use Case Description"
+					field and press OK button.</action>
+				<condition>-</condition>
+				<response>The preferences configuration is changed. [FR_TARGET_0232]
+				</response>
+			</step>
+			<step>
+				<stepId>2F</stepId>
+				<action>Go to "On The Fly Generation" and select each test case from
+					the list.</action>
+				<condition>-</condition>
+				<response>All descriptions of all Use cases related to the test case
+					are concatenated in the Case Description field for each test case.
+					[FR_TARGET_0235, ,FR_TARGET_0237]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_130_SC_8</id>
+			<description>Changing "Print Use Case Description" parameter to
+				"Last".</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1G</stepId>
+				<action>Choose the "Last" option in the "Print Use Case Description"
+					field and press OK button.</action>
+				<condition>-</condition>
+				<response>The preferences configuration is changed. [FR_TARGET_0232]
+				</response>
+			</step>
+			<step>
+				<stepId>2G</stepId>
+				<action>Go to "On The Fly Generation" and select each test case from
+					the list.</action>
+				<condition>-</condition>
+				<response>Just the description of last Use case related to each test
+					case is shown in the Case Description field. [FR_TARGET_0235,
+					,FR_TARGET_0237]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_130_SC_10</id>
+			<description>Changing "Print Flow Description" parameter to "All".
+			</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1I</stepId>
+				<action>Choose the "ALL" option in the "Print Flow Description"
+					field and press OK button.</action>
+				<condition>-</condition>
+				<response>The preferences configuration is changed. [FR_TARGET_0232]
+				</response>
+			</step>
+			<step>
+				<stepId>2I</stepId>
+				<action>Go to "On The Fly Generation" and select each test case from
+					the list.</action>
+				<condition>-</condition>
+				<response>All descriptions of all Flows related to each test case
+					are concatenated after "Objective Prefix" in the respective field.
+					[FR_TARGET_0235, ,FR_TARGET_0237]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_130_SC_11</id>
+			<description>Changing "Print Flow Description" parameter to "Last".
+			</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1J</stepId>
+				<action>Choose the "Last" option in the "Print Flow Description"
+					field and press OK button.</action>
+				<condition>-</condition>
+				<response>The preferences configuration is changed. [FR_TARGET_0232]
+				</response>
+			</step>
+			<step>
+				<stepId>2J</stepId>
+				<action>Go to "On The Fly Generation" and select each test case from
+					the list.</action>
+				<condition>-</condition>
+				<response>Just description of last Flow related to each test case is
+					shown after "Objective Prefix" in the respective field.
+					[FR_TARGET_0235, ,FR_TARGET_0237]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_130_SC_12</id>
+			<description>Changing "Print Flow Description" parameter to "None".
+			</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1K</stepId>
+				<action>Choose the "None" option in the "Print Flow Description"
+					field and press OK button.</action>
+				<condition>-</condition>
+				<response>The preferences configuration is changed. [FR_TARGET_0232]
+				</response>
+			</step>
+			<step>
+				<stepId>2K</stepId>
+				<action>Go to "On The Fly Generation" and select each test case from
+					the list.</action>
+				<condition>-</condition>
+				<response>The Flow Description field does not contain any
+					description and it is filled with "Empty Field" suggested in
+					Preferences window. [FR_TARGET_0235, ,FR_TARGET_0237,
+					FR_TARGET_231]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_130_SC_13</id>
+			<description>Check "Keep Requirements" parameter.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1L</stepId>
+				<action>Check the "Keep Requirement" option and press OK button.
+				</action>
+				<condition>-</condition>
+				<response>The preferences configuration is changed.[FR_TARGET_0233]
+				</response>
+			</step>
+			<step>
+				<stepId>2L</stepId>
+				<action>Go to "On The Fly Generation" and select each test case from
+					the list.</action>
+				<condition>-</condition>
+				<response>The requirements are shown into each step that is
+					associated, besides to be shown at Requirements list.
+					[FR_TARGET_0160, FR_TARGET_0170, ,FR_TARGET_0175]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_95</id>
+		<name>Rejecting a crashed Use Case Documents</name>
+		<description>Rejecting crashed Use Case Documents.</description>
+		<flow>
+			<id>UC_95_SC_1</id>
+			<description>Damage an imported Use Case Document.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Double-click on a Use Case Document in the "Artifacts" view.
+				</action>
+				<condition>A project is opened in TaRGeT. There is one imported and
+					valid Use Case Document.</condition>
+				<response>The Microsoft Word is invoked and the document is opened.
+					[FR_TARGET_0005]</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Change the document, damaging its structure, and go back to
+					the TaRGeT window.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed while the project is being
+					refreshed. [FR_TARGET_0110, FR_TARGET_0015]</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Wait the progress bar.</action>
+				<condition>-</condition>
+				<response>A new error is displayed in the "Error" view indicating
+					that the document is damaged. No information related to this
+					document is displayed in the "Use Case" view. An error icon is
+					assigned to the document in the "Artifacts" view. [FR_TARGET_0120,
+					FR_TARGET_0125]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_100</id>
+		<name>Rejecting a Use Case Document With Duplicated Feature ID</name>
+		<description>Rejecting Use Case Documents that assign to a feature an
+			ID that is being used by a feature of another document.</description>
+		<flow>
+			<id>UC_100_SC_1</id>
+			<description>Assign to a feature an ID that is being used by a
+				feature of another document.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Double-click on a Use Case Document in the "Artifacts" view.
+				</action>
+				<condition>A project is opened in TaRGeT. There is two imported and
+					valid Use Case Document.</condition>
+				<response>The Microsoft Word is invoked and the document is opened.
+					[FR_TARGET_0005]</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Change the document, by assigning to a feature an ID that is
+					being used by a feature of another document, and go back to the
+					TaRGeT window.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed while the project is being
+					refreshed. [FR_TARGET_0110, FR_TARGET_0015]</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Wait the progress bar.</action>
+				<condition>-</condition>
+				<response>A new error is displayed in the "Error" view indicating
+					that one of the documents contains a duplicated feature ID. The
+					document is rejected and no information related to the document is
+					displayed in the "Use Case" view. An error icon is assigned to the
+					document in the "Artifacts" view. [FR_TARGET_0120, FR_TARGET_0125]
+				</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_75</id>
+		<name>Viewing a Generated Test Suite with Microsoft Excel</name>
+		<description>Viewing Test Suite Documents in TaRGeT with Microsoft
+			Excel.</description>
+		<flow>
+			<id>UC_75_SC_1</id>
+			<description>View Test Suite Document by double-clicking.
+			</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Double-click on a test suite document in the "Artifacts"
+					view.</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					one already generated test suite.</condition>
+				<response>The (MS Word, XML) is invoked and the document is opened.
+					The Test Cases and Traceability Matrixes appear in the
+					document.[FR_TARGET_0005, FR_TARGET 0243, FR_TARGET 0175, FR_TARGET
+					0240,]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_167</id>
+		<name>Viewing a Generated Test Suite in XML Format</name>
+		<description> Viewing Test Suite Documents in XML format with default
+			program in the Operational System.</description>
+		<flow>
+			<id>UC_167_SC_1</id>
+			<description>View Test Suite Document by double-clicking.
+			</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Double-click on a test suite document in the "Artifacts"
+					view.</action>
+				<condition>A project is opened in TaRGeT. The project has at least
+					one already generated test suite in XML format.</condition>
+				<response>The Operational System's default program to open XML
+					files is invoked and the document is opened. The Test Cases and
+					Traceability Matrixes appear in the document.[FR_TARGET_0005,
+					FR_TARGET 0243, FR_TARGET 0175, FR_TARGET 0240,]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_110</id>
+		<name>Generating Test Suites through the On The Fly Generation</name>
+		<description>Generating Test Cases through the On The Fly Generation.
+		</description>
+		<flow>
+			<id>UC_110_SC_1</id>
+			<description>Generate test cases in a spreadsheet format.
+			</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Choose the "Tools" option in the menu bar.</action>
+				<condition>The TaRGeT is already started up. There is an already
+					created project with at least one imported use case without errors.
+					[FR_TARGET_0100]</condition>
+				<response>A drop down menu is displayed with "Search", "Preferences"
+					and "On The Fly Generation" options. The "On The Fly Generation"
+					option is available.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Choose the "On The Fly Generation" option in the drop down
+					menu.</action>
+				<condition>-</condition>
+				<response>The "On The Fly Generation Editor" window is displayed.
+					The "Test Selection Page" is displayed. @onTheflySelected
+					[FR_TARGET_0234]</response>
+			</step>
+			<step>
+				<stepId>ADV_06_1_1</stepId>
+				<action>Go to "Test Cases" tab in the "On The Fly Generation
+					Editor" view and click on the "Save Test Suite" button.</action>
+				<condition>-</condition>
+				<response>The system asks the user if it wants to generate the
+					requirements specification file.</response>
+			</step>
+			<step>
+				<stepId>ADV_06_1_2</stepId>
+				<action>The user selects the "Yes" button.</action>
+				<condition>-</condition>
+				<response>The system displays a message indicating where the
+					requirements specification file was saved. </response>
+			</step>
+			<step>
+				<stepId>ADV_06_1_3</stepId>
+				<action>The user press "OK" button.</action>
+				<condition>-</condition>
+				<response>The system asks the use to type the name of the
+					requirements specification.</response>
+			</step>
+			<step>
+				<stepId>ADV_06_3_4</stepId>
+				<action>The user types the name of the requirements specification
+					document and presses the "OK" button.</action>
+				<condition>-</condition>
+				<response>The "Test Cases Generation Summary" pop up is displayed
+					informing the number of generated test cases and the total time
+					required to complete the process. [FR_TARGET_0160]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_110_SC_4</id>
+			<description>Generating tests through a document with errors.
+			</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Choose the "Tools" option in the menu bar.</action>
+				<condition>The TaRGeT is already started up. A project is opened and
+					some Use Case Documentation is already imported. There is at least
+					one error in the "Error" list.</condition>
+				<response>A drop down menu is displayed. The "On The Fly Generation"
+					option is available.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Choose the "On The Fly Generation" option in the drop down
+					menu.</action>
+				<condition>-</condition>
+				<response>A dialog is displayed indicating that there is/are
+					error(s) in the project and it is not possible to generate tests.
+					[FR_TARGET_0239]</response>
+			</step>
+			<step>
+				<stepId>3A</stepId>
+				<action>Click on "Ok" button.</action>
+				<condition>-</condition>
+				<response>The focus comes back to the work area.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_110_SC_6</id>
+			<description>Generates test suite without generating the
+				requirements specification document</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1E</stepId>
+				<action>Go to "Test Cases" tab in the "On The Fly Generation
+					Editor" view and click on the "Save Test Suite" button.</action>
+				<condition>-</condition>
+				<response>The system asks the user if it wants to generate the
+					requirements specification file.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_111</id>
+		<name>Generating Test Suites using Requirement Filter</name>
+		<description>Selecting test cases by Requirement Filter.</description>
+		<flow>
+			<id>UC_111_SC_1</id>
+			<description>Filtering test suit generation by requirements.
+			</description>
+			<fromSteps>UC_110#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>In "Selection" tab in "On The Fly Generation Editor", select
+					some requirements (not all) in the Requirements Selection area.
+				</action>
+				<condition>The imported use cases refer to more than one
+					requirement.</condition>
+				<response>Some requirements are selected. [FR_TARGET_0145]
+				</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Go to "Test Cases Viewer" tab.</action>
+				<condition>-</condition>
+				<response>Verify that test cases in the "Generated Test Cases" list
+					are according to the selected filter. [FR_TARGET_0236,
+					FR_TARGET_0237]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_111_SC_2</id>
+			<description>All requirements are selected.</description>
+			<fromSteps>UC_110#2M</fromSteps>
+			<toSteps>2M,UC_121#1M</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>In the tab "Selection" in the "On The Fly Generation
+					Editor", click on "Select all" button in the page of Requirements.
+				</action>
+				<condition>The imported use cases have one or more than one step
+					which refers to distinct requirements</condition>
+				<response>All requirements are selected. [FR_TARGET_0145]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_111_SC_3</id>
+			<description>Deselect all requirements selection.</description>
+			<fromSteps>1M</fromSteps>
+			<toSteps>2M</toSteps>
+			<step>
+				<stepId>1D</stepId>
+				<action>In the tab "Selection" in the "On The Fly Generation
+					Editor", click on "Deselect all" button in the page of
+					Requirements.</action>
+				<condition>-</condition>
+				<response>All requirements are deselected. [FR_TARGET_0145]
+				</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_111_SC_4</id>
+			<description>There is no reference to any requirement in the imported
+				use cases document(s).</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1E</stepId>
+				<action>Choose "Tools" option in the menu bar.</action>
+				<condition>No requirement is referenced in the imported use cases
+					document(s).</condition>
+				<response>A drop down menu is displayed. "On The Fly Generation"
+					option is available.</response>
+			</step>
+			<step>
+				<stepId>2E</stepId>
+				<action>Choose "On The Fly Generation" option in the drop down menu.
+				</action>
+				<condition>-</condition>
+				<response>The "On The Fly Generation Editor" window is displayed.
+					The "Requirements List" is disabled. The "Select All" and "Deselect
+					All" buttons are disabled. [FR_TARGET_0145]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_112</id>
+		<name>Generating Test Suites using Use Cases Filter</name>
+		<description>Selecting test cases by Use Cases Filter.</description>
+		<flow>
+			<id>UC_112_SC_1</id>
+			<description>Filtering test suit generation by use cases.
+			</description>
+			<fromSteps>UC_110#2M</fromSteps>
+			<toSteps>UC_111#2M</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>In the tab "Selection" in the "On The Fly Generation
+					Editor", select one or more (press CTRL) Use Cases available in the
+					document.</action>
+				<condition>The imported use cases document have at least use case.
+				</condition>
+				<response>The use cases are selected.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Click on "Add Use case" button.</action>
+				<condition>-</condition>
+				<response>One or more Use cases are added in the "Selected Use
+					Cases" area. [FR_TARGET_0153]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_112_SC_2</id>
+			<description>Remove Use Cases from filter.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>UC_111#2M</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>In the tab "Selection" in the "On The Fly Generation
+					Editor", select some use cases on the "Selected Use Cases" area.
+				</action>
+				<condition>-</condition>
+				<response>The use cases are selected.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Click on the "Remove Use Case" button.</action>
+				<condition>-</condition>
+				<response>The selected use cases were removed from "Selected Use
+					Cases" area. [FR_TARGET_0153]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_115</id>
+		<name>Generating Test Suites with Test Purposes</name>
+		<description>Selecting test cases by Test Purposes Filter.
+		</description>
+		<flow>
+			<id>UC_115_SC_1</id>
+			<description>Filtering a test suite generation by a test purpose
+			</description>
+			<fromSteps>UC_110#2M</fromSteps>
+			<toSteps>UC_111#2M</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Go to "Test Purpose Creation" and select *-* step in the
+					"Steps" area and click on "Select" button.</action>
+				<condition>-</condition>
+				<response>A "*" symbol is added to "Current Test Purpose" field.
+				</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>In the "Steps" area, select a step and click on "Select"
+					button.</action>
+				<condition>-</condition>
+				<response>A reference to this step is added to the "Current Test
+					Purpose" field. [FR_TARGET_0151]</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>In the "Steps" area, select *-* step and click on "Select"
+					button.</action>
+				<condition>-</condition>
+				<response>A "*" symbol is added to "Current Test Purpose" field.
+				</response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Click on "OK" button.</action>
+				<condition>-</condition>
+				<response>The test purpose is added to the "Created Test Purposes"
+					list. The "Current Test Purpose" list is empty.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_115_SC_2</id>
+			<description>Move the step to lower level.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>3M</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Go to "On The Fly Generation" -> "Selection" tab -> "Test
+					Purpose Creation" and in "Steps" area, select a step and click on
+					"Select" button.</action>
+				<condition>-</condition>
+				<response>A reference to this step is added to the "Current Test
+					Purpose" field. [FR_TARGET_0151]</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Go to "Test Purpose Creation" and select *-* step in the
+					"Steps" area and click on "Select" button.</action>
+				<condition>-</condition>
+				<response>A "*" symbol is added to "Current Test Purpose" field.
+				</response>
+			</step>
+			<step>
+				<stepId>3A</stepId>
+				<action>Select the first step in the "Current Test Purpose" field
+					and click in the "Down" button.</action>
+				<condition>-</condition>
+				<response>The selected test is in a lower level.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_115_SC_3</id>
+			<description>Move the step to upper level.</description>
+			<fromSteps>2A</fromSteps>
+			<toSteps>3M</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Select the last step in the "Current Test Purpose" field and
+					click in the "Up" button.</action>
+				<condition>-</condition>
+				<response>The selected test is in upper level.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_115_SC_4</id>
+			<description>Clear one or more step(s) from "Current Test Purpose"
+				field.</description>
+			<fromSteps>3M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Select one or more steps on "Current Test Purpose" area and
+					click on "Clean" button.</action>
+				<condition>-</condition>
+				<response>The selected step(s) was(were) removed from "Current Test
+					Purpose" field.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_115_SC_5</id>
+			<description>Remove a test purpose from the "Created Test Purposes"
+				list.</description>
+			<fromSteps>4M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1D</stepId>
+				<action>Select a test purpose on "Created Test Purposes" list.
+				</action>
+				<condition>-</condition>
+				<response>The test purpose is highlighted. [FR_TARGET_0151]
+				</response>
+			</step>
+			<step>
+				<stepId>2D</stepId>
+				<action>Click on "Clean" button on "Created Test Purposes" area.
+				</action>
+				<condition>-</condition>
+				<response>The test purpose was removed from the "Created Test
+					Purposes" list.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_115_SC_6</id>
+			<description>Remove all test purposes from the created test purposes
+				list.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1E</stepId>
+				<action>Click on "Clear All" button on "Created Test Purposes" area.
+				</action>
+				<condition>There is more than one test purpose on "Test purposes"
+					list.</condition>
+				<response>The "Created Test Purposes" list is empty.
+					[FR_TARGET_0151]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_116</id>
+		<name>Generating Test Suites with Path Coverage</name>
+		<description>Selecting test cases from Path Coverage.</description>
+		<flow>
+			<id>UC_116_SC_1</id>
+			<description>Path coverage percentage is 50%.</description>
+			<fromSteps>UC_110#2M</fromSteps>
+			<toSteps>UC_111#2M</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Go to "Path Coverage" area and set to 50.</action>
+				<condition>-</condition>
+				<response>"Path Coverage" is 50%. [FR_TARGET_0152]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_117</id>
+		<name>Visualizing Test Cases in Test Cases Viewer</name>
+		<description>Visualize the test cases before the test suite
+			generation.</description>
+		<flow>
+			<id>UC_117_SC_1</id>
+			<description>Visualizing Test Cases.</description>
+			<fromSteps>UC_110#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Go to the "Test Cases" tab in the "On The Fly Generation
+					Editor" view.</action>
+				<condition>No filter is selected.</condition>
+				<response>The "Common Test Cases" and the "New Test Cases" boxes are
+					checked. [FR_TARGET_0235]</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Verify the test cases in the "Generated Test Cases" list
+				</action>
+				<condition>-</condition>
+				<response>All test cases appear in the "Generated Test Cases" list.
+				</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_117_SC_2</id>
+			<description>Visualizing the "Common Test Cases".</description>
+			<fromSteps>UC_110#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Filter the test suite selecting some requirements in the
+					"Selection" tab.</action>
+				<condition>-</condition>
+				<response>The filter(s) are selected. [FR_TARGET_0234]</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Go to the "Test Cases" tab in "On The Fly Generation Editor"
+					view.</action>
+				<condition>-</condition>
+				<response>The "Common Test Cases" and the "New Test Cases" boxes are
+					checked. [FR_TARGET_0235]</response>
+			</step>
+			<step>
+				<stepId>3A</stepId>
+				<action>Deselect the "New Test Cases" box.</action>
+				<condition>-</condition>
+				<response>Just the "Common Test Cases" selected by the filters in
+					the Selected tab appear in the "Generated Test Cases" list with
+					black font. [FR_TARGET_0237]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_117_SC_3</id>
+			<description>Visualizing the "Removed Test Cases" and the "Common
+				Test Cases".</description>
+			<fromSteps>UC_111#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Select the "Removed Test Cases" box.</action>
+				<condition>-</condition>
+				<response>The removed test cases are added to the "Generated Test
+					Cases" list with a red font.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_117_SC_4</id>
+			<description>Visualizing the "Removed Test Cases".</description>
+			<fromSteps>1B</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Deselect "Common Test Cases" box.</action>
+				<condition>-</condition>
+				<response>Just the test cases removed by the filters appear in the
+					"Generated Test Cases" list with a red font.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_117_SC_5</id>
+			<description>Visualizing the lists of "Common Test Cases" and "New
+				test Cases" after saving a filter.</description>
+			<fromSteps>UC_118#1M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1D</stepId>
+				<action>Select a filter configuration saved previously.</action>
+				<condition>-</condition>
+				<response>The filter configuration is selected.</response>
+			</step>
+			<step>
+				<stepId>2D</stepId>
+				<action>Go to "Selection" tab and select some requirements that are
+					equal to saved filter and some requirements different from saved
+					filter.</action>
+				<condition>-</condition>
+				<response>The filter(s) are selected. [FR_TARGET_0234]</response>
+			</step>
+			<step>
+				<stepId>3D</stepId>
+				<action>Go to the "Test Cases" tab in the "On The Fly Generation
+					Editor" view.</action>
+				<condition>-</condition>
+				<response>The "Common Test Cases" and "New Test Cases" boxes are
+					checked. [FR_TARGET_0235]</response>
+			</step>
+			<step>
+				<stepId>5D</stepId>
+				<action>Go to "Generated Test Cases" list.</action>
+				<condition>-</condition>
+				<response>The common test cases between the first selected filter
+					and the second selected filter that is loaded in the "Selection"
+					tab, appear with black font in the "Generated Test Cases" list. The
+					New Test Cases appear with green font in the "Generated Test Cases"
+					list.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_117_SC_6</id>
+			<description>Visualizing the "Removed Test Cases" after saving a
+				filter</description>
+			<fromSteps>UC_118#1A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1E</stepId>
+				<action>Click on the "Load Former Filter Selection" button.</action>
+				<condition>-</condition>
+				<response>The new filter configuration is loaded and the
+					correspondent test cases appear in the "Generated Test Cases "list.
+					[FR_TARGET_0237, FR_TARGET_0236]</response>
+			</step>
+			<step>
+				<stepId>2E</stepId>
+				<action>Select the default filter configuration "All test Cases".
+				</action>
+				<condition>-</condition>
+				<response>The filter configuration is selected. The common test
+					cases between the selected filter and the filter that is loaded in
+					the "Selection" tab appear with black font in the "Generated Test
+					Cases" list.</response>
+			</step>
+			<step>
+				<stepId>3E</stepId>
+				<action>Select the "Removed Test Cases" box.</action>
+				<condition>-</condition>
+				<response>The removed test cases appear in the "Generated Test
+					Cases" list with a red font.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_117_SC_7</id>
+			<description>Deselecting Common Test Cases box.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1F</stepId>
+				<action>Deselect the "Common Test Cases" box.</action>
+				<condition>-</condition>
+				<response>No test cases appear in the "Generated Test Cases" list.
+				</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_118</id>
+		<name>Saving a filter configuration in the Test Cases Viewer</name>
+		<description>Saving and loading a filter configuration in the test
+			cases viewer.</description>
+		<flow>
+			<id>UC_118_SC_1</id>
+			<description>Saving a filter configuration.</description>
+			<fromSteps>UC_117#2A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Click on the "Save Current Filter Selection" button.
+				</action>
+				<condition>-</condition>
+				<response>The new filter configuration is saved and appears in the
+					common list. [FR_TARGET_0236]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_118_SC_2</id>
+			<description>Loading a saved filter configuration.</description>
+			<fromSteps>1M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Select a filter configuration saved previously.</action>
+				<condition>-</condition>
+				<response>The filter configuration is selected.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Click on the "Load Former Filter Selection" button.</action>
+				<condition>-</condition>
+				<response>The new filter configuration is loaded and the
+					correspondent test cases appear in the "Generated Test Cases "list.
+					[FR_TARGET_0237, FR_TARGET_0236]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_118_SC_3</id>
+			<description>Loading the default filter configuration.</description>
+			<fromSteps>2A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Select the default filter configuration "All test Cases".
+				</action>
+				<condition>-</condition>
+				<response>The filter configuration is selected.</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Click on the "Load Former Filter Selection" button.</action>
+				<condition>-</condition>
+				<response>All test cases appear in the "Generated test cases" list.
+				</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_119</id>
+		<name>Visualizing Test Cases in table format in Test Cases Viewer
+		</name>
+		<description>Visualizing test cases in spreadsheet format.
+		</description>
+		<flow>
+			<id>UC_119_SC_1</id>
+			<description>View a test case in the table.</description>
+			<fromSteps>UC_117#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Click on any test case in the "Generated Test Cases" list.
+				</action>
+				<condition>-</condition>
+				<response>The chosen test case appears in the "Selected test Cases"
+					view in the spreadsheet template. [FR_TARGET_0237]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_119_SC_2</id>
+			<description>Select more than one test case to view in the table
+				format.</description>
+			<fromSteps>UC_117#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Click on more than one (using CTRL) test case in the
+					"Generated Test Cases" list.</action>
+				<condition>-</condition>
+				<response>The first test case selected in crescent order that
+					appears on list is shown in the "Selected test Cases" view in the
+					spreadsheet standard. [FR_TARGET_0237]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_119_SC_3</id>
+			<description>Deselect a test case.</description>
+			<fromSteps>1A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Deselect the first test case selected (using CTRL) in the
+					"Generated Test Cases" list.</action>
+				<condition>-</condition>
+				<response>The spreadsheet view is updated, displaying another
+					selected test case that appears first in he list in the "Generated
+					test Cases" list.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_121</id>
+		<name>Visualizing Test Cases in the Traceability Matrixes</name>
+		<description>Visualizing test cases in the traceability matrixes.
+		</description>
+		<flow>
+			<id>UC_121_SC_1</id>
+			<description>Visualizing Test Cases.</description>
+			<fromSteps>UC_110#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Go to the "Traceability Matrix" tab in the "On The Fly
+					Generation Editor" view.</action>
+				<condition>No filter is selected</condition>
+				<response>The "Common Test Cases" and "New Test Cases" boxes are
+					checked. [FR_TARGET_0235]</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Verify the test cases in the matrixes list</action>
+				<condition>-</condition>
+				<response>All test cases appear in the matrixes list.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_121_SC_2</id>
+			<description>Visualizing the "Common Test Cases".</description>
+			<fromSteps>UC_110#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Filter the test suite selecting some requirements in the
+					"Test Selection Page".</action>
+				<condition>-</condition>
+				<response>The filter(s) are selected. [FR_TARGET_0234]</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Go to the "Traceability Matrix" tab in the "On The Fly
+					Generation Editor" view.</action>
+				<condition>-</condition>
+				<response>The "Common Test Cases" and "New Test Cases" boxes are
+					checked. [FR_TARGET_0235]</response>
+			</step>
+			<step>
+				<stepId>3A</stepId>
+				<action>Deselect the "New Test Cases" box.</action>
+				<condition>-</condition>
+				<response>Just the "Common Test Cases" selected by the filters in
+					the Selected tab appear in the matrixes list with black font.
+					[FR_TARGET_0237]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_121_SC_3</id>
+			<description>Visualizing the "Removed Test Cases" and "Common Test
+				Cases".</description>
+			<fromSteps>UC_111#1M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Go to the "Traceability Matrix" tab in the "On The Fly
+					Generation Editor" view.</action>
+				<condition>-</condition>
+				<response>Verify that test cases in the "Traceability Matrix " list
+					are according to the selected filter. [FR_TARGET_0240]</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Select the "Removed Test Cases" box.</action>
+				<condition>-</condition>
+				<response>The removed test cases are added to the matrixes list with
+					a red font.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_121_SC_4</id>
+			<description>Visualizing the "Removed Test Cases".</description>
+			<fromSteps>2B</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Deselect "Common Test Cases" box.</action>
+				<condition>-</condition>
+				<response>Just the test cases removed by the filters appear in the
+					matrixes list with a red font.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_121_SC_5</id>
+			<description>Visualizing the list of "Common Test Cases" and "New
+				test Cases" after saving a filter.</description>
+			<fromSteps>2A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1D</stepId>
+				<action>Click on the "Save Current Filter Selection".</action>
+				<condition>-</condition>
+				<response>The new filter configuration is saved and appears in the
+					common list. [FR_TARGET_0236]</response>
+			</step>
+			<step>
+				<stepId>2D</stepId>
+				<action>Select a filter configuration saved previously.</action>
+				<condition>-</condition>
+				<response>The filter configuration is selected.</response>
+			</step>
+			<step>
+				<stepId>3D</stepId>
+				<action>Go to "Test Selection Page" and select some requirements
+					that are equal to the first selected filter and some requirements
+					different from first selected filter.</action>
+				<condition>-</condition>
+				<response>The second filter(s) are selected. [FR_TARGET_0234]
+				</response>
+			</step>
+			<step>
+				<stepId>4D</stepId>
+				<action>Go to the "Traceability Matrix" tab in the "On The Fly
+					Generation Editor" view.</action>
+				<condition>-</condition>
+				<response>The "Common Test Cases" and "New Test Cases" boxes are
+					checked. [FR_TARGET_0235]</response>
+			</step>
+			<step>
+				<stepId>5D</stepId>
+				<action>Verify the matrixes list.</action>
+				<condition>-</condition>
+				<response>The common test cases between the first selected filter
+					and the second selected filter that is loaded in the "Selection"
+					tab, appear with black font in the matrixes list. The New Test
+					Cases appear with green font in the matrixes list.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_121_SC_6</id>
+			<description>Visualizing the "Removed Test Cases" after saving a
+				filter</description>
+			<fromSteps>2D</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1E</stepId>
+				<action>Click on the "Load Former Filter Selection" button.</action>
+				<condition>-</condition>
+				<response>The new filter configuration is loaded and the
+					correspondent test cases appear in the matrixes list.
+					[FR_TARGET_0237, FR_TARGET_0236]</response>
+			</step>
+			<step>
+				<stepId>2E</stepId>
+				<action>Select the default filter configuration "All test Cases".
+				</action>
+				<condition>-</condition>
+				<response>The filter configuration is selected. The common test
+					cases between the selected filter and the filter that is loaded in
+					the "Selection" tab, appear with black font in the matrixes list.
+				</response>
+			</step>
+			<step>
+				<stepId>3E</stepId>
+				<action>Select the "Removed Test Cases" box.</action>
+				<condition>-</condition>
+				<response>The removed test cases are added to the matrixes list with
+					a red font.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_121_SC_7</id>
+			<description>Deselecting Common Test Cases box.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1F</stepId>
+				<action>Deselect the "Common Test Cases" box.</action>
+				<condition>-</condition>
+				<response>No test cases appear in the matrixes list.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_122</id>
+		<name>Saving a filter configuration in the Traceability Matrixes
+		</name>
+		<description>Saving and loading a filter configuration.</description>
+		<flow>
+			<id>UC_122_SC_1</id>
+			<description>Saving a filter configuration in the traceability
+				matrixes.</description>
+			<fromSteps>UC_121#2A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Click on the "Save Current Filter Selection".</action>
+				<condition>-</condition>
+				<response>The new filter configuration is saved and appears in the
+					common list.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_122_SC_2</id>
+			<description>Loading a saved filter configuration in the traceability
+				matrixes.</description>
+			<fromSteps>1M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Select a filter configuration saved previously.</action>
+				<condition>-</condition>
+				<response>The filter configuration is selected.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Click on the "Load Former Filter Selection" button.</action>
+				<condition>-</condition>
+				<response>The new filter configuration is loaded and the
+					correspondent test cases appear in the matrixes.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_122_SC_3</id>
+			<description>Loading the default filter configuration.</description>
+			<fromSteps>2A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Select the default filter configuration "All test Cases".
+				</action>
+				<condition>-</condition>
+				<response>The filter configuration is selected.</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Click on the "Load Former Filter Selection" button.</action>
+				<condition>-</condition>
+				<response>All test cases appear in the matrixes.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_123</id>
+		<name>Visualizing Test Cases in table format in the Traceability
+			Matrixes</name>
+		<description>Viewing test cases in the spreadsheet format.
+		</description>
+		<flow>
+			<id>UC_123_SC_1</id>
+			<description>View a test case in the spreadsheet format.
+			</description>
+			<fromSteps>UC_121#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Click in any test case in the matrixes list.</action>
+				<condition>-</condition>
+				<response>The details of the selected test case appear in the
+					"Selected test Cases" view in the spreadsheet standard.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_124</id>
+		<name>Including Test Cases Permanently in test suite</name>
+		<description>Including test cases permanently in the test suit,
+			independently of filters selection.</description>
+		<flow>
+			<id>UC_124_SC_1</id>
+			<description>Include permanently a test case that is already included
+				by the filter selection.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Go to the "Test Cases" tab in the "On The Fly Generation
+					Editor" view.</action>
+				<condition>Any filter has to be selected. [FR_TARGET_0234]
+				</condition>
+				<response>The selected test cases by filter are displayed in the
+					"Generated Test Cases" list. [FR_TARGET_0237]</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Check the "Removed Test Cases" box.</action>
+				<condition>-</condition>
+				<response>The removed test cases by filter are displayed in the
+					"Generated Test Cases" list with a red font.</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Click with the right mouse button in a included test case.
+				</action>
+				<condition>-</condition>
+				<response>A drop down menu is displayed with the "Exclude Test Case
+					Permanently" and "Include Test Case Permanently" options are
+					available and "Cancel Test Case Exclusion" and "Cancel Test Case
+					Inclusion" are unavailable.</response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Select "Include Test Case Permanently" option.</action>
+				<condition>-</condition>
+				<response>The test case appears "Included Test Cases" list of
+					Inclusion/Exclusion tab and remains with a black font in the
+					"Generated Test Case" list. [FR_TARGET_0241]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_124_SC_2</id>
+			<description>Cancel the test case inclusion permanently.
+			</description>
+			<fromSteps>4M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Go back to the test case tab and click with the mouse right
+					button in this included test case.</action>
+				<condition>-</condition>
+				<response>A drop down menu is displayed with the "Exclude Test Case
+					Permanently" and "Cancel Test Case Inclusion" options are available
+					and "Include Test Case Permanently" and "Cancel Test Case
+					Exclusion" are unavailable.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Select "Cancel Test Case Inclusion" option.</action>
+				<condition>-</condition>
+				<response>The test case is removed from "Included Test Cases" list
+					of Inclusion/Exclusion tab.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_124_SC_3</id>
+			<description>Exclude the test case included permanently.
+			</description>
+			<fromSteps>4M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Go back to the test case tab and click with the mouse right
+					button in this included test case.</action>
+				<condition>-</condition>
+				<response>A drop down menu is displayed with the "Exclude Test Case
+					Permanently" and "Cancel Test Case Inclusion" options are available
+					and "Include Test Case Permanently" and "Cancel Test Case
+					Exclusion" are unavailable.</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Select "Exclude Test Case Permanently" option.</action>
+				<condition>-</condition>
+				<response>The test case is removed from "Included Test Cases" list,
+					is added to "Excluded Test Cases" list in the Inclusion/Exclusion
+					tab and shown with a red font in the "Generated Test Cases list" in
+					the Test Cases tab.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_124_SC_4</id>
+			<description>Cancel the test case inclusion permanently in the
+				Inclusion/Exclusion tab.</description>
+			<fromSteps>4M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Go to the Inclusion/Exclusion tab and click with the mouse
+					right button in this included test case.</action>
+				<condition>-</condition>
+				<response>A drop down menu is displayed with the "Exclude Test Case
+					Permanently" and "Cancel Test Case Inclusion" options are
+					available.</response>
+			</step>
+			<step>
+				<stepId>2C</stepId>
+				<action>Select "Cancel Test Case Inclusion" option.</action>
+				<condition>-</condition>
+				<response>The test case is removed from "Included Test Cases" list
+					of Inclusion/Exclusion tab.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_124_SC_5</id>
+			<description>Include a test case that is excluded by the filter
+				selection.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1D</stepId>
+				<action>Click with the mouse right button in a excluded test case.
+				</action>
+				<condition>-</condition>
+				<response>A drop down menu is displayed with the "Exclude Test Case
+					Permanently" and "Include Test Case Permanently" options are
+					available and "Cancel Test Case Exclusion" and "Cancel Test Case
+					Inclusion" are unavailable. [FR_TARGET_0241]</response>
+			</step>
+			<step>
+				<stepId>2D</stepId>
+				<action>Select "Include Test Case Permanently" option.</action>
+				<condition>-</condition>
+				<response>The test case appears in the "Included Test Cases" list of
+					Inclusion/Exclusion tab and is shown with a black font in the
+					"Generated Test Case" list.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_126</id>
+		<name>Excluding Test Cases Permanently in test suite</name>
+		<description>Excluding test cases permanently in the test suit,
+			independently of filters selection.</description>
+		<flow>
+			<id>UC_126_SC_1</id>
+			<description>Exclude permanently a test case that is already excluded
+				by the filter selection.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Go to the "Test Cases" tab in the "On The Fly Generation
+					Editor" view.</action>
+				<condition>Any filter has to be selected. [FR_TARGET_0234]
+				</condition>
+				<response>The selected test cases by filter are displayed in the
+					"Generated Test Cases" list. [FR_TARGET_0237]</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Check the "Removed Test Cases" box.</action>
+				<condition>-</condition>
+				<response>The removed test cases by filter are displayed in the
+					"Generated Test Cases" list with a red font.</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Click with the mouse right button in a excluded test case.
+				</action>
+				<condition>-</condition>
+				<response>A drop down menu is displayed with the "Exclude Test Case
+					Permanently" and "Include Test Case Permanently" options are
+					available and "Cancel Test Case Exclusion" and "Cancel Test Case
+					Inclusion" are unavailable.</response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Select "Exclude Test Case Permanently" option.</action>
+				<condition>-</condition>
+				<response>The test case appears "Excluded Test Cases" list of
+					Inclusion/Exclusion tab and remains with a red font in the
+					"Generated Test Case" list. [FR_TARGET_0241]</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_126_SC_2</id>
+			<description>Cancel the test case exclusion permanently.
+			</description>
+			<fromSteps>4M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Go back to the test case tab and click with the mouse right
+					button in this excluded test case.</action>
+				<condition>-</condition>
+				<response>A drop down menu is displayed with the "Include Test Case
+					Permanently" and "Cancel Test Case Exclusion" options are available
+					and "Exclude Test Case Permanently" and "Cancel Test Case
+					Inclusion" are unavailable.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Select "Cancel Test Case Exclusion" option.</action>
+				<condition>-</condition>
+				<response>The test case is removed from "Excluded Test Cases" list
+					of Inclusion/Exclusion tab.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_126_SC_3</id>
+			<description>Exclude the test case included permanently.
+			</description>
+			<fromSteps>4M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Go back to the test case tab and click with the mouse right
+					button in this excluded test case.</action>
+				<condition>-</condition>
+				<response>A drop down menu is displayed with the "Include Test Case
+					Permanently" and "Cancel Test Case Exclusion" options are available
+					and "Exclude Test Case Permanently" and "Cancel Test Case
+					Inclusion" are unavailable.</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Select "Include Test Case Permanently" option.</action>
+				<condition>-</condition>
+				<response>The test case is removed from "Excluded Test Cases" list,
+					is added to "Included Test Cases" list in the Inclusion/Exclusion
+					tab and shown with a black font in the "Generated Test Cases list"
+					in the Test Cases tab.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_126_SC_4</id>
+			<description>Cancel the test case exclusion permanently in the
+				Inclusion/Exclusion tab.</description>
+			<fromSteps>4M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Go to the Inclusion/Exclusion tab and click with the mouse
+					right button in this excluded test case.</action>
+				<condition>-</condition>
+				<response>A drop down menu is displayed with the "Include Test Case
+					Permanently" and "Cancel Test Case Exclusion" options are
+					available.</response>
+			</step>
+			<step>
+				<stepId>2C</stepId>
+				<action>Select "Cancel Test Case Exclusion" option.</action>
+				<condition>-</condition>
+				<response>The test case is removed from "Included Test Cases" list
+					of Inclusion/Exclusion tab.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_126_SC_5</id>
+			<description>Exclude a test case that is included by the filter
+				selection.</description>
+			<fromSteps>4M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1D</stepId>
+				<action>Click with the mouse right button in a included test case.
+				</action>
+				<condition>-</condition>
+				<response>A drop down menu is displayed with the "Exclude Test Case
+					Permanently" and "Include Test Case Permanently" options are
+					available and "Cancel Test Case Exclusion" and "Cancel Test Case
+					Inclusion" are unavailable.</response>
+			</step>
+			<step>
+				<stepId>2D</stepId>
+				<action>Select "Exclude Test Case Permanently" option.</action>
+				<condition>-</condition>
+				<response>The test case appears in the "Excluded Test Cases" list of
+					Inclusion/Exclusion tab and is shown with a red font in the
+					"Generated Test Case" list.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_145</id>
+		<name>Starting Consistency Management</name>
+		<description>Starting Consistency Management Editor.</description>
+		<flow>
+			<id>UC_145_SC_1</id>
+			<description>Starting Consistency Management Editor.</description>
+			<fromSteps>UC_110#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Go to "Test Cases" tab and mark the option "Start
+					Consistency Management before saving."</action>
+				<condition>The On The Fly Editor is Opened.</condition>
+				<response>A window is displayed asking the user to select a
+					generated test suite to compare. [FR_TARGET_245].</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Select a test suite and press the "Finish" button.</action>
+				<condition>-</condition>
+				<response>The Consistency Management Editor is showed and the system
+					displays one table containing the new test cases generated by the
+					On The Fly and another table containing the percentage of
+					similarity with the test cases of the previous selected test suite.
+					[FR_TARGET_244]The system automatically associates a new test case
+					to an old one that has a similarity level of 100%. [FR_TARGET_246]
+				</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_145_SC_2</id>
+			<description>No test suites available.</description>
+			<fromSteps>UC_110#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Go to "Test Cases" tab and mark the option "Start
+					Consistency Managememnt before saving."</action>
+				<condition>The On The Fly Editor is Opened. There is no test suite
+					in the project folder.</condition>
+				<response>A window is displayed asking the user to select a test
+					suite to compare, but none test suite is displayed in the list and
+					a message is shown informing that there is no test suites
+					available. The "Finish" button is disabled.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Press the "Cancel" button.</action>
+				<condition>-</condition>
+				<response>The window is closed and the On The Fly Editor is
+					displayed.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_146</id>
+		<name>Associating Test Cases</name>
+		<description>Associating similar test cases in the Consistency
+			Management Editor.</description>
+		<flow>
+			<id>UC_146_SC_1</id>
+			<description>Associating similar test cases in the Consistency
+				Management Editor.</description>
+			<fromSteps>UC_145#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Select one test case from the new test cases table.</action>
+				<condition>There are no modifications between the new and the old
+					test suites.</condition>
+				<response>The system shows in the old test cases table the
+					similarity percentage between the selected new test case and the
+					old ones. The "Delete" and "New Id" options are also displayed.
+				</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Select one test case from the old test case table.</action>
+				<condition>-</condition>
+				<response>The system displays two spreadsheets showing the fields of
+					the selected test cases in the "Compare Test Cases" area. The
+					system marks with blue color the different fields and with yellow
+					color the extra steps.</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Press the "Save Test Suite" button.</action>
+				<condition>-</condition>
+				<response>The system displays a message informing that the test
+					cases were merged and a new test suite has been generated.
+				</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_146_SC_2</id>
+			<description>A new test case has been created.</description>
+			<fromSteps>UC_145#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Select one test case from the New Test Cases table.</action>
+				<condition>There is at least one modification between the new test
+					suite and the old test suite.</condition>
+				<response>The system marks the new or modified test case with red
+					color. The system shows in the old test cases table the similarity
+					levels between the selected new test case and the old ones
+					different from 100%. The "Delete" and "New Id" options are also
+					displayed and the "New Id" option is checked.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Press "Save Test Suite" button.</action>
+				<condition>-</condition>
+				<response>The system displays a message informing that the test
+					cases were merged and a new test suite has been generated. The
+					generated test suite must contain the new test case and the new id
+					that has been attributed to it.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_146_SC_3</id>
+			<description>Removing a test case.</description>
+			<fromSteps>1M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Check the "Delete" option in the old test case table and
+					press the "Save Test Suite" button.</action>
+				<condition>-</condition>
+				<response>The system informs that the selected test case will be
+					removed from the test suite and asks if the user wants to proceed.
+				</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Press the "OK" button.</action>
+				<condition>-</condition>
+				<response>The system displays a message informing that the test
+					cases were merged and a new test suite has been generated. The
+					generated test suite must not contain the deleted test case.
+				</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_146_SC_4</id>
+			<description>Associate two new test cases to the same old test case
+			</description>
+			<fromSteps>UC_145#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>2C</stepId>
+				<action>Associate two test cases from "New Test Cases" table to the
+					same test case in the "Old Test Case" table.</action>
+				<condition>-</condition>
+				<response>The system shows a warning message informing that there is
+					another test case already associated with the selected old one.
+				</response>
+			</step>
+			<step>
+				<stepId>3C</stepId>
+				<action>Press the "OK" button and press the "Save Test Suite"
+					option.</action>
+				<condition>-</condition>
+				<response>The system displays a message informing that the test
+					cases were merged and a new test suite has been generated. The
+					generated test suite must contain two test cases with the same id.
+				</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_147</id>
+		<name>Setting up Next New Id</name>
+		<description>Configure the next new id to new test case.</description>
+		<flow>
+			<id>UC_147_SC_1</id>
+			<description>Associating similar test cases in the Consistency
+				Management Editor.</description>
+			<fromSteps>UC_146#2A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>In the "Preferences" area, press the "Change" button.
+				</action>
+				<condition>-</condition>
+				<response>The system enables the "Next New Id" field for edition.
+				</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Fill the "Next New Id" field with a desired value and
+					presses the "Save" button.</action>
+				<condition>-</condition>
+				<response>The system disables the "Next New Id" field for edition
+					and save the new filled value.</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Press the "Save Test Suite" option.</action>
+				<condition>-</condition>
+				<response>The system displays a message informing that the test
+					cases were merged and a new test suite has been generated. The
+					generated test suite must contain the test case marked as new with
+					the configured id.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_148</id>
+		<name>Changing compared Test Suite</name>
+		<description>Change the test suite file that is being compared to the
+			New test Suite generated by On The Fly.</description>
+		<flow>
+			<id>UC_148_SC_1</id>
+			<description>Changing Test Suite file.</description>
+			<fromSteps>UC_145#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Above Old Test Cases table, press the "Change" button.
+				</action>
+				<condition>There are one more generated test suites different from
+					suite generated by On the Fly (New Test suite).</condition>
+				<response>The system shows a window with all saved test suites and
+					ask to user select a test suite to compare.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Choose a test suite different from current.</action>
+				<condition>-</condition>
+				<response>The system shows a progress bar indicating the test suite
+					loading process and opens another Consistency Management window
+					comparing the selected Test suite file.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_149</id>
+		<name>Automatic Association configuration</name>
+		<description>Configuring Automatic Association.</description>
+		<flow>
+			<id>UC_149_SC_1</id>
+			<description>Changing Test Suite file.</description>
+			<fromSteps>UC_146#1A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>In Automatic Association area, fill the "First most similar"
+					with a value a little less than the similarity percentage of first
+					test case most similar to new test case.</action>
+				<condition>There is a new modified test that has one test much
+					similar with it (similarity percentage value is high) and the
+					others are very different from it (similarity percentage value is
+					lower than the first most similar).</condition>
+				<response>The First Most Similar percentage is changed.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>In Automatic Association area, fill the "Second most
+					similar" with a value a higher than the similarity percentage of
+					second test case most similar to new test case.</action>
+				<condition>-</condition>
+				<response>The Second Most Similar percentage is changed.</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Press "Refresh" button</action>
+				<condition>-</condition>
+				<response>The first most similar test case is automatically checked
+					in the Old Test Cases table.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_150</id>
+		<name>Generating test suite on Consistency Management</name>
+		<description>Generates a test suite on the Consistency Management
+			editor.</description>
+		<flow>
+			<id>UC_150_SC_1</id>
+			<description>Generates a test suite on the Consistency Management
+				editor.</description>
+			<fromSteps>UC_145#2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Select the "Save Test Suite" button in the "Comparison
+					Results" section.</action>
+				<condition>-</condition>
+				<response>The "Test Cases Generation Summary" pop up is displayed
+					informing the number of generated test cases and the total time
+					required to complete the process. [FR_TARGET_0160]</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_151</id>
+		<name>Adding a term to the lexicon</name>
+		<description>Adds a term to the CNL lexicon according to the type
+			selected by the user</description>
+		<flow>
+			<id>UC_151_SC_1</id>
+			<description>Adds an unknown term to the CNL lexicon</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Choose the option "Add New Term" in the CNL view.</action>
+				<condition>-</condition>
+				<response>The "Add New Lexical Term" dialog box is displayed.
+				</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Choose one unknown term from the use case document in the
+					"Term" combo.</action>
+				<condition>There is at least one use case document imported. There
+					is at least one word, in the imported use case documents, that was
+					not found in the lexicon.</condition>
+				<response>The selected term is displayed.</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Select a term type in the combo.</action>
+				<condition>All the required fields are filled in.</condition>
+				<response>The fields related to the selected term are displayed.
+				</response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Fill in the fields with the term's required information.
+				</action>
+				<condition>All the required fields are filled in.</condition>
+				<response>The "Add New Term" button is enabled.</response>
+			</step>
+			<step>
+				<stepId>5M</stepId>
+				<action>Press the "Add New Term" button.</action>
+				<condition>-</condition>
+				<response>The CNL is reloaded and a success message is displayed
+					indicating that the term was added to the lexicon.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_151_SC_2</id>
+			<description>Adds a new term to the lexicon</description>
+			<fromSteps>1M</fromSteps>
+			<toSteps>4M</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>
+					Choose the option "<New Term>" in "Term" combo.
+				</action>
+				<condition>-</condition>
+				<response>No term is displayed.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_151_SC_3</id>
+			<description>Adds an existing term in a different category.
+			</description>
+			<fromSteps>1A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Select a term type in the combo and fill in with the term's
+					required information.</action>
+				<condition>The term was already added in the lexicon in a different
+					category. All the required fields are filled in.</condition>
+				<response>The "Add New Term" button is enabled.</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Press the "Add New Term" button.</action>
+				<condition>-</condition>
+				<response>A message is displayed informing that the term that the
+					user is trying to add already exists in a different category. The
+					system asks the user for a confirmation.</response>
+			</step>
+			<step>
+				<stepId>3B</stepId>
+				<action>Press the "Yes" option.</action>
+				<condition>-</condition>
+				<response>The CNL is reloaded and a success message is displayed
+					indicating that the term was added to the lexicon.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_151_SC_4</id>
+			<description>Cancel the addition of an existing term in a different
+				category.</description>
+			<fromSteps>2B</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1H</stepId>
+				<action>Select a term type in the combo and fill in with the term's
+					required information.</action>
+				<condition>The term was already added in the lexicon in a different
+					category. All the required fields are filled in.</condition>
+				<response>The "Add New Term" button is enabled.</response>
+			</step>
+			<step>
+				<stepId>2H</stepId>
+				<action>Press the "Add New Term" button.</action>
+				<condition>-</condition>
+				<response>A message is displayed informing that the term that the
+					user is trying to add already exists in a different category. The
+					system asks the user for a confirmation.</response>
+			</step>
+			<step>
+				<stepId>3H</stepId>
+				<action>Press the "No" option.</action>
+				<condition>-</condition>
+				<response>The "Add New Lexical Term is displayed".</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_151_SC_5</id>
+			<description>Adds the same term twice.</description>
+			<fromSteps>1A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Select a term type in the combo and fill in with the term's
+					required information.</action>
+				<condition>The term was already added in the lexicon in the same
+					category that was selected in the term type combo. All the required
+					fields are filled in.</condition>
+				<response>The "Add New Term" button is enabled.</response>
+			</step>
+			<step>
+				<stepId>2C</stepId>
+				<action>Press the "Add New Term" button.</action>
+				<condition>-</condition>
+				<response>The system displays an error message indicating that it is
+					not possible to add a term in a same category twice.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_151_SC_6</id>
+			<description>Adds a modal verb to the lexicon.</description>
+			<fromSteps>1A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1D</stepId>
+				<action>Select the "Verb" category in the term type combo. Fill at
+					least one of the required fields with one of the following modal
+					verbs: "can, could, may, must, might, should, ought, shall, will,
+					would".</action>
+				<condition>-</condition>
+				<response>The system displays an error message indicating that it is
+					not possible to add a modal verb in the lexicon.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_151_SC_7</id>
+			<description>Adds a pronoun to the lexicon.</description>
+			<fromSteps>1A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1E</stepId>
+				<action>Select a term type in the combo and fill at least one of the
+					required fields with one of the following pronouns: "I, you, he,
+					she, it, we, they, me, him, her, us, them, my, mine, your, yours,
+					his, her, hers, its, our, ours, yours, your, their, theirs, myself,
+					yourself, himself, herself, itself, ourselves, yourselves,
+					themselves".</action>
+				<condition>-</condition>
+				<response>The system displays an error message indicating that it is
+					not possible to add a pronoun in the lexicon.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_151_SC_8</id>
+			<description>Adds a misspelled term in the lexicon.</description>
+			<fromSteps>1A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1F</stepId>
+				<action>Select a term type in the combo and fill in the fields with
+					the misspelled term's values.</action>
+				<condition>All the required fields are filled in. The term type has
+					to be one of the following: "Noun, Adverb, Adjective or Verb".
+				</condition>
+				<response>The "Add New Term" button is enabled.</response>
+			</step>
+			<step>
+				<stepId>2F</stepId>
+				<action>Press the "Add New Term" button.</action>
+				<condition>-</condition>
+				<response>A message is displayed informing that the term that the
+					user is trying to add may not be well spelled. The system asks the
+					user for a confirmation.</response>
+			</step>
+			<step>
+				<stepId>3F</stepId>
+				<action>Press the "No" option.</action>
+				<condition>-</condition>
+				<response>The dialog input fields are cleared.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_151_SC_9</id>
+			<description>Adds a term in the lexicon in a wrong category.
+			</description>
+			<fromSteps>1A</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1G</stepId>
+				<action>Select a term type in the combo and fill in the fields with
+					a term from another category.</action>
+				<condition>All the required fields are filled in. The term type has
+					to be one of the following: "Noun, Adverb, Adjective or Verb".
+				</condition>
+				<response>The "Add New Term" button is enabled.</response>
+			</step>
+			<step>
+				<stepId>2G</stepId>
+				<action>Press the "Add New Term" button.</action>
+				<condition>-</condition>
+				<response>A message is displayed informing that the term that the
+					user is trying to add may not be suitable to its category according
+					to the CNL dictionary. The system asks the user for a confirmation.
+				</response>
+			</step>
+			<step>
+				<stepId>3G</stepId>
+				<action>Press the "No" option.</action>
+				<condition>-</condition>
+				<response>The dialog input fields are cleared.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_152</id>
+		<name>Searching a term in the lexicon</name>
+		<description>Searches a term in the lexicon and displays the term's
+			information.</description>
+		<flow>
+			<id>UC_152_SC_1</id>
+			<description>Searches a term in the lexicon.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Choose the option "Edit/Remove Terms" in the CNL view.
+				</action>
+				<condition>The TaRGeT is already started up.</condition>
+				<response>The "Edit/Remove Lexical Term" dialog box is displayed.
+				</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Type the term in the "Search" input field.</action>
+				<condition>-</condition>
+				<response>The results are displayed in the "Vocabulary" area.
+				</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_153</id>
+		<name>Updating a term</name>
+		<description>Updates a term from the lexicon</description>
+		<flow>
+			<id>UC_153_SC_1</id>
+			<description>Updates the term values.</description>
+			<fromSteps>UC_151#1M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Select the term to be updated in the "Vocabulary" list.
+				</action>
+				<condition>There is at least one term in the vocabulary list.
+				</condition>
+				<response>The term to be updated is selected.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Press the "Edit" button.</action>
+				<condition>-</condition>
+				<response>Editable fields are displayed in the dialog box.
+				</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Change at least on of the term values.</action>
+				<condition>-</condition>
+				<response>The term fields are modified.</response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Press the "Save" button.</action>
+				<condition>All the required fields are filled in.</condition>
+				<response>The term is updated in the lexicon.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_153_SC_2</id>
+			<description>Updates the term category.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Change the term type and fill in the term�s values.</action>
+				<condition>-</condition>
+				<response>The term fields and category are modified.</response>
+			</step>
+			<step>
+				<stepId>2A</stepId>
+				<action>Press the "Save" button.</action>
+				<condition>All the required fields are filled in.</condition>
+				<response>The term is updated in the lexicon.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_153_SC_3</id>
+			<description>Updates a term with the values of an existing one.
+			</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1B</stepId>
+				<action>Change the term type and fill in the term�s values.</action>
+				<condition>The new term type and fields have to be equals to an
+					existing term in the lexicon.</condition>
+				<response>The term fields and category are modified.</response>
+			</step>
+			<step>
+				<stepId>2B</stepId>
+				<action>Press the "Save" button.</action>
+				<condition>All the required fields are filled in.</condition>
+				<response>The system displays an error message indicating that it is
+					not possible to add a term in a same category twice.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_153_SC_4</id>
+			<description>Updates a term with misspelled values.</description>
+			<fromSteps>2M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1C</stepId>
+				<action>Fill in the term�s fields with misspelled values.</action>
+				<condition>All the required fields are filled in. The term type is
+					one of the following: "Noun, Adverb, Adjective or Verb".
+				</condition>
+				<response>The term fields are modified.</response>
+			</step>
+			<step>
+				<stepId>2C</stepId>
+				<action>Press the "Save" button.</action>
+				<condition>All the required fields are filled in.</condition>
+				<response>A message is displayed informing that the term that the
+					user is trying to add may not be well spelled. The system asks the
+					user for a confirmation.</response>
+			</step>
+			<step>
+				<stepId>3C</stepId>
+				<action>Press the "No" option.</action>
+				<condition>-</condition>
+				<response>The modifications are ignored and the term's initial
+					values are displayed.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_154</id>
+		<name>Deleting a term</name>
+		<description>Deletes a term from the lexicon.</description>
+		<flow>
+			<id>UC_154_SC_1</id>
+			<description>Deletes a term from the lexicon.</description>
+			<fromSteps>UC_151#1M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Select the term to be deleted in the "Vocabulary" area.
+				</action>
+				<condition>There is at least one term in the vocabulary area.
+				</condition>
+				<response>The term to be deleted is selected.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Press the "Remove" button.</action>
+				<condition>-</condition>
+				<response>A dialog box is displayed asking the user to confirm the
+					term exclusion.</response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Press the "Yes" button.</action>
+				<condition>All the required fields are filled in.</condition>
+				<response>The CNL is reloaded and a success message is displayed
+					indicating that the term was removed from the lexicon.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_155</id>
+		<name>Visualizing unknown term's synonyms</name>
+		<description>Shows unknown term's synonyms.</description>
+		<flow>
+			<id>UC_155_SC_1</id>
+			<description>Shows unknown term's synonyms.</description>
+			<fromSteps>UC_150#1M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Choose one unknown term from the use case document in the
+					"Term" combo.</action>
+				<condition>There is at least one use case document imported. There
+					is at least one word, in the imported use case documents, that was
+					not found in the lexicon. The term has a synonym already added in
+					the lexicon. The term type is one of the following: "Noun, Adverb,
+					Adjective or Verb".</condition>
+				<response>The selected term and its synonyms are displayed in the
+					"Add New Lexical Term" dialog box.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_156</id>
+		<name>Reloading CNL</name>
+		<description>Reloads the CNL configuration files and reprocess the
+			imported use case documents.</description>
+		<flow>
+			<id>UC_156_SC_1</id>
+			<description>Reloads the CNL configuration files.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Press the reload CNL button in the CNL View.</action>
+				<condition>-</condition>
+				<response>The system displays a progress bar informing the progress
+					of the task. The system reloads CNL configuration files and
+					reprocesses imported use case documents.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_157</id>
+		<name>Visualizing errors from action sentences</name>
+		<description>Displays the errors from action sentences in the error
+			table in the CNL view.</description>
+		<flow>
+			<id>UC_157_SC_1</id>
+			<description>Displays the errors from action sentences.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Press the "Show errors from action sentences" button in the
+					CNL View.</action>
+				<condition>There is at least one error from an action sentence in
+					the error table. The "Show errors from action sentences" button is
+					not selected.</condition>
+				<response>The system displays the errors from action sentences in
+					the error table in the CNL view.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_158</id>
+		<name>Visualizing errors from condition sentences</name>
+		<description>Displays the errors from condition sentences in the error
+			table in the CNL view.</description>
+		<flow>
+			<id>UC_158_SC_1</id>
+			<description>Displays the errors from condition sentences.
+			</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Press the "Show errors from condition sentences" button in
+					the CNL View.</action>
+				<condition>There is at least one error from a condition sentence in
+					the error table. The "Show errors from condition sentences" button
+					is not selected.</condition>
+				<response>The system displays the errors from condition sentences in
+					the error table in the CNL view.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_159</id>
+		<name>Visualizing errors from response sentences</name>
+		<description>Displays the errors from response sentences in the error
+			table in the CNL view.</description>
+		<flow>
+			<id>UC_159_SC_1</id>
+			<description>Displays the errors from response sentences.
+			</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Press the "Show errors from response sentences" button in
+					the CNL View.</action>
+				<condition>There is at least one error from a response sentence in
+					the error table. The "Show errors from response sentences" button
+					is not selected.</condition>
+				<response>The system displays the errors from response sentences in
+					the error table in the CNL view.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_160</id>
+		<name>Visualizing syntax errors details</name>
+		<description>Displays syntax errors details in the "Syntax Errors"
+			dialog box.</description>
+		<flow>
+			<id>UC_160_SC_1</id>
+			<description>Displays syntax errors details.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Press the "Show the Syntax Errors Details" button in the CNL
+					View.</action>
+				<condition>There is at least one syntax error in the error table.
+				</condition>
+				<response>The "Syntax Errors" dialog box is displayed and the
+					details about the syntax errors are showed.</response>
+			</step>
+		</flow>
+		<flow>
+			<id>UC_160_SC_2</id>
+			<description>Changes selected sentence in the "Syntax Errors" dialog
+				box.</description>
+			<fromSteps>1M</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1A</stepId>
+				<action>Select a different sentence in the "Error Sentences" combo.
+				</action>
+				<condition>There is more than one syntax error in the error table.
+				</condition>
+				<response>The "Syntax Errors" dialog box is updated and the details
+					about the syntax errors from the selected sentence are showed.
+				</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_161</id>
+		<name>Sorting errors by description</name>
+		<description>Sorts errors in the error table by its descriptions.
+		</description>
+		<flow>
+			<id>UC_161_SC_1</id>
+			<description>Sorts errors in the error table by its descriptions.
+			</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Press the "Description" cell in the error table in the CNL
+					view.</action>
+				<condition>There is more than one error in the error table.
+				</condition>
+				<response>The errors in the error table are sorted alphabetically by
+					its descriptions.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_162</id>
+		<name>Sorting errors by use case sentences</name>
+		<description>Sorts errors in the error table by the use case sentences
+			where they were found.</description>
+		<flow>
+			<id>UC_162_SC_1</id>
+			<description>Sorts errors in the error table by the use case
+				sentences where they were found.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Press the "Sentence" cell in the error table in the CNL
+					view.</action>
+				<condition>There is more than one error in the error table.
+				</condition>
+				<response>The errors in the error table are sorted alphabetically by
+					by the use case sentences where they were found.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_163</id>
+		<name>Sorting errors by step ID</name>
+		<description>Sorts errors in the error table by the ID of the step
+			where they were found.</description>
+		<flow>
+			<id>UC_163_SC_1</id>
+			<description>Sorts errors in the error table by the ID of the step
+				where they were found.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Press the "Step" cell in the error table in the CNL view.
+				</action>
+				<condition>There is more than one error in the error table.
+				</condition>
+				<response>The errors in the error table are sorted alphabetically by
+					the ID of the step where they were found.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_164</id>
+		<name>Sorting errors by use case document name</name>
+		<description>Sorts errors in the error table by the name of the use
+			case document where they were found.</description>
+		<flow>
+			<id>UC_164_SC_1</id>
+			<description>Sorts errors in the error table by the name of the use
+				case document where they were found.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Press the "Resource" cell in the error table in the CNL
+					view.</action>
+				<condition>There is more than one error in the error table.
+				</condition>
+				<response>The errors in the error table are sorted alphabetically by
+					the name of the use case document where they were found.</response>
+			</step>
+		</flow>
+	</useCase>
+	<useCase>
+		<id>UC_90</id>
+		<name>Updating the Use Case Documents outside the TaRGeT UI</name>
+		<description>Updating Use Case Documents outside TaRGeT UI.
+		</description>
+		<flow>
+			<id>UC_90_SC_1</id>
+			<description>Edit a Use Case Document with duplicated step ID outside
+				TaRGeT UI.</description>
+			<fromSteps>START</fromSteps>
+			<toSteps>END</toSteps>
+			<step>
+				<stepId>1M</stepId>
+				<action>Open an already imported Use Case Document with the {input}
+					external editor. The document has a duplicated step ID.
+					[FR_TARGET_0005]</action>
+				<condition>TaRGeT is started up and a project is opened. There is at
+					least one imported Use Case Document with duplicated step ID in the
+					project.</condition>
+				<response>The document is opened in the default viewer outside the
+					TaRGeT.</response>
+			</step>
+			<step>
+				<stepId>2M</stepId>
+				<action>Edit the duplicated ID, save the document and close it.
+				</action>
+				<condition>-</condition>
+				<response>The document is fixed.</response>
+			</step>
+			<step>
+				<stepId>3M</stepId>
+				<action>Go back to the TaRGeT window.</action>
+				<condition>-</condition>
+				<response>A progress bar is displayed while the project is being
+					refreshed. [FR_TARGET_0110, FR_TARGET_0015]</response>
+			</step>
+			<step>
+				<stepId>4M</stepId>
+				<action>Wait the progress bar.</action>
+				<condition>-</condition>
+				<response>The fixed duplicated ID error is removed from the "Error"
+					view.</response>
+			</step>
+		</flow>
+	</useCase>
+	<name>TaRGeT</name>
+</phone>

@@ -1,0 +1,9 @@
+<configurationModel xmlns="ck.v20090401">
+    <configuration xmlns="">
+        <expression>consistenceManager</expression>
+        <transformation>
+          <name>selectScenarios</name>
+          <args>SC01</args>
+        </transformation>
+	</configuration>
+</configurationModel>

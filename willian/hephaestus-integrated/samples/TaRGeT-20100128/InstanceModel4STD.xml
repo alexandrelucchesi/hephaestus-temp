@@ -1,0 +1,28 @@
+<feature  name="TaRGeT" type="NONE" id="target">
+  <feature  name="Import Template" type="NONE" id="importtemplate">
+  </feature>
+  <feature  name="Branding" type="NONE" id="branding">
+      <feature  name="Motorola" type="NONE" id="motorola">
+      </feature>
+  </feature>
+  <feature  name="Environment" type="NONE" id="environment">
+      <feature  name="Windows 2000/XP/Vista" type="NONE" id="windows">
+      </feature>
+  </feature>
+  <feature  name="Input" type="NONE" id="input">
+      <feature  name="XLS STD" type="NONE" id="xlsstdinput">
+      </feature>
+  </feature>
+  <feature  name="Language" type="NONE" id="language">
+      <feature  name="EN US" type="NONE" id="enus">
+      </feature>
+  </feature>
+  <feature  name="Output" type="NONE" id="output">
+      <feature  name="XLS STD" type="NONE" id="xlsstd">
+      </feature>
+  </feature>
+  <feature  name="Test Generation" type="NONE" id="testCaseGenerator">
+      <feature  name="Basic" type="NONE" id="basicgeneration">
+      </feature>
+  </feature>
+</feature>

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<phone xmlns="user-view.target.v20071129">
+<feature>
+<featureId>01</featureId> 
+<name>
+      Concurso Público para Provimento de Vaga no Cargo de Professor
+      da Carreira de Magistério Superior
+    </name>
+<useCase>
+<id>ED01</id>
+<name>Edital</name>
+<description>
+        A FUNDAÇÃO UNIVERSIDADE DE BRASÍLIA/FUB torna público o presente Edital
+        que norteará a abertura de inscrições para Concurso Público de provas e
+        prova de títulos, destinadas a selecionar candidatos para o cargo de
+        Professor de Magistério Superior da Fundação Universidade de Brasília/FUB.
+      </description>
+<setup></setup>
+<flow>
+<description>DAS DISPOSIÇÕES PRELIMINARES DO CONCURSO</description>
+<fromSteps>START</fromSteps>
+<toSteps>END</toSteps>
+<step>
+<stepId>PT0101</stepId>
+<action>
+            As condições specíficas dos concursos públicos serão objeto de Edital
+            extrato que será publicado no Diário Oficial da União, informando a base
+            legal autorizativa e demais normas organizadoras do processo seletivo.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0102</stepId>
+<action>
+            Os concursos serão regidos por este Edital de Condições Gerais e por Editais
+            específicos para áreas e classes de interesses da Fundação Universidade de
+            Brasília.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0103</stepId>
+<action>
+            Os concursos serão executados pela Fundação Universidade de Brasília visando
+            a seleção de candidatos para as classes a serem definidas no Edital 
+            específico.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0104</stepId>
+<action>
+            Quando o Edital se destinar à classe de Professor Adjunto, a nomeação se
+            dará na quantidade de vagas estabelecidas no Edital específico. @vagasAdjunto
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0105</stepId>
+<action>
+            As provas serão realizadas pela Unidade Acadêmica ou Departamento da
+            Universidade de Brasília indicada no Edital específico, cujo endereço
+            constará no edital de Aceitação de Inscrições e Cronograma de Prazos.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0106</stepId>
+<action>
+            A lotação do candidato que vier a ser nomeado em razão de aprovação neste
+            cconcurso público se dará na Unidade Acadêmica ou Departamento responsável
+            pelo Concurso.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0107</stepId>
+<action>
+            É facultada à Fundação Universidade de Brasília propor aos candidatos que
+            constarem do Edital de Resultado Final do concurso, excedentes do número de
+            vagas constante do Edital específico, tanto para a classe de Professor
+            Adjunto quanto para a classe de Professor Assistente do cadastro de reserva,
+            a sua nomeação para outros Campi para os quais existam vagas na área que se
+            deu a habilitação e classificação do candidato.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0108</stepId>
+<action>
+            O Edital específico conterá informações quanto à área e à quantidade de vagas
+            a que se destina o concurso, podendo ser instituído específicamente para a
+            classe de Professor Adjunto ou para a classe de Professor Adjunto e Assistente
+            para o cadastro de reserva ou para a classe de Professor Assistente,
+            observando as condições a seguir:
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0109</stepId>
+<action>
+            A seleção para o cargo de Professor Adjunto constará das seguintes etapas:
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0110</stepId>
+<action>
+            a) Prova Oral para Defesa de Conhecimentos de caráter eliminatório e
+            classificatório, com peso 2.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0111</stepId>
+<action>
+            b) Prova Didática de caráter eliminatório e classificatório, com peso 1.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0112</stepId>
+<action>
+            c) Prova de Títulos de caráter classificatório, com peso 1. @provaEscrita
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0113</stepId>
+<action>
+            Para atender as necessidades específicas das áreas, poder-se-á ampliar as
+            etapas de exigências de Provas, cujo conteúdo e critérios serão estabelecidos
+            no Edital específico. @fimEtapasNivel
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+</flow>
+<flow>
+<description>DA DIVULGAÇÃO DO CONCURSO PÚBLICO</description>
+<fromSteps>START</fromSteps>
+<toSteps>END</toSteps>
+<step>
+<stepId>PT0201</stepId>
+<action>
+            Todo edital ou compunicado relativo a este concurso público será publicado no
+            Diário Oficial da União e divulgado no endereço eletrônico
+            http://srh.unb.br/concursos.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0202</stepId>
+<action>
+            O candidato poderá obter informações referentes aos concursos por meio do
+            endereço eletrônico: concursodocente@unb.br.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0203</stepId>
+<action>
+            O candidato deverá observar atentamente as etapas do concurso que serão
+            publicadas em editais ou comunicados divulgados no endereço eletrônico:
+            http://srh.unb.br/concursos.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+</flow>
+<flow>
+<description>DO CARGO</description>
+<fromSteps>START</fromSteps>
+<toSteps>END</toSteps>
+<step>
+<stepId>PT0301</stepId>
+<action>
+            Cargo: Professor da Carreira de Magistério Superior, Nível 1, na classe de
+            Professor Adjunto ou na classe de Professor Assistente na área de (Computação).
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0302</stepId>
+<action>
+            Descrição das atividades: docência de nível superior na área do concurso e
+            participação nas atividades de pesquisa, extensão e administração da
+            Universidade de Brasília.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0303</stepId>
+<action>
+            Regime de trabalho: Dedicação Exclusíva
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0304</stepId>
+<action>
+            Local de Trabalho: (Dep. Ciência da Computação) {CR} @campus
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0305</stepId>
+<action>
+            O Edital específico conterá informações relativas ao valor da remuneração
+            correspondente às respectivas classes. @remuneracao
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0306</stepId>
+<action>
+            a) A Remuneração é estabelecida pelo Governo Federal e é composta por:
+            Vencimento Básico, Vantagem Pecuniárias Individual, Gratificação de
+            Atividade Executiva, Gratificação Temporária da Carreira do Magistério
+            Superior.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0307</stepId>
+<action>
+            O Edital específico conterá informações relativas ao Requisito Básico para
+            as respectivas classes. @requisitoBasico
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+</flow>
+<flow>
+<description>DOS REQUISITOS PARA INVESTIDURA NO CARGO</description>
+<fromSteps>START</fromSteps>
+<toSteps>END</toSteps>
+<step>
+<stepId>PT0401</stepId>
+<action>
+            Ter sido aprovado no concurso.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0402</stepId>
+<action>
+            Ter nacionalidade brasileira ou portuguesa e, em caso de nacionalidade
+            portuguesa, estar amparado pelo estatuto da igualdade entre brasileiros e
+            portugueses, com reconhecimento de gozo de direitos políticos, nos termos do
+            para. 1o do art. 12 da Constituição Federal.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0403</stepId>
+<action>
+            O candidato estrangeiro, legalmente habilitado, deverá apresentar o Visto
+            Permanente no momento da posse.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0404</stepId>
+<action>
+            Estar em dia com as obrigações eleitorais, em caso de candidato brasileiro.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0405</stepId>
+<action>
+            Apresentar Certificado de Reservista ou de Dispensa de Incorporação, em caso
+            de candidato brasileiro do sexo masculino.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0406</stepId>
+<action>
+            Comprovar o nível de formação exigida para a classe para a qual concorreu, em
+            conformidade com o Requisito Básico estabelecido no Edital específico.
+            @requisitoBasico
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0407</stepId>
+<action>
+            Para efeito de homologação da documentação apresentada para comprovar o
+            Requisito Básico no momento da posse, a Comissão Examinadora do concurso
+            ou a Direção do órgão responsável pelo concurso poderá acatar títulos e
+            certificados de pós-graduação emitidos por instituições estrangeiras e ainda
+            não revalidados ou em fase de revalidação, traduzido por tradutor juramentado.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0408</stepId>
+<action>
+            a) Na falta de reconhecimento/revalidação dos títulos e certificados de
+            pós-graduação emitidos por instituições estrangeiras, entregues no momento
+            da posse, o candidato deverá firmar termo de compromisso determinando o
+            prazo necessário para o cumprimento desta exigência.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0408</stepId>
+<action>
+            b) O reconhecimento/revalidação dos títulos estrangeiros deverá se dar em 
+            conformidade com as normas estabelecidas pelo Conselho Nacional de Educação.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0409</stepId>
+<action>
+            c) Findo o prazo estabelecido no termo de compromisso, e não havendo
+            reconhecimento/revalidação dos títulos, é facultado à Fundação Universidade
+            de Brasília emitir Ato de Exoneração do candidato por descumprimento de
+            exigência legal.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0410</stepId>
+<action>
+            Ter aptidão física e mental para o exercício das atribuições do cargo.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0411</stepId>
+<action>
+            Comprovar registro no Conselho de Classe, quando houver exigência em Lei desse
+            registro para o exercício da docência. Na hipótese de não exigência em Lei,
+            prevalecerá o art. 69 do Decreto n. 5.773 de 9/5/2006.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0412</stepId>
+<action>
+            Cumprir as determinações deste Edital e/ou de outros a este vinculados.
+            @exigenciasPosse
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+<step>
+<stepId>PT0413</stepId>
+<action>
+            Firmar declaração de não estar cumprindo sanção por idoneidade, aplicada por
+            qualquer tipo de órgão público ou entidade da esfera federal, estadual ou
+            municipal.
+          </action>
+<condition>-</condition>
+<response>-</response>
+</step>
+</flow>
+</useCase>
+</feature>
+</phone>

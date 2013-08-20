@@ -1,0 +1,1 @@
+ghci -i.;..\..\configuration-knowledge\src\;..\..\feature-modeling\src\;..\..\core\src\;..\..\req-model\src\;..\..\uc-model\src\;..\..\component-model\src\;..\..\transormations\src\;..\..\bpmn\src Main.hs

@@ -1,0 +1,93 @@
+<configurationModel xmlns="ck.v20090401">
+
+	<configuration xmlns="">
+		<expression>epl</expression>
+		<transformation>
+			<name>selectComponents</name>
+			<args>Program.java, Expression.java</args>
+		</transformation>
+		<required>And (Expression, Value)</required>
+		<provided>And (Program, Expression)</provided>
+	</configuration>
+	
+	<configuration xmlns="">
+		<expression>Or (integer, double)</expression>
+		<transformation>
+			<name>selectComponents</name>
+			<args>Value.java</args>
+		</transformation>
+		<required>Expression</required>
+		<provided>Value</provided>
+	</configuration>
+	
+	<configuration xmlns="">
+		<expression>integer</expression>
+		<transformation>
+			<name>selectComponents</name>
+			<args>IntegerValue.java</args>
+		</transformation>
+		<required>Expression</required>
+		<provided>IntegerValue</provided>
+	</configuration>
+	
+	<configuration xmlns="">
+		<expression>double</expression>
+		<transformation>
+			<name>selectComponents</name>
+			<args>DoubleValue.java, DoubleTypeAspect.aj</args>
+		</transformation>
+		<required>And (DoubleValue, And (Expression, Value))</required>
+		<provided>And(DoubleValue, DoubleTypeAspect))</provided>
+	</configuration>
+	
+	<configuration xmlns="">
+		<expression>Or (add, sub)</expression>
+		<transformation>
+			<name>selectComponents</name>
+			<args>BinaryExp.java</args>
+		</transformation>
+		<required>Expression</required>
+		<provided>BinaryExp</provided>
+	</configuration>
+	
+	<configuration xmlns="">
+		<expression>add</expression>
+		<transformation>
+			<name>selectComponents</name>
+			<args>AddExp.java</args>
+		</transformation>
+		<required>And (BinaryExp, And (Expression, And (IntegerValue, Value)))</required>
+		<provided>AddExp</provided>
+	</configuration>
+	
+	<configuration xmlns="">
+		<expression>And (add, double)</expression>
+		<transformation>
+			<name>selectComponents</name>
+			<args>AddDoubleTypeAspect.aj</args>
+		</transformation>
+		<required>And(DoubleTypeAspect, And(AddExp, And (DoubleValue, And (Expression, Value))))</required>
+		<provided>AddDoubleTypeAspect</provided>
+	</configuration>
+	
+	<configuration xmlns="">
+		<expression>sub</expression>
+		<transformation>
+			<name>selectComponents</name>
+			<args>SubExp.java</args>
+		</transformation>
+		<required>And (BinaryExp, And (Expression, And (IntegerValue, Value)))</required>
+		<provided>SubExp</provided>
+	</configuration>
+	
+	<configuration xmlns="">
+		<expression>And(sub, double)</expression>
+		<transformation>
+			<name>selectComponents</name>
+			<args>SubDoubleTypeAspect.aj</args>
+		</transformation>
+		<required>And(DoubleTypeAspect, And (SubExp, And (DoubleValue, And (Expression, Value))))</required>
+		<provided>SubDoubleTypeAspect</provided>
+	</configuration>
+
+</configurationModel>

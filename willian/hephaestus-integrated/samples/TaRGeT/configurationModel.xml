@@ -1,0 +1,41 @@
+<configurationModel xmlns="ck.v20090401">
+    <configuration xmlns="">
+        <expression>taRGeT</expression>
+        <transformation>
+          <name>selectScenarios</name>
+          <args>SC01,SC02,SC03,SC04,SC05,SC06,SC07,SC08,SC09,SC10,SC11,SC12,SC13,SC14,SC15,SC16,SC17,SC18,SC19,SC20,SC21,SC22,SC23,SC24,SC25,SC26,SC27,SC28,SC29,SC30,SC31,SC32,SC33,SC34,SC35,SC36,SC37,SC38,SC39,SC40,SC41,SC42,SC43,SC44,SC45,SC46,SC47,SC48,SC49,SC50,SC51,SC52,SC53,SC54,SC55,SC56,SC57,SC58,SC59,SC60,SC61,SC62,SC63,SC64,SC65,SC66,SC67,SC68,SC69,SC70,SC71,SC72,SC73,SC74,SC75,SC76,SC77,SC160,SC161,SC138,SC139,SC140,SC141,SC142,SC143,SC144,SC145,SC146,SC147,SC148,SC149,SC150</args>
+        </transformation>
+	</configuration>
+    <configuration xmlns="">
+        <expression>onTheFly</expression>
+        <transformation>
+            <name>selectScenarios</name>
+            <args>SC78,SC79,SC82,SC83,SC84,SC85,SC86,SC87,SC88,SC89,SC90,SC91,SC92,SC93,SC94,SC95,SC96,SC97,SC98,SC99,SC100,SC101,SC111,SC112,SC113,SC114,SC115,SC116,SC117,SC118,SC119,SC120,SC121,SC122,SC123,SC124,SC125,SC126,SC127,SC128,SC129,SC130,SC131,SC132,SC133,SC134,SC135,SC136,SC137</args>
+        </transformation>
+    </configuration>
+    <configuration xmlns="">
+        <expression>importTemplate</expression>
+        <transformation>
+            <name>selectScenarios</name>
+            <args>SC80,SC81</args>
+        </transformation>
+    </configuration>
+    <configuration xmlns="">
+        <expression>consistenceManager</expression>
+        <transformation>
+            <name>selectScenarios</name>
+            <args>SC151,SC152,SC153,SC154,SC155,SC156,SC157,SC158,SC159</args>
+        </transformation>
+	<transformation>
+	  <name>createBuildEntries</name>
+	  <args>br.ufpe.cin.target.cm</args>
+	</transformation>
+    </configuration>
+    <configuration xmlns="">
+      <expression>cnl</expression>
+      <transformation>
+	  <name>createBuildEntries</name>
+	  <args>br.ufpe.cin.target.cnl,br.ufpe.cin.cnlframework</args>
+      </transformation>
+    </configuration>
+</configurationModel>

@@ -1,0 +1,53 @@
+<feature min="1" max="1" name="TaRGeT" type="NONE" id="taRGeT">
+ <feature min="0" max="1" name="CNL" type="NONE" id="cnl">
+ </feature>
+ <feature min="0" max="1" name="Consistence Manager" type="NONE" id="consistenceManager">
+ </feature>
+ <feature min="0" max="1" name="Interruption" type="NONE" id="interruption">
+ </feature>
+ <feature min="0" max="1" name="Monitoring" type="NONE" id="monitoring">
+ </feature>
+ <feature min="0" max="1" name="ImportTemplate" type="NONE"
+id="importTemplate">
+ </feature>
+ <feature min="0" max="1" name="UseCaseEditor" type="NONE" id="useCaseEditor">
+ </feature>
+ <feature min="1" max="1" name="Output" type="NONE" id="output">
+   <featureGroup min="1" max="2" id="group">
+     <feature min="0" max="1" name="XMLOutput" type="NONE" id="XMLOutput">
+       <featureGroup min="1" max="2" id="group0">
+         <feature min="0" max="1" name="SimpleXMLOutput" type="NONE" id="simpleXMLOutput">
+         </feature>
+         <feature min="0" max="1" name="TestLinkXML" type="NONE" id="testLinkXML">
+         </feature>
+       </featureGroup>
+     </feature>
+     <feature min="0" max="1" name="TestCentral" type="NONE" id="testCentral">
+     </feature>
+   </featureGroup>
+ </feature>
+ <feature min="1" max="1" name="Input" type="NONE" id="input">
+   <featureGroup min="1" max="1" id="group1">
+     <feature min="0" max="1" name="MSWordInput" type="NONE" id="MSWordInput">
+     </feature>
+     <feature min="0" max="1" name="XMLInput" type="NONE" id="XMLInput">
+     </feature>
+   </featureGroup>
+ </feature>
+ <feature min="1" max="1" name="TestCaseGenerator" type="NONE" id="testCaseGenerator">
+   <featureGroup min="0" max="1" id="group2">
+     <feature min="0" max="1" name="OnTheFly" type="NONE" id="onTheFly">
+     </feature>
+     <feature min="0" max="1" name="Basic" type="NONE" id="basic">
+     </feature>
+   </featureGroup>
+ </feature>
+ <feature min="0" max="1" name="Branding" type="NONE" id="branding">
+   <featureGroup min="1" max="1" id="group3">
+     <feature min="0" max="1" name="Qualiti" type="NONE" id="qualiti">
+     </feature>
+     <feature min="0" max="1" name="Motorola" type="NONE" id="motorola">
+     </feature>
+   </featureGroup>
+ </feature>
+</feature>

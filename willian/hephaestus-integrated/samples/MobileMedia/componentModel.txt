@@ -1,0 +1,4 @@
+BaseMessaging => core/comms/BaseMessaging.java ;
+AbstractController => core/ui/ControllerInterface.java ;
+SMSAspect => alternative/sms/SMSAspect.aj ;
+classpath => configuration/common/.classpath ;

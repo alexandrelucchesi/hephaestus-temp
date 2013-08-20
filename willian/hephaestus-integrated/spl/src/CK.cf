@@ -1,0 +1,24 @@
+TConfigurationKnowledge. ConfigurationKnowledge ::= "configuration knowledge" "{" [ConfigurationItem] "}" ;
+
+TBasicConfigurationItem. ConfigurationItem ::=  "(" FeatureExp "," [Transformation] ")" ;
+TConstrainedConfigurationItem. ConfigurationItem ::= "(" FeatureExp "," [Transformation] "," FeatureExp "," FeatureExp ")" ;
+
+TSelectScenario. Transformation ::= "selectScenario" "(" [Id] ")" ; 
+TEvaluateAdvice. Transformation ::= "evaluateAdvice" "(" [Id] ")"   ; 
+TBindParameter.  Transformation ::= "bindParameter"  "(" Ident "," Ident ")" ; 
+TSelectComponents. Transformation ::= "selectComponents" "(" [Id] ")" ;
+TSelectAndMoveComponent. Transformation ::= "selectAndMoveComponent" "(" Id "," Id ")" ;
+TSelectBuildEntries. Transformation ::= "selectBuildEntries" "(" [Id] ")" ;
+
+TId. Id ::= Ident ;
+
+TBasicExp.   FeatureExp ::= Ident ;
+TAndExp.     FeatureExp ::= "And" "(" FeatureExp ","  FeatureExp ")"   ;
+TOrExp.      FeatureExp ::= "Or"  "(" FeatureExp ","  FeatureExp ")"   ; 
+TNotExp.     FeatureExp ::= "Not" "(" FeatureExp ")"  ;
+
+separator ConfigurationItem ";" ;
+
+separator Transformation "," ;
+
+separator Id "," ;

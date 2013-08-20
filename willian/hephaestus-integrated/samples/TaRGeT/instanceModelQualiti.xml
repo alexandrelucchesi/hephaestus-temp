@@ -1,0 +1,32 @@
+<feature name="TaRGeT" type="NONE" id="taRGeT">
+  <feature name="ConsistenceManager" type="NONE" id="consistenceManager">
+  </feature>
+  <feature name="Interruption" type="NONE" id="interruption">
+  </feature>
+  <feature name="Monitoring" type="NONE" id="monitoring">
+  </feature>
+  <feature name="ImportTemplate" type="NONE" id="importTemplate">
+  </feature>
+  <feature name="UseCaseEditor" type="NONE" id="useCaseEditor">
+  </feature>
+  <feature name="Output" type="NONE" id="output">
+    <feature name="XMLOutput" type="NONE" id="XMLOutput">
+          <feature name="TestLinkXML" type="NONE" id="testLinkXML">
+          </feature>
+      </feature>
+  </feature>
+  <feature name="Input" type="NONE" id="input">
+      <feature name="MSWordInput" type="NONE" id="MSWordInput">
+      </feature>
+      <feature name="XMLInput" type="NONE" id="XMLInput">
+      </feature>
+  </feature>
+  <feature name="TestCaseGenerator" type="NONE" id="testCaseGenerator">
+      <feature name="OnTheFly" type="NONE" id="onTheFly">
+      </feature>
+  </feature>
+  <feature name="Branding" type="NONE" id="branding">
+      <feature name="Qualiti" type="NONE" id="qualiti">
+      </feature>
+  </feature>
+</feature>

@@ -1,0 +1,47 @@
+<phone xmlns="user-view.target.v20090401">
+	<feature>
+		<featureId>4185</featureId>
+		<name>TaRGeT</name>
+		<useCase>
+			<id>UC01</id>
+			<name>Opening TaRGeT</name>
+			<description>It describes how the TaRGeT should behave when it is
+				started up.</description>
+			<setup>-</setup>
+			<flow>
+				<id>SC01</id>
+				<description>Start up the TaRGeT with .NET and Java runtime
+					environment installed.</description>
+				<fromSteps>START</fromSteps>
+				<toSteps>END</toSteps>
+				<step>
+					<stepId>1M</stepId>
+					<action>Start the TaRGeT.</action>
+					<condition>The .NET and Java runtime environment are installed in
+						the machine (see requirements for further information about Java
+						and .NET versions).</condition>
+					<response>A splash screen is displayed. Verify the requirements
+						document to check the splash screen.</response>
+				</step>
+				<step>
+					<stepId>2M</stepId>
+					<action>Wait some seconds.</action>
+					<condition></condition>
+					<response>The TaRGeT is started. No TaRGeT project is opened. A
+						background image is displayed (see requirements document for more
+						details). </response>
+				</step>
+			</flow>
+		</useCase>
+		<!--
+			aspect> <id>ADV01</id> <name>Buy good</name> <advice>
+			<type>before</type> <pointCut>P1</pointCut> <step>
+			<stepId>B1</stepId> <action>Select the buy product option. </action>
+			<condition>-</condition> <response>Present the selected product. The
+			user can change the quantity of items he wants to buy. </response>
+			</step> <step> <stepId>B2</stepId> <action>Select the confirm option.
+			</action> <condition>-</condition> <response>Request payment
+			information. </response> </step> </advice> </aspect
+		-->
+	</feature>
+</phone>

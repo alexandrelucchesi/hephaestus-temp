@@ -1,0 +1,9 @@
+<requirementModel>
+  <requirement>
+    <id>LPS_CONCURSOS_0001</id>
+    <name>Edital</name>
+    <description>
+      Elaborar um edital de concurso a partir do Hephaestus.
+    </description>
+  </requirement>
+</requirementModel>

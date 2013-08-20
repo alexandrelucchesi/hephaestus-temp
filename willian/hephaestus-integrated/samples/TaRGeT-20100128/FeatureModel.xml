@@ -1,0 +1,76 @@
+<feature min="1" max="1" name="TaRGeT" type="NONE" id="target">
+  <feature min="0" max="1" name="CNL" type="NONE" id="cnl">
+  </feature>
+  <feature min="0" max="1" name="Consistency Manager" type="NONE" id="cm">
+  </feature>
+  <feature min="0" max="1" name="Import Template" type="NONE" id="importtemplate">
+  </feature>
+  <feature min="0" max="1" name="Interruption" type="NONE" id="interruption">
+  </feature>
+  <feature min="0" max="1" name="Monitoring" type="NONE" id="monitoring">
+  </feature>
+  <feature min="0" max="1" name="Use Case Editor" type="NONE" id="uceditor">
+  </feature>
+  <feature min="1" max="1" name="Branding" type="NONE" id="branding">
+    <featureGroup min="1" max="1" id="group3">
+      <feature min="0" max="1" name="Qualiti" type="NONE" id="qualiti">
+      </feature>
+      <feature min="0" max="1" name="Motorola" type="NONE" id="motorola">
+      </feature>
+    </featureGroup>
+  </feature>
+  <feature min="1" max="1" name="Environment" type="NONE" id="environment">
+    <featureGroup min="1" max="1" id="group5">
+      <feature min="0" max="1" name="Mac OS X" type="NONE" id="macosx">
+      </feature>
+      <feature min="0" max="1" name="Windows 2000/XP/Vista" type="NONE" id="windows">
+      </feature>
+    </featureGroup>
+  </feature>
+  <feature min="1" max="1" name="Input" type="NONE" id="input">
+    <featureGroup min="1" max="3" id="group1">
+      <feature min="0" max="1" name="MS Word" type="NONE" id="mswordinput">
+      </feature>
+      <feature min="0" max="1" name="XML" type="NONE" id="xmlinput">
+      </feature>
+      <feature min="0" max="1" name="XLS STD" type="NONE" id="xlsstdinput">
+      </feature>
+    </featureGroup>
+  </feature>
+  <feature min="1" max="1" name="Language" type="NONE" id="language">
+    <featureGroup min="1" max="1" id="group4">
+      <feature min="0" max="1" name="EN US" type="NONE" id="enus">
+      </feature>
+      <feature min="0" max="1" name="PT BR" type="NONE" id="ptbr">
+      </feature>
+    </featureGroup>
+  </feature>
+  <feature min="1" max="1" name="Output" type="NONE" id="output">
+    <featureGroup min="1" max="1" id="group">
+      <feature min="0" max="1" name="HTML" type="NONE" id="html">
+      </feature>
+      <feature min="0" max="1" name="Test Central 3" type="NONE" id="tc3">
+      </feature>
+      <feature min="0" max="1" name="Test Central 4" type="NONE" id="tc4">
+      </feature>
+      <feature min="0" max="1" name="XLS STD" type="NONE" id="xlsstd">
+      </feature>
+      <feature min="0" max="1" name="XML" type="NONE" id="xmloutput">
+        <featureGroup min="1" max="1" id="group0">
+          <feature min="0" max="1" name="Simple XML" type="NONE" id="simplexmloutput">
+          </feature>
+          <feature min="0" max="1" name="TestLink XML" type="NONE" id="testlinkxmloutput">
+          </feature>
+        </featureGroup>
+      </feature>
+    </featureGroup>
+  </feature>
+  <feature min="1" max="1" name="Test Generation" type="NONE" id="testcasegeneration">
+    <featureGroup min="1" max="2" id="group2">
+      <feature min="0" max="1" name="Basic" type="NONE" id="basicgeneration">
+      </feature>
+      <feature min="0" max="1" name="On The Fly" type="NONE" id="ontheflygeneration">
+      </feature>
+    </featureGroup>
+  </feature>
+</feature>

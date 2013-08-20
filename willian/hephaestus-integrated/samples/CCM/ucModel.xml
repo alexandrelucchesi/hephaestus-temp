@@ -1,0 +1,121 @@
+<phone xmlns="user-view.target.v20090401">
+	<feature>
+		<featureId>4185</featureId>
+		<name>Car Crisis Management</name>
+		<useCase>
+			<id>UC01</id>
+			<name>CCM Use cases.</name>
+			<description>The set of use cases fom CCM.</description>
+			<setup>-</setup>
+			<flow>
+				<id>SC01</id>
+				<description>This scenario allows a crisis analyst (the coordinator)
+					to create a crisis record
+					(here, a car crash record) based on the
+					information obtained from
+					witnesses.</description>
+				<fromSteps>START</fromSteps>
+				<toSteps>END</toSteps>
+				<step>
+					<stepId>SC011</stepId>
+					<action>
+						Coordinator informs location and type of crisis as reported
+						by the witness.
+				</action>
+					<condition>-</condition>
+					<response>
+						CMS (Crisis Management System) provides coordinator with
+						a crisis-focused checklist.
+				</response>
+				</step>
+				<step>
+					<stepId>SC012</stepId>
+					<action>
+						Coordinator provides crisis information to CMS as reported
+						by the witness.
+				</action>
+					<condition>-</condition>
+					<response>
+						CMS assigns an initial emergency level to the crisis and
+						sets the crisis status to active.
+					</response>
+				</step>
+				<step>
+					<stepId>SC013</stepId>
+					<action>
+						-
+				</action>
+					<condition>-</condition>
+					<response>
+						CMS recommends to Coorinator the missions {mission} that
+						are to be executed
+						based on the current information about the
+						crisis and
+						available resources.
+					</response>
+				</step>
+				<step>
+					<stepId>SC014</stepId>
+					<action>
+						Coordinator selects one or
+						more missions recommended
+						by the
+						system.
+				</action>
+					<condition>-</condition>
+					<response>
+						For each selected mission, the
+						CMS assigns internal and
+						external resources so as to properly solve the crisis.
+					</response>
+				</step>
+			</flow>
+			<flow>
+				<id>SC02</id>
+				<description>After a previous assignment, this scenario allows an
+					(local site) Observer to
+					monitor the situation at the crisis site and to notify the System any
+					relevant
+					information related to the crisis.</description>
+				<fromSteps>START</fromSteps>
+				<toSteps>END</toSteps>
+				<step>
+					<stepId>SC021</stepId>
+					<action>
+						Observer noti es the CMS his (her) arrival at the mission
+						location.
+				</action>
+					<condition>-</condition>
+					<response>
+						CMS sends a crisis-speci c checklist to Observer.
+					</response>
+				</step>
+				<step>
+					<stepId>SC022</stepId>
+					<action>
+						Observer feeds CMS with additional crisis information.
+					</action>
+					<condition>-</condition>
+					<response>
+						CMS reports the information to the system's coordinator.
+					</response>
+				</step>
+				<step>
+					<stepId>SC023</stepId>
+					<action>
+						Observer judges that his
+						(her) presence is no longer
+						needed at the crisis location
+						and request the System to
+						finish the corresponding mission.
+				</action>
+					<condition>-</condition>
+					<response>
+						CMS finishes the observer mission.
+					</response>
+				</step>
+			</flow>
+		</useCase>
+
+	</feature>
+</phone>

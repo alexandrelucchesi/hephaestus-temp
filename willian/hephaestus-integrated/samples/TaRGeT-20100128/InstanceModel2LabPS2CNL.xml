@@ -1,0 +1,32 @@
+<feature  name="TaRGeT" type="NONE" id="target">
+  <feature  name="CNL" type="NONE" id="cnl">
+  </feature>
+  <feature  name="Consistency Manager" type="NONE" id="cm">
+  </feature>
+  <feature  name="Branding" type="NONE" id="branding">
+      <feature  name="Motorola" type="NONE" id="motorola">
+      </feature>
+  </feature>
+  <feature  name="Environment" type="NONE" id="environment">
+      <feature  name="Windows 2000/XP/Vista" type="NONE" id="windows">
+      </feature>
+  </feature>
+  <feature  name="Input" type="NONE" id="input">
+      <feature  name="MS Word" type="NONE" id="mswordinput">
+      </feature>
+      <feature  name="XML" type="NONE" id="xmlinput">
+      </feature>
+  </feature>
+  <feature  name="Language" type="NONE" id="language">
+      <feature  name="EN US" type="NONE" id="enus">
+      </feature>
+  </feature>
+  <feature  name="Output" type="NONE" id="output">
+      <feature  name="HTML" type="NONE" id="html">
+      </feature>
+  </feature>
+  <feature  name="Test Generation" type="NONE" id="testCaseGenerator">
+      <feature  name="On The Fly" type="NONE" id="ontheflygeneration">
+      </feature>
+  </feature>
+</feature>

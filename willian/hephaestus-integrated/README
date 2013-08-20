@@ -1,0 +1,70 @@
+Ok, I know that I should have already cabalized Hephaestus. 
+
+But I didn't have enough time after I concluded my thesis. This activity 
+was postponed to a near future (I hope). 
+
+Until there, Hephaestus was successfully compiled using:
+
+* GHC-7.4.1
+* Haskell platform
+
+External dependencies:
+
+    * bimap-0.2
+    * bitset-1.4.0
+    * cairo-0.12.4
+    * funsat-0.6.2
+    * gio-0.12.4
+    * glade-0.12.1
+    * glib-0.12.4
+    * gtk-0.12.4
+    * hxt-9.3.1.1
+    * hxt-charproperties-9.1.1
+    * hxt-regex-xmlschema-9.1.0
+    * hxt-relaxng-9.1.4
+    * hxt-unicode-9.0.2
+    * network-2.4.1.2
+    * pango-0.12.4
+    * parse-dimacs-1.2
+
+It is important to note that, after installing the Haskell Platform, we 
+could easly install these dependencies using caball install. Only the following 
+*top level* packages have to be installed. So, try this:
+
+     $ cabal install bimap-0.2
+     $ cabal install bitset-1.4.0
+     $ parse-dimacs-1.2
+
+     $ git clone git@github.com:rbonifacio/funsat.git
+     $ cd funsat
+     $ runhaskell Setup.hs configure --user
+     $ runhaskell Setup.hs build --user
+     $ runhaskell Setup.hs install --user
+
+     $ cabal install hxt
+     $ cabal install hxt-relaxng
+
+Testando commit
+
+It is also necessary to install gtk2hs into your system. See the 
+following link for further details:
+
+* http://www.haskell.org/haskellwiki/Gtk2Hs 
+
+Recent versions of gtk2hs have also been cabalized. So, you might also be able 
+to install gtk2hs (and related tools) using the following sequence of 
+commands
+
+$ cabal install gtk2hs-buildtools
+$ export PATH=$PATH:$USER_HOME/.cabal/bin
+
+$ cabal install glib
+$ cabal install gtk
+$ cabal install glade
+
+After resolving all dependencies, you could build Hephaestus by running 
+the compile script (see the main folder).
+
+Enjoy!!!
+
+Rodrigo Bonifacio (rbonifacio@computer.org) 

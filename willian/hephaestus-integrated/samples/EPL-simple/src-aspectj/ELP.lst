@@ -1,0 +1,28 @@
+#ELP
+br/ufpe/cin/lps/elp/base/Program.java
+br/ufpe/cin/lps/elp/base/expression/Expression.java
+
+#Add OR Sub
+br/ufpe/cin/lps/elp/base/expression/BinaryExp.java
+
+#Integer
+br/ufpe/cin/lps/elp/base/expression/IntegerValue.java
+
+#Double
+br/ufpe/cin/lps/elp/base/expression/DoubleValue.java
+br/ufpe/cin/lps/elp/base/aspects/DoubleTypeAspect.aj
+
+#Integer OR Double
+br/ufpe/cin/lps/elp/base/expression/Value.java
+
+#Add
+br/ufpe/cin/lps/elp/base/expression/AddExp.java
+
+#Sub
+br/ufpe/cin/lps/elp/base/expression/SubExp.java
+
+#Add AND Double
+br/ufpe/cin/lps/elp/base/aspects/AddDoubleTypeAspect.aj
+
+#Sub AND Double
+br/ufpe/cin/lps/elp/base/aspects/SubDoubleTypeAspect.aj

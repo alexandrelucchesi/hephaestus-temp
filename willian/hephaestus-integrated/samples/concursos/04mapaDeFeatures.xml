@@ -1,0 +1,20 @@
+<feature min="1" max="1" name="Concursos" type="NONE" id="concursos">
+  <feature min="1" max="1" name="Areas" type="NONE" id="areas">
+    <featureGroup min="1" max="1" id="areasDisponiveis">
+      <!-- Cada linha aqui é uma área que pode ser incluída no edital -->
+      <feature min="0" max="1" name="Computação" type="NONE" id="areaComputacao"></feature>
+      <feature min="0" max="1" name="Engenharia de Software" type="NONE" id="areaEngSoft"></feature>
+      <feature min="0" max="1" name="Arquitetura de Software" type="NONE" id="areaArqSoft"></feature>
+      <!-- Fim da lista de áreas disponíveis -->
+    </featureGroup>
+  </feature>
+  <feature min="1" max="1" name="Campus" type="NONE" id="campus">
+    <featureGroup min="1" max="1" id="campi">
+      <feature min="0" max="1" name="Dep. Ciência da Computação" type="NONE" id="campusPlanoPiloto"></feature>
+      <feature min="0" max="1" name="Faculdade Gama - FGA" type="NONE" id="campusGama"></feature>
+    </featureGroup>
+  </feature>
+  <feature min="0" max="1" name="Prova Escrita para Prof. Adjunto" type="NONE" id="provaEscrita"></feature>
+  <feature min="0" max="1" name="Cadastro de Reserva" type="NONE" id="cadastroReserva"></feature>
+  <feature min="0" max="1" name="Professor Assistente" type="NONE" id="professorAssistente"></feature>
+</feature>

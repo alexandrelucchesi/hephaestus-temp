@@ -1,0 +1,113 @@
+<phone xmlns="user-view.target.v20090401">
+	<feature>
+		<featureId>4185</featureId>
+		<name>TaRGeT</name>
+		<useCase>
+			<id>UC01</id>
+			<name>Opening TaRGeT</name>
+			<description>It describes how the TaRGeT should behave when it is
+				started up.</description>
+			<setup>-</setup>
+			<flow>
+				<id>SC01</id>
+				<description>Start up the TaRGeT with .NET and Java runtime
+					environment installed.</description>
+				<fromSteps>START</fromSteps>
+				<toSteps>END</toSteps>
+				<step>
+					<stepId>1M</stepId>
+					<action>Start the TaRGeT.</action>
+					<condition>The .NET and Java runtime environment are installed in
+						the machine (see requirements for further information about Java
+						and .NET versions).</condition>
+					<response>A splash screen is displayed. Verify the requirements
+						document to check the splash screen.</response>
+				</step>
+				<step>
+					<stepId>2M</stepId>
+					<action>Wait some seconds.</action>
+					<condition></condition>
+					<response>The TaRGeT is started. No TaRGeT project is opened. A
+						background image is displayed (see requirements document for more
+						details). </response>
+				</step>
+			</flow>
+			<flow>
+				<id>SC02</id>
+				<description>Start up the TaRGeT when .NET runtime environment is
+					not installed in the machine.</description>
+				<fromSteps>START</fromSteps>
+				<toSteps>END</toSteps>
+				<step>
+					<stepId>1A</stepId>
+					<action>Try to start the TaRGeT.</action>
+					<condition>Java runtime environment is installed in the machine.
+						The .NET runtime environment is not installed in the machine (see
+						requirements for further information about Java and .NET
+						versions). [ER_TARGET_0020, ER_TARGET_0025]</condition>
+					<response>A message is displayed informing that an error has
+						occurred and asking the user to see the log file. [FR_TARGET_0230]
+					</response>
+				</step>
+			</flow>
+			<flow>
+				<id>SC03</id>
+				<description>Start up the TaRGeT when Java runtime environment is
+					not installed in the machine.</description>
+				<fromSteps>START</fromSteps>
+				<toSteps>END</toSteps>
+				<step>
+					<stepId>1B</stepId>
+					<action>Try to start the TaRGeT.</action>
+					<condition>The Java runtime environment is not installed in the
+						machine (see requirements for further information about Java
+						version). [ER_TARGET_0020]</condition>
+					<response>A message is displayed informing that no JRE is
+						installed. The TaRGeT is not started up. [FR_TARGET_0230]
+					</response>
+				</step>
+			</flow>
+			<flow>
+				<id>SC04</id>
+				<description>Create a new project.</description>
+				<fromSteps>START</fromSteps>
+				<toSteps>END</toSteps>
+				<step>
+					<stepId>SC041M</stepId>
+					<action>Go to File option in the menu bar.</action>
+					<condition>The TaRGeT is already started up. No project is opened.
+					</condition>
+					<response>The New Project option is enabled in the drop down
+						menu. The Close Project option is disabled.</response>
+				</step>
+				<step>
+					<stepId>SC042M</stepId>
+					<action>Select the New Project option. [FR_TARGET_0020]</action>
+					<condition></condition>
+					<response>The New Project screen is displayed. The default
+						project name is displayed in the Project Name field. The default
+						project location is displayed in the Destination Folder field.
+					</response>
+				</step>
+				<step>
+					<stepId>SC043M</stepId>
+					<action>Click on Finish button.</action>
+					<condition></condition>
+					<response>A progress bar is displayed. A new project work area is
+						displayed. The project folder is created in the specified
+						location. [FR_TARGET_0110, FR_TARGET_0010]</response>
+				</step>
+			</flow>
+		</useCase>
+		<!--
+			aspect> <id>ADV01</id> <name>Buy good</name> <advice>
+			<type>before</type> <pointCut>P1</pointCut> <step>
+			<stepId>B1</stepId> <action>Select the buy product option. </action>
+			<condition>-</condition> <response>Present the selected product. The
+			user can change the quantity of items he wants to buy. </response>
+			</step> <step> <stepId>B2</stepId> <action>Select the confirm option.
+			</action> <condition>-</condition> <response>Request payment
+			information. </response> </step> </advice> </aspect
+		-->
+	</feature>
+</phone>

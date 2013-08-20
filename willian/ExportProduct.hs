@@ -118,8 +118,9 @@ copySourceFile source out c =
   let new = out </> (snd c)
   isFile <- doesFileExist old
   isDirectory <- doesDirectoryExist old
-  if isFile then
-   copyFile old new
+  if isFile then do
+   codeLines <- getLinesFromFile old
+   writeLinesToFile new codeLines
   else if isDirectory then do
    contents <- getDirectoryContents old
    let contents' = normalizeContents contents
@@ -133,3 +134,22 @@ normalizeContents [] = []
 normalizeContents (".":xs) = normalizeContents xs
 normalizeContents ("..":xs) = normalizeContents xs
 normalizeContents (x:xs) = [(x,x)] ++ normalizeContents xs
+
+getLinesFromFile :: String -> IO [String]
+getLinesFromFile path = do  
+	handle <- openFile path ReadMode  
+	contents <- hGetContents handle  
+	return $ lines contents
+
+writeLinesToFile :: FilePath -> [String] -> IO ()
+writeLinesToFile path codeLines = do  
+	handler <- openFile path WriteMode  
+	printLinesToHandler handler codeLines
+
+printLinesToHandler :: Handle -> [String] -> IO ()
+printLinesToHandler _ [] = return ()
+printLinesToHandler handler (x:xs) = do
+	hPutStrLn handler x
+	printLinesToHandler handler xs
+
+

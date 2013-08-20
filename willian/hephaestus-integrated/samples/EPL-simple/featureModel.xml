@@ -1,0 +1,18 @@
+<feature min="1" max="1" name="EPL" type="NONE" id="epl">
+ <feature min="0" max="1" name="Operations" type="NONE" id="operations">
+   <featureGroup min="1" max="2" id="groupOperation">
+     <feature min="0" max="1" name="Add" type="NONE" id="add">
+     </feature>
+     <feature min="0" max="1" name="Sub" type="NONE" id="sub">
+     </feature>
+   </featureGroup>
+ </feature>
+ <feature min="0" max="1" name="Type" type="NONE" id="type">
+   <featureGroup min="1" max="1" id="groupType">
+     <feature min="0" max="1" name="Integer" type="NONE" id="integer">
+     </feature>
+     <feature min="0" max="1" name="Double" type="NONE" id="double">
+     </feature>
+   </featureGroup>
+ </feature>
+</feature>

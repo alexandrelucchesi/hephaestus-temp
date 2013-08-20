@@ -1,0 +1,33 @@
+<configurationModel xmlns="ck.v20090401">
+
+	<configuration xmlns="">
+		<expression>a</expression>
+		<transformation>
+			<name>selectComponents</name>
+			<args>ClassA.java</args>
+		</transformation>
+		<required>True</required>
+		<provided>ClassA</provided>
+	</configuration>
+	
+	<configuration xmlns="">
+		<expression>b</expression>
+		<transformation>
+			<name>selectComponents</name>
+			<args>AspectB.aj</args>
+		</transformation>
+		<required>And(AspectC, ClassA)</required>
+		<provided>AspectB</provided>
+	</configuration>
+	
+	<configuration xmlns="">
+		<expression>c</expression>
+		<transformation>
+			<name>selectComponents</name>
+			<args>AspectC.aj</args>
+		</transformation>
+		<required>ClassA</required>
+		<provided>AspectC</provided>
+	</configuration>
+	
+</configurationModel>

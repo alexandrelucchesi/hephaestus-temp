@@ -1,0 +1,160 @@
+<configurationModel xmlns="ck.v20090401">
+
+   <configuration xmlns="">
+        <expression>target</expression>
+        <transformation>
+          <name>selectUseCases</name>
+          <args>UC_05,UC10,UC_20,UC_25,UC_26,UC_30,UC_35,UC_40,UC_40,UC_45,UC_50,UC_55,UC_63,UC_70,UC_71,UC_80,UC_85,UC_106,UC_107,UC_135,UC_140</args>
+        </transformation>
+        <transformation>
+          <name>selectScenarios</name>
+          <args>UC_01_SC_3,UC_130_SC_1,UC_130_SC_2,UC_130_SC_3,UC_130_SC_4,UC_130_SC_5</args>
+        </transformation>
+    </configuration>
+   
+   <configuration xmlns="">
+        <expression>windows</expression>
+        <transformation>
+          <name>selectScenarios</name>
+          <args>UC_01_SC_1, UC_01_SC_2</args>
+        </transformation>
+    </configuration>
+
+    <configuration xmlns="">
+        <expression>mswordinput</expression>
+        <transformation>
+          <name>selectScenarios</name>
+          <args>UC_61_SC_1, UC_95_SC_1, UC_100_SC_1, UC_1005_SC_1
+	  </args>
+        </transformation>
+    </configuration>
+
+    <configuration xmlns="">
+        <expression>xmloutput</expression>
+        <transformation>
+          <name>selectScenarios</name>
+          <args>UC_167_SC_1,UC_75_SC_1</args>
+        </transformation>
+    </configuration>
+    
+    <configuration xmlns="">
+        <expression>html</expression>
+        <transformation>
+          <name>selectUseCases</name>
+          <args>UC_168</args>
+        </transformation>
+    </configuration>
+
+        <configuration xmlns="">
+        <expression>html</expression>
+        <transformation>
+          <name>selectUseCases</name>
+          <args>UC_168</args>
+        </transformation>
+    </configuration>
+
+    <configuration xmlns="">
+      <expression>testcasegeneration</expression>
+      <transformation>
+        <name>selectScenarios</name>
+        <args>UC_130_SC_1,UC_130_SC_2,UC_130_SC_3,UC_130_SC_4,UC_130_SC_5,UC_130_SC_6</args>
+      </transformation>
+    </configuration>
+
+
+    <configuration xmlns="">
+        <expression>basicgeneration</expression>
+        <transformation>
+          <name>selectUseCases</name>
+          <args>UC_169</args>
+        </transformation>
+	<transformation>
+          <name>selectScenarios</name>
+          <args>UC_130_SC_14</args>
+        </transformation>
+    </configuration>
+
+     <configuration xmlns="">
+        <expression>ontheflygeneration</expression>
+        <transformation>
+          <name>selectScenarios</name>
+          <args>UC_110_SC_1, UC_110_SC_4, UC_130_SC_7, UC_130_SC_8, UC_130_SC_09, UC_130_SC_10, UC_130_SC_11,UC_130_SC_12,UC_130_SC_13</args>
+        </transformation>
+	<transformation>
+          <name>selectUseCases</name>
+          <args>UC_111,UC_112,UC_115,UC_116,UC_117,UC_118,UC_119,UC_121,UC_122,UC_123,UC_124,UC_126</args>
+        </transformation>
+     </configuration>
+
+     <configuration xmlns="">
+        <expression>testlinkxmloutput</expression>
+        <transformation>
+          <name>selectScenarios</name>
+          <args>UC_110_SC_6</args>
+        </transformation>
+	 <transformation>
+          <name>evaluateAspects</name>
+          <args>ASP06</args>
+        </transformation>
+     </configuration>
+
+     <configuration xmlns="">
+        <expression>importtemplate</expression>
+        <transformation>
+          <name>selectScenarios</name>
+          <args>UC_110_SC_3, UC_110_SC_5</args>
+        </transformation>
+	<transformation>
+          <name>evaluateAspects</name>
+          <args>ASP07</args>
+        </transformation>
+
+     </configuration>
+
+    <configuration xmlns="">
+        <expression>cm</expression>
+        <transformation>
+          <name>selectUseCases</name>
+          <args>UC_145,UC_146,UC_147,UC_148,UC_149,UC_150</args>
+        </transformation>
+    </configuration>
+
+    <configuration xmlns="">
+        <expression>cnl</expression>
+        <transformation>
+          <name>selectUseCases</name>
+          <args>UC_151,UC_152,UC_153,UC_154,UC_155,UC_156,UC_157,UC_158,UC_159,UC_160,UC_161,UC_162,UC_163,UC_164</args>
+        </transformation>
+    </configuration>
+
+    
+    <configuration xmlns="">
+        <expression>And(mswordinput, xmlinput)</expression>
+        <transformation>
+          <name>evaluateAspects</name>
+          <args>ASP01</args>
+        </transformation>
+    </configuration>
+
+
+    <configuration xmlns="">
+        <expression>input</expression>
+        <transformation>
+          <name>bindParameter</name>
+          <args>input,input</args>
+        </transformation>
+	<transformation>
+          <name>selectScenarios</name>
+          <args>UC_90_SC_1</args>
+        </transformation>
+    </configuration>    
+       
+     <configuration xmlns="">
+        <expression>branding</expression>
+        <transformation>
+          <name>bindParameter</name>
+          <args>brand,branding</args>
+        </transformation>
+     </configuration>
+
+</configurationModel>

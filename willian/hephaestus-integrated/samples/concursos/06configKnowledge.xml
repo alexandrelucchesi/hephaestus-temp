@@ -1,0 +1,135 @@
+<configurationModel xmlns="ck.v20090401">
+
+	<configuration xmlns="">
+		<expression>concursos</expression>
+		<transformation>
+			<name>selectScenarios</name>
+			<args>PT01</args>
+		</transformation>
+		<transformation>
+			<name>selectScenarios</name>
+			<args>PT02</args>
+		</transformation>
+		<transformation>
+			<name>selectScenarios</name>
+			<args>PT03</args>
+		</transformation>
+		<transformation>
+			<name>selectScenarios</name>
+			<args>PT04</args>
+		</transformation>
+	</configuration>
+
+	<configuration xmlns="">
+		<expression>Or(provaEscrita,professorAssistente)</expression>
+		<transformation>
+			<name>selectScenarios</name>
+			<args>PT10</args>
+		</transformation>
+	</configuration>
+	
+	<configuration xmlns="">
+		<expression>concursos</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ASP01</args>
+		</transformation>
+	</configuration>
+
+	<configuration xmlns="">
+		<expression>professorAssistente</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ASP02</args>
+		</transformation>
+	</configuration>
+	
+	<configuration xmlns="">
+		<expression>areas</expression>
+			<transformation>
+			<name>bindParameter</name>
+			<args>AREA, areas</args>
+		</transformation>
+	</configuration>
+
+	<configuration xmlns="">
+		<expression>campus</expression>
+			<transformation>
+			<name>bindParameter</name>
+			<args>CAMPUS, campus</args>
+		</transformation>
+	</configuration>
+	
+	<configuration xmlns="">
+		<expression>cadastroReserva</expression>
+			<transformation>
+			<name>bindParameter</name>
+			<args>CR, cadastroReserva</args>
+		</transformation>
+	</configuration>
+
+	<configuration xmlns="">
+		<expression>areaComputacao</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ASP03</args>
+		</transformation>
+	</configuration>
+
+	<configuration xmlns="">
+		<expression>And(areaComputacao,professorAssistente)</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ASP04</args>
+		</transformation>
+	</configuration>
+
+	<configuration xmlns="">
+		<expression>areaEngSoft</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ASP05</args>
+		</transformation>
+	</configuration>
+
+	<configuration xmlns="">
+		<expression>And(areaEngSoft,professorAssistente)</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ASP06</args>
+		</transformation>
+	</configuration>
+
+	<configuration xmlns="">
+		<expression>areaArqSoft</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ASP07</args>
+		</transformation>
+	</configuration>
+
+	<configuration xmlns="">
+		<expression>And(areaArqSoft,professorAssistente)</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ASP08</args>
+		</transformation>
+	</configuration>
+
+	<configuration xmlns="">
+		<expression>campusPlanoPiloto</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ASP09</args>
+		</transformation>
+	</configuration>
+
+	<configuration xmlns="">
+		<expression>campusGama</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ASP10</args>
+		</transformation>
+	</configuration>
+
+</configurationModel>

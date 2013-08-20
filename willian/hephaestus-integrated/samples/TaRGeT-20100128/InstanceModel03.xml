@@ -1,0 +1,22 @@
+<feature name="TaRGeT" type="NONE" id="target">
+  <feature name="Import Template" type="NONE" id="importtemplate">
+  </feature>
+  <feature name="Output" type="NONE" id="output">
+    <feature name="XML" type="NONE" id="xmloutput">
+          <feature name="TestLink XML" type="NONE" id="testlinkxmloutput">
+          </feature>
+      </feature>
+  </feature>
+  <feature name="Input" type="NONE" id="input">
+      <feature name="MS Word" type="NONE" id="mswordinput">
+      </feature>
+  </feature>
+  <feature name="Test Generation" type="NONE" id="testcasegeneration">
+      <feature name="On The Fly" type="NONE" id="ontheflygeneration">
+      </feature>
+  </feature>
+  <feature name="Branding" type="NONE" id="branding">
+      <feature name="Qualiti" type="NONE" id="qualiti">
+      </feature>
+  </feature>
+</feature>

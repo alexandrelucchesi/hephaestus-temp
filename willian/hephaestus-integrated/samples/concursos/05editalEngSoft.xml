@@ -1,0 +1,11 @@
+<feature name="Concursos" type="NONE" id="concursos">
+  <feature name="Areas" type="NONE" id="areas">
+    <feature name="Engenharia de Software" type="NONE" id="areaEngSoft"></feature>
+  </feature>
+  <feature name="Campus" type="NONE" id="campus">
+    <feature name="Faculdade Gama - FGA" type="NONE" id="campusGama"></feature>
+  </feature>
+  <feature name="Prova Escrita para Prof. Adjunto" type="NONE" id="provaEscrita"></feature>
+  <feature name="Cadastro de Reserva" type="NONE" id="cadastroReserva"></feature>
+  <feature name="Professor Assistente" type="NONE" id="professorAssistente"></feature>
+</feature>

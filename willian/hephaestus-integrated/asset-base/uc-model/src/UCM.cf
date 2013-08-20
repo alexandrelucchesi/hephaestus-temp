@@ -1,0 +1,24 @@
+TBeforeAdvice. Advice ::= "before" AdviceDec ; 
+TAfterAdvice. Advice ::= "after" AdviceDec ; 
+TAroundAdvice. Advice ::=  "around" AdviceDec ; 
+
+TAdviceDec. AdviceDec ::= "advice" "{" AdvId ";" AdvDesc ";" Flow "}" ;
+ 
+TAdvId. AdvId ::= "id" ":" Ident ;
+TAdvDesc. AdvDesc ::= "description" ":" String ;
+
+TFlow. Flow ::= [Step];
+
+TBasicStep. Step ::= "Step" "(" StepId "," Action "," System "," Response ")" ;
+TProceed. Step   ::= "Proceed" ;
+
+
+
+TAction. Action     ::= String ;
+TSystem. System     ::= String ;
+TResponse. Response ::= String ;
+
+TStepId. StepId ::= Ident ;
+
+separator Step ";" ;
+

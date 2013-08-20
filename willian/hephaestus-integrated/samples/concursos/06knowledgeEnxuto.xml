@@ -1,0 +1,11 @@
+<configurationModel xmlns="ck.v20090401">
+
+	<configuration>
+		<expression>provaEscrita</expression>
+		<transformation>
+			<name>evaluateAspects</name>
+			<args>ASP01</args>
+		</transformation>
+    </configuration>
+    
+</configurationModel>

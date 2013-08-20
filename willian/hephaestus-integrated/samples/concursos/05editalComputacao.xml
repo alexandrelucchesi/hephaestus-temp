@@ -1,0 +1,8 @@
+<feature name="Concursos" type="NONE" id="concursos">
+  <feature name="Areas" type="NONE" id="areas">
+    <feature name="Computação" type="NONE" id="areaComputacao"></feature>
+  </feature>
+  <feature name="Campus" type="NONE" id="campus">
+    <feature name="Dep. Ciência da Computação" type="NONE" id="campusPlanoPiloto"></feature>
+  </feature>
+</feature>

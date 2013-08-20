@@ -1,0 +1,27 @@
+<feature  name="MobileMedia" type="NONE" id="mobileMedia">
+ <feature  name="Services" type="ScreenSize" id="screenSize">
+     <feature  name="Screen176x205" type="NONE" id="screen176x205">
+     </feature>
+ </feature>
+ <feature  name="AlbumManagement" type="NONE" id="albumManagement">
+     <feature  name="CreateAlbum" type="NONE" id="createAlbum">
+     </feature>
+     <feature  name="DeleteAlbum" type="NONE" id="deleteAlbum">
+     </feature>
+ </feature>
+ <feature  name="MediaManagement" type="NONE" id="mediaManagement">
+     <feature  name="BasicMediaOperations" type="NONE" id="basicMediaOperations">
+	  <feature  name="EditMediaLabel" type="NONE" id="editMediaLabel">
+        </feature>
+	  <feature  name="DeleteMedia" type="NONE" id="deleteMedia">
+        </feature>
+	  <feature  name="CreateMedia" type="NONE" id="createMedia">
+        </feature>
+     </feature>
+ </feature>
+ <feature  name="MediaSelection" type="NONE" id="mediaSelection">
+     <feature  name="Video" type="NONE" id="video">
+         <feature  name="PlayVideo" type="NONE" id="playVideo"/>
+     </feature>
+ </feature>
+</feature>

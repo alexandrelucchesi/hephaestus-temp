@@ -1,0 +1,1196 @@
+This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=latex 2008.8.22)  14 DEC 2009 14:18
+entering extended mode
+ %&-line parsing enabled.
+**HomeBanking.tex
+(./HomeBanking.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, german-x-2008-06-18, ngerman-x-2008-06-18, ancientgreek, ibycus, ar
+abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
+h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
+greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, la
+tin, mongolian, mongolian2a, bokmal, nynorsk, polish, portuguese, romanian, rus
+sian, sanskrit, serbian, slovak, slovenian, spanish, swedish, turkish, ukenglis
+h, ukrainian, uppersorbian, welsh, loaded.
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/ltxmisc/a4wide.sty
+Package: a4wide 1994/08/30
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/ntgclass/a4.sty
+Package: a4 2004/04/15 v1.2g A4 based page layout
+))
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen103
+))
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+))
+(/usr/local/texlive/2008/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
+Package: stmaryrd 1994/03/03 St Mary's Road symbol package
+\symstmry=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
+(Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/polytable/polytable.sty
+Package: polytable 2005/04/26 v0.8.2 `polytable' package (Andres Loeh)
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/lazylist/lazylist.sty)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/tools/array.sty
+Package: array 2005/08/23 v2.4b Tabular extension package (FMi)
+\col@sep=\dimen104
+\extrarowheight=\dimen105
+\NC@list=\toks15
+\extratabsurround=\skip43
+\backup@length=\skip44
+)
+\PT@colwidth=\dimen106
+\PT@cols=\count87
+\PT@table=\count88
+\PT@toks=\toks16
+\PT@in=\read1
+\PT@out=\write3
+)
+\mathindent=\dimen107
+\blanklineskip=\skip45
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2005/08/06 v4.2 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count89
+\calc@Bcount=\count90
+\calc@Adimen=\dimen108
+\calc@Bdimen=\dimen109
+\calc@Askip=\skip46
+\calc@Bskip=\skip47
+LaTeX Info: Redefining \setlength on input line 75.
+LaTeX Info: Redefining \addtolength on input line 76.
+\calc@Ccount=\count91
+\calc@Cskip=\skip48
+)
+(./HomeBanking.aux
+
+LaTeX Warning: Label `fig:eval-adv01' multiply defined.
+
+
+LaTeX Warning: Label `fig:eval-adv01' multiply defined.
+
+)
+\openout1 = `HomeBanking.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 270.
+LaTeX Font Info:    ... okay on input line 270.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 270.
+LaTeX Font Info:    ... okay on input line 270.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 270.
+LaTeX Font Info:    ... okay on input line 270.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 270.
+LaTeX Font Info:    ... okay on input line 270.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 270.
+LaTeX Font Info:    ... okay on input line 270.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 270.
+LaTeX Font Info:    ... okay on input line 270.
+LaTeX Font Info:    Try loading font information for U+msa on input line 272.
+ (/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 272.
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+stmry on input line 272.
+
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+
+LaTeX Warning: Reference `' on page 1 undefined on input line 285.
+
+
+Underfull \hbox (badness 4193) in paragraph at lines 302--302
+[]|\OT1/cmr/m/n/10 The cus-tomer se-
+ []
+
+
+Underfull \hbox (badness 2293) in paragraph at lines 302--302
+\OT1/cmr/m/n/10 a new with-drawal
+ []
+
+
+Underfull \hbox (badness 3646) in paragraph at lines 302--302
+\OT1/cmr/m/n/10 and asks for the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--302
+\OT1/cmr/m/n/10 amount to with-
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 302--302
+[]|\OT1/cmr/m/n/10 The cus-tomer fills
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 302--302
+\OT1/cmr/m/n/10 in the amount to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--302
+[]|\OT1/cmr/m/n/10 The sys-tem re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--302
+\OT1/cmr/m/n/10 bal-ance of the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--302
+\OT1/cmr/m/n/10 amount is not
+ []
+
+
+Underfull \hbox (badness 4886) in paragraph at lines 302--302
+\OT1/cmr/m/n/10 greater than cur-
+ []
+
+
+Underfull \hbox (badness 4556) in paragraph at lines 302--302
+\OT1/cmr/m/n/10 rent bal-ance plus
+ []
+
+
+Underfull \hbox (badness 4217) in paragraph at lines 302--302
+[]|\OT1/cmr/m/n/10 The bank sys-tem
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--302
+\OT1/cmr/m/n/10 with-draws the
+ []
+
+
+Underfull \hbox (badness 5667) in paragraph at lines 302--302
+\OT1/cmr/m/n/10 amount from the
+ []
+
+
+Overfull \hbox (13.61635pt too wide) in paragraph at lines 302--303
+[] 
+ []
+
+[1
+
+] [2]
+Overfull \hbox (6.9259pt too wide) in paragraph at lines 317--317
+[]|\OT1/cmr/m/n/10 adv0101| 
+ []
+
+
+Underfull \hbox (badness 2435) in paragraph at lines 317--317
+\OT1/cmr/m/n/10 cus-tomer to en-ter
+ []
+
+
+Overfull \hbox (6.9259pt too wide) in paragraph at lines 317--317
+[]|\OT1/cmr/m/n/10 adv0102| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 317--317
+[]|\OT1/cmr/m/n/10 The cus-tomer
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 317--317
+\OT1/cmr/m/n/10 fills in the per-
+ []
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 317--317
+\OT1/cmr/m/n/10 sonal iden-ti-fi-ca-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 317--317
+[]|\OT1/cmr/m/n/10 The sys-tem au-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 317--317
+\OT1/cmr/m/n/10 then-ti-cates the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 317--317
+\OT1/cmr/m/n/10 cus-tomer's per-
+ []
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 317--317
+\OT1/cmr/m/n/10 sonal iden-ti-fi-ca-tion
+ []
+
+
+Overfull \hbox (13.61635pt too wide) in paragraph at lines 317--318
+[] 
+ []
+
+
+Underfull \hbox (badness 4193) in paragraph at lines 327--327
+[]|\OT1/cmr/m/n/10 The cus-tomer se-
+ []
+
+
+Underfull \hbox (badness 2293) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 a new with-drawal
+ []
+
+
+Underfull \hbox (badness 3646) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 and asks for the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 amount to with-
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 327--327
+[]|\OT1/cmr/m/n/10 The cus-tomer fills
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 in the amount to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
+[]|\OT1/cmr/m/n/10 The sys-tem re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 bal-ance of the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 amount is not
+ []
+
+
+Underfull \hbox (badness 4886) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 greater than cur-
+ []
+
+
+Underfull \hbox (badness 4556) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 rent bal-ance plus
+ []
+
+
+Overfull \hbox (6.9259pt too wide) in paragraph at lines 327--327
+[]|\OT1/cmr/m/n/10 adv0101| 
+ []
+
+
+Underfull \hbox (badness 2435) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 cus-tomer to en-ter
+ []
+
+
+Overfull \hbox (6.9259pt too wide) in paragraph at lines 327--327
+[]|\OT1/cmr/m/n/10 adv0102| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
+[]|\OT1/cmr/m/n/10 The cus-tomer
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 fills in the per-
+ []
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 sonal iden-ti-fi-ca-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
+[]|\OT1/cmr/m/n/10 The sys-tem au-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 then-ti-cates the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 cus-tomer's per-
+ []
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 sonal iden-ti-fi-ca-tion
+ []
+
+
+Underfull \hbox (badness 4217) in paragraph at lines 327--327
+[]|\OT1/cmr/m/n/10 The bank sys-tem
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 with-draws the
+ []
+
+
+Underfull \hbox (badness 5667) in paragraph at lines 327--327
+\OT1/cmr/m/n/10 amount from the
+ []
+
+
+Overfull \hbox (13.61635pt too wide) in paragraph at lines 327--328
+[][] 
+ []
+
+[3]
+Overfull \hbox (6.9259pt too wide) in paragraph at lines 343--343
+[]|\OT1/cmr/m/n/10 adv0201| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
+[]|\OT1/cmr/m/n/10 The trans-ac-tion
+ []
+
+
+Underfull \hbox (badness 1824) in paragraph at lines 343--343
+\OT1/cmr/m/n/10 han-dler starts the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
+\OT1/cmr/m/n/10 pro-cess-ing of a
+ []
+
+
+Overfull \hbox (6.9259pt too wide) in paragraph at lines 343--343
+[]|\OT1/cmr/m/n/10 adv0202| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
+\OT1/cmr/m/n/10 trans-ac-tion in-for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
+\OT1/cmr/m/n/10 ma-tion is logged
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
+\OT1/cmr/m/n/10 to the overview
+ []
+
+
+Underfull \hbox (badness 6876) in paragraph at lines 343--343
+\OT1/cmr/m/n/10 of the com-pleted
+ []
+
+
+Overfull \hbox (6.9259pt too wide) in paragraph at lines 343--343
+[]|\OT1/cmr/m/n/10 adv0203| 
+ []
+
+
+Underfull \hbox (badness 2269) in paragraph at lines 343--343
+\OT1/cmr/m/n/10 re-moved from the
+ []
+
+
+Overfull \hbox (13.61635pt too wide) in paragraph at lines 343--345
+[] 
+ []
+
+[4]
+
+LaTeX Warning: Reference `fig:eval-adv02' on page 5 undefined on input line 351
+.
+
+
+Underfull \hbox (badness 4193) in paragraph at lines 356--356
+[]|\OT1/cmr/m/n/10 The cus-tomer se-
+ []
+
+
+Underfull \hbox (badness 2293) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 a new with-drawal
+ []
+
+
+Underfull \hbox (badness 3646) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 and asks for the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 amount to with-
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 356--356
+[]|\OT1/cmr/m/n/10 The cus-tomer fills
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 in the amount to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--356
+[]|\OT1/cmr/m/n/10 The sys-tem re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 bal-ance of the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 amount is not
+ []
+
+
+Underfull \hbox (badness 4886) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 greater than cur-
+ []
+
+
+Underfull \hbox (badness 4556) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 rent bal-ance plus
+ []
+
+
+Overfull \hbox (6.9259pt too wide) in paragraph at lines 356--356
+[]|\OT1/cmr/m/n/10 adv0201| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--356
+[]|\OT1/cmr/m/n/10 The trans-ac-tion
+ []
+
+
+Underfull \hbox (badness 1824) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 han-dler starts the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 pro-cess-ing of a
+ []
+
+
+Underfull \hbox (badness 4217) in paragraph at lines 356--356
+[]|\OT1/cmr/m/n/10 The bank sys-tem
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 with-draws the
+ []
+
+
+Underfull \hbox (badness 5667) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 amount from the
+ []
+
+
+Overfull \hbox (6.9259pt too wide) in paragraph at lines 356--356
+[]|\OT1/cmr/m/n/10 adv0202| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 trans-ac-tion in-for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 ma-tion is logged
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 to the overview
+ []
+
+
+Underfull \hbox (badness 6876) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 of the com-pleted
+ []
+
+
+Overfull \hbox (6.9259pt too wide) in paragraph at lines 356--356
+[]|\OT1/cmr/m/n/10 adv0203| 
+ []
+
+
+Underfull \hbox (badness 2269) in paragraph at lines 356--356
+\OT1/cmr/m/n/10 re-moved from the
+ []
+
+
+Overfull \hbox (13.61635pt too wide) in paragraph at lines 356--357
+[][] 
+ []
+
+
+LaTeX Warning: Reference `fig:eval-adv03' on page 5 undefined on input line 363
+.
+
+
+Underfull \hbox (badness 4193) in paragraph at lines 370--370
+[]|\OT1/cmr/m/n/10 The cus-tomer se-
+ []
+
+
+Underfull \hbox (badness 2293) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 a new with-drawal
+ []
+
+
+Underfull \hbox (badness 3646) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 and asks for the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 amount to with-
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 370--370
+[]|\OT1/cmr/m/n/10 The cus-tomer fills
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 in the amount to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--370
+[]|\OT1/cmr/m/n/10 The sys-tem re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 bal-ance of the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 amount is not
+ []
+
+
+Underfull \hbox (badness 4886) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 greater than cur-
+ []
+
+
+Underfull \hbox (badness 4556) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 rent bal-ance plus
+ []
+
+
+Overfull \hbox (6.9259pt too wide) in paragraph at lines 370--370
+[]|\OT1/cmr/m/n/10 adv0201| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--370
+[]|\OT1/cmr/m/n/10 The trans-ac-tion
+ []
+
+
+Underfull \hbox (badness 1824) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 han-dler starts the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 pro-cess-ing of a
+ []
+
+
+Overfull \hbox (6.9259pt too wide) in paragraph at lines 370--370
+[]|\OT1/cmr/m/n/10 adv0202| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 trans-ac-tion in-for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 ma-tion is logged
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 to the overview
+ []
+
+
+Underfull \hbox (badness 6876) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 of the com-pleted
+ []
+
+
+Overfull \hbox (6.9259pt too wide) in paragraph at lines 370--370
+[]|\OT1/cmr/m/n/10 adv0203| 
+ []
+
+
+Underfull \hbox (badness 2269) in paragraph at lines 370--370
+\OT1/cmr/m/n/10 re-moved from the
+ []
+
+
+Overfull \hbox (13.61635pt too wide) in paragraph at lines 370--371
+[][] 
+ []
+
+[5]
+\openout3 = `HomeBanking.ptb'.
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][][][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+
+Overfull \hbox (269.43582pt too wide) in paragraph at lines 378--629
+ [][] 
+ []
+
+[6] [7] [8] [9] (./HomeBanking.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1269 strings out of 493887
+ 15627 string characters out of 1151122
+ 97834 words of memory out of 3000000
+ 4543 multiletter control sequences out of 10000+50000
+ 14596 words of font info for 58 fonts, out of 3000000 for 5000
+ 714 hyphenation exceptions out of 8191
+ 23i,9n,43p,1114b,781s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on HomeBanking.dvi (9 pages, 22768 bytes).

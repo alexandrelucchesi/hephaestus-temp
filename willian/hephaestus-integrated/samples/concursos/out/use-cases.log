@@ -1,0 +1,1089 @@
+This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=latex 2008.8.22)  3 AUG 2010 21:10
+entering extended mode
+ %&-line parsing enabled.
+**use-cases.tex
+(./use-cases.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, german-x-2008-06-18, ngerman-x-2008-06-18, ancientgreek, ibycus, ar
+abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
+h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
+greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, la
+tin, mongolian, mongolian2a, bokmal, nynorsk, polish, portuguese, romanian, rus
+sian, sanskrit, serbian, slovak, slovenian, spanish, swedish, turkish, ukenglis
+h, ukrainian, uppersorbian, welsh, loaded.
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+No file use-cases.aux.
+\openout1 = `use-cases.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+Missing character: There is no ú in font cmr17!
+Missing character: There is no é in font cmr17!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 10.
+
+LaTeX Warning: No \author given.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 14.
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 14.
+Missing character: There is no Ç in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no Í in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no é in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no í in font cmr10!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 23.
+Missing character: There is no Ç in font cmr10!
+Missing character: There is no Õ in font cmr10!
+
+Overfull \hbox (25.34998pt too wide) in paragraph at lines 23--28
+[] 
+ []
+
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ã in font cmr10!
+
+Underfull \hbox (badness 2512) in paragraph at lines 33--36
+\OT1/cmr/m/n/10.95 con-cur-sos pbli-cos sero
+ []
+
+
+Underfull \hbox (badness 4846) in paragraph at lines 33--36
+\OT1/cmr/m/n/10.95 ob-jeto de Ed-i-tal ex-
+ []
+
+
+Underfull \hbox (badness 7151) in paragraph at lines 33--36
+\OT1/cmr/m/n/10.95 trato que ser pub-li-
+ []
+
+
+Underfull \hbox (badness 2486) in paragraph at lines 33--36
+\OT1/cmr/m/n/10.95 cado no Dirio Ofi-cial
+ []
+
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no í in font cmr10!
+
+Underfull \hbox (badness 2181) in paragraph at lines 38--41
+\OT1/cmr/m/n/10.95 Condies Gerais e por
+ []
+
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no í in font cmr10!
+
+Underfull \hbox (badness 1281) in paragraph at lines 43--46
+[]\OT1/cmr/m/n/10.95 Os con-cur-sos sero ex-
+ []
+
+
+Underfull \hbox (badness 3281) in paragraph at lines 43--46
+\OT1/cmr/m/n/10.95 e-cu-ta-dos pela Fun-dao
+ []
+
+Missing character: There is no à in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no í in font cmr10!
+
+Underfull \hbox (badness 1490) in paragraph at lines 48--50
+\OT1/cmr/m/n/10.95 va-gas es-ta-b-ele-ci-das no
+ []
+
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ê in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+
+Underfull \hbox (badness 5939) in paragraph at lines 52--55
+[]\OT1/cmr/m/n/10.95 As provas sero re-al-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--55
+\OT1/cmr/m/n/10.95 izadas pela Unidade
+ []
+
+
+Underfull \hbox (badness 4341) in paragraph at lines 52--55
+\OT1/cmr/m/n/10.95 Ed-i-tal es-pec-fico, cujo
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--55
+\OT1/cmr/m/n/10.95 en-dereo con-star no
+ []
+
+
+Underfull \hbox (badness 4739) in paragraph at lines 52--55
+\OT1/cmr/m/n/10.95 ed-i-tal de Aceitao de
+ []
+
+
+Underfull \hbox (badness 1331) in paragraph at lines 52--55
+\OT1/cmr/m/n/10.95 In-scries e Crono-grama
+ []
+
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ê in font cmr10!
+Missing character: There is no á in font cmr10!
+
+Underfull \hbox (badness 1796) in paragraph at lines 57--60
+[]\OT1/cmr/m/n/10.95 A lotao do can-didato
+ []
+
+
+Underfull \hbox (badness 6927) in paragraph at lines 57--60
+\OT1/cmr/m/n/10.95 em razo de aprovao
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 57--60
+\OT1/cmr/m/n/10.95 neste cconcurso pblico
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--60
+\OT1/cmr/m/n/10.95 se dar na Unidade
+ []
+
+
+Underfull \hbox (badness 2012) in paragraph at lines 57--60
+\OT1/cmr/m/n/10.95 mento re-sponsvel pelo
+ []
+
+Missing character: There is no É in font cmr10!
+Missing character: There is no à in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--68
+[] \OT1/cmr/m/n/10.95 fac-ul-tada  Fun-dao
+ []
+
+
+Underfull \hbox (badness 1990) in paragraph at lines 62--68
+\OT1/cmr/m/n/10.95 pro-por aos can-didatos
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--68
+\OT1/cmr/m/n/10.95 con-curso, exce-dentes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--68
+\OT1/cmr/m/n/10.95 do nmero de va-gas
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--68
+\OT1/cmr/m/n/10.95 con-stante do Ed-i-tal
+ []
+
+
+Underfull \hbox (badness 7064) in paragraph at lines 62--68
+\OT1/cmr/m/n/10.95 es-pec-fico, tanto para
+ []
+
+
+Underfull \hbox (badness 3281) in paragraph at lines 62--68
+\OT1/cmr/m/n/10.95 a classe de Pro-fes-sor
+ []
+
+
+Underfull \hbox (badness 1552) in paragraph at lines 62--68
+\OT1/cmr/m/n/10.95 na rea que se deu a
+ []
+
+Missing character: There is no í in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no à in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no à in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--75
+\OT1/cmr/m/n/10.95 ter in-for-maes quanto
+ []
+
+
+Underfull \hbox (badness 1412) in paragraph at lines 70--75
+\OT1/cmr/m/n/10.95 rea e  quan-ti-dade de
+ []
+
+
+Underfull \hbox (badness 7851) in paragraph at lines 70--75
+\OT1/cmr/m/n/10.95 o con-curso, po-dendo
+ []
+
+
+Underfull \hbox (badness 5288) in paragraph at lines 70--75
+\OT1/cmr/m/n/10.95 Pro-fes-sor Ad-junto ou
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--75
+\OT1/cmr/m/n/10.95 para o cadas-tro de
+ []
+
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no ó in font cmr10!
+
+Underfull \hbox (badness 5403) in paragraph at lines 84--85
+[]\OT1/cmr/m/n/10.95 b) Prova Didtica de
+ []
+
+Missing character: There is no í in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ê in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no é in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no í in font cmr10!
+
+Underfull \hbox (badness 3735) in paragraph at lines 90--93
+\OT1/cmr/m/n/10.95 si-dades es-pec-fi-cas das
+ []
+
+
+Overfull \hbox (109.7135pt too wide) in paragraph at lines 29--95
+[][] 
+ []
+
+[1
+
+]
+Overfull \vbox (859.90009pt too high) has occurred while \output is active []
+
+
+[2]
+Missing character: There is no Ç in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no Ú in font cmr10!
+
+Overfull \hbox (25.34998pt too wide) in paragraph at lines 96--101
+[] 
+ []
+
+Missing character: There is no ú in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ô in font cmr10!
+
+Underfull \hbox (badness 4108) in paragraph at lines 106--109
+[]\OT1/cmr/m/n/10.95 Todo ed-i-tal ou com-
+ []
+
+
+Underfull \hbox (badness 4108) in paragraph at lines 106--109
+\OT1/cmr/m/n/10.95 da Unio e di-vul-gado
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--109
+\OT1/cmr/m/n/10.95 no en-dereo eletr-nico
+ []
+
+
+Overfull \hbox (22.12482pt too wide) in paragraph at lines 106--109
+\OT1/cmr/m/n/10.95 http://srh.unb.br/concursos.| 
+ []
+
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ô in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+[]\OT1/cmr/m/n/10.95 O can-didato de-ver
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+\OT1/cmr/m/n/10.95 ob-ser-var aten-ta-mente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+\OT1/cmr/m/n/10.95 que sero pub-li-cadas
+ []
+
+
+Underfull \hbox (badness 4266) in paragraph at lines 115--118
+\OT1/cmr/m/n/10.95 em ed-i-tais ou co-mu-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+\OT1/cmr/m/n/10.95 ni-ca-dos di-vul-ga-dos
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+\OT1/cmr/m/n/10.95 no en-dereo eletr-nico:
+ []
+
+
+Overfull \hbox (22.12482pt too wide) in paragraph at lines 115--118
+\OT1/cmr/m/n/10.95 http://srh.unb.br/concursos.| 
+ []
+
+
+Overfull \hbox (109.7135pt too wide) in paragraph at lines 102--120
+[][] 
+ []
+
+
+Overfull \hbox (25.34998pt too wide) in paragraph at lines 121--126
+[] 
+ []
+
+Missing character: There is no é in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no á in font cmr10!
+
+Underfull \hbox (badness 4913) in paragraph at lines 131--133
+[]\OT1/cmr/m/n/10.95 Cargo: Pro-fes-sor da
+ []
+
+
+Underfull \hbox (badness 3849) in paragraph at lines 131--133
+\OT1/cmr/m/n/10.95 Car-reira de Mag-istrio
+ []
+
+
+Underfull \hbox (badness 2818) in paragraph at lines 131--133
+\OT1/cmr/m/n/10.95 Su-pe-rior, Nvel 1, na
+ []
+
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ê in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no í in font cmr10!
+
+Underfull \hbox (badness 1264) in paragraph at lines 135--138
+\OT1/cmr/m/n/10.95 doc-n-cia de nvel su-pe-
+ []
+
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no í in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+[]\OT1/cmr/m/n/10.95 Regime de tra-balho:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
+[]\OT1/cmr/m/n/10.95 Local de Tra-balho:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
+\OT1/cmr/m/n/10.95 (Fac-ul-dade Gama -
+ []
+
+Missing character: There is no í in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no à in font cmr10!
+
+Underfull \hbox (badness 1478) in paragraph at lines 146--148
+\OT1/cmr/m/n/10.95 ter in-for-maes rel-a-ti-vas
+ []
+
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no é in font cmr10!
+Missing character: There is no é in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no é in font cmr10!
+
+Underfull \hbox (badness 2042) in paragraph at lines 150--154
+\OT1/cmr/m/n/10.95 b-ele-cida pelo Gov-erno
+ []
+
+
+Underfull \hbox (badness 4556) in paragraph at lines 150--154
+\OT1/cmr/m/n/10.95 Fed-eral e  com-posta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--154
+\OT1/cmr/m/n/10.95 Van-tagem Pe-cu-nirias
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--154
+\OT1/cmr/m/n/10.95 In-di-vid-ual, Grat-i-fi-cao
+ []
+
+
+Underfull \hbox (badness 3312) in paragraph at lines 150--154
+\OT1/cmr/m/n/10.95 Car-reira do Mag-istrio
+ []
+
+Missing character: There is no í in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no á in font cmr10!
+
+Underfull \hbox (badness 1478) in paragraph at lines 156--158
+\OT1/cmr/m/n/10.95 ter in-for-maes rel-a-ti-vas
+ []
+
+
+Underfull \hbox (badness 3942) in paragraph at lines 156--158
+\OT1/cmr/m/n/10.95 as re-spec-ti-vas classes.
+ []
+
+
+Overfull \hbox (109.7135pt too wide) in paragraph at lines 127--160
+[][] 
+ []
+
+[3]
+Overfull \hbox (25.34998pt too wide) in paragraph at lines 161--166
+[] 
+ []
+
+[4]
+Underfull \hbox (badness 1983) in paragraph at lines 171--172
+[]\OT1/cmr/m/n/10.95 Ter sido aprovado no
+ []
+
+Missing character: There is no í in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--178
+[]\OT1/cmr/m/n/10.95 Ter na-cional-i-dade
+ []
+
+
+Underfull \hbox (badness 7576) in paragraph at lines 174--178
+\OT1/cmr/m/n/10.95 e, em caso de na-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--178
+\OT1/cmr/m/n/10.95 es-tar am-parado pelo
+ []
+
+
+Underfull \hbox (badness 3690) in paragraph at lines 174--178
+\OT1/cmr/m/n/10.95 es-tatuto da igual-dade
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--178
+\OT1/cmr/m/n/10.95 en-tre brasileiros e
+ []
+
+
+Underfull \hbox (badness 6592) in paragraph at lines 174--178
+\OT1/cmr/m/n/10.95 por-tugue-ses, com re-
+ []
+
+
+Underfull \hbox (badness 2961) in paragraph at lines 174--178
+\OT1/cmr/m/n/10.95 con-hec-i-mento de gozo
+ []
+
+Missing character: There is no á in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--182
+[]\OT1/cmr/m/n/10.95 O can-didato es-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--182
+\OT1/cmr/m/n/10.95 trangeiro, legal-mente
+ []
+
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+
+Underfull \hbox (badness 1348) in paragraph at lines 184--185
+[]\OT1/cmr/m/n/10.95 Estar em dia com as
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
+\OT1/cmr/m/n/10.95 obri-gaes eleitorais,
+ []
+
+
+Underfull \hbox (badness 1264) in paragraph at lines 184--185
+\OT1/cmr/m/n/10.95 em caso de can-didato
+ []
+
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+
+Underfull \hbox (badness 6125) in paragraph at lines 187--189
+[]\OT1/cmr/m/n/10.95 Apresentar Cer-ti-fi-cado
+ []
+
+
+Underfull \hbox (badness 6428) in paragraph at lines 187--189
+\OT1/cmr/m/n/10.95 de Re-servista ou de
+ []
+
+
+Underfull \hbox (badness 1264) in paragraph at lines 187--189
+\OT1/cmr/m/n/10.95 em caso de can-didato
+ []
+
+Missing character: There is no í in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no í in font cmr10!
+
+Underfull \hbox (badness 2401) in paragraph at lines 191--194
+[]\OT1/cmr/m/n/10.95 Comprovar o nvel de
+ []
+
+
+Underfull \hbox (badness 5985) in paragraph at lines 191--194
+\OT1/cmr/m/n/10.95 cor-reu, em con-formi-
+ []
+
+
+Underfull \hbox (badness 1132) in paragraph at lines 191--194
+\OT1/cmr/m/n/10.95 dade com o Req-ui-sito
+ []
+
+
+Underfull \hbox (badness 5359) in paragraph at lines 191--194
+\OT1/cmr/m/n/10.95 Bsico es-ta-b-ele-cido no
+ []
+
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+
+Underfull \hbox (badness 1629) in paragraph at lines 196--201
+\OT1/cmr/m/n/10.95 var o Req-ui-sito Bsico
+ []
+
+
+Underfull \hbox (badness 1831) in paragraph at lines 196--201
+\OT1/cmr/m/n/10.95 con-curso poder acatar
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 196--201
+\OT1/cmr/m/n/10.95 em fase de reval-i-dao,
+ []
+
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ê in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--207
+\OT1/cmr/m/n/10.95 i-mento/revalidao dos
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--207
+\OT1/cmr/m/n/10.95 in-sti-tu-ies es-trangeiras,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--207
+\OT1/cmr/m/n/10.95 com-pro-misso de-ter-mi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--207
+\OT1/cmr/m/n/10.95 para o cumpri-mento
+ []
+
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--211
+[]\OT1/cmr/m/n/10.95 b) O re-con-hec-i-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--211
+\OT1/cmr/m/n/10.95 mento/revalidao dos
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--211
+\OT1/cmr/m/n/10.95 ttu-los es-trangeiros
+ []
+
+
+Underfull \hbox (badness 1122) in paragraph at lines 209--211
+\OT1/cmr/m/n/10.95 de-ver se dar em con-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--211
+\OT1/cmr/m/n/10.95 formi-dade com as
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--211
+\OT1/cmr/m/n/10.95 nor-mas es-ta-b-ele-ci-das
+ []
+
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no é in font cmr10!
+Missing character: There is no à in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ê in font cmr10!
+
+Underfull \hbox (badness 1924) in paragraph at lines 213--217
+[]\OT1/cmr/m/n/10.95 c) Findo o prazo es-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--217
+\OT1/cmr/m/n/10.95 ta-b-ele-cido no termo
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--217
+\OT1/cmr/m/n/10.95 havendo re-con-hec-i-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--217
+\OT1/cmr/m/n/10.95 mento/revalidao dos
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--217
+\OT1/cmr/m/n/10.95 dao Uni-ver-si-dade de
+ []
+
+
+Underfull \hbox (badness 1694) in paragraph at lines 213--217
+\OT1/cmr/m/n/10.95 Braslia emi-tir Ato de
+ []
+
+Missing character: There is no ã in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no ê in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no ê in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ê in font cmr10!
+Missing character: There is no á in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--225
+\OT1/cmr/m/n/10.95 Con-selho de Classe,
+ []
+
+
+Underfull \hbox (badness 2253) in paragraph at lines 222--225
+\OT1/cmr/m/n/10.95 em Lei desse reg-istro
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--225
+\OT1/cmr/m/n/10.95 para o ex-er-c-cio da
+ []
+
+
+Underfull \hbox (badness 2269) in paragraph at lines 222--225
+\OT1/cmr/m/n/10.95 doc-n-cia. Na hiptese
+ []
+
+
+Underfull \hbox (badness 1297) in paragraph at lines 222--225
+\OT1/cmr/m/n/10.95 De-creto n. 5.773 de
+ []
+
+Missing character: There is no ç in font cmr10!
+Missing character: There is no õ in font cmr10!
+
+Underfull \hbox (badness 3601) in paragraph at lines 227--229
+\OT1/cmr/m/n/10.95 deste Ed-i-tal e/ou de
+ []
+
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ú in font cmr10!
+
+Underfull \hbox (badness 4144) in paragraph at lines 231--234
+\OT1/cmr/m/n/10.95 es-tar cumprindo sano
+ []
+
+
+Overfull \hbox (109.7135pt too wide) in paragraph at lines 167--236
+[][] 
+ []
+
+[5]
+Overfull \vbox (914.70009pt too high) has occurred while \output is active []
+
+
+[6]
+Overfull \hbox (25.34998pt too wide) in paragraph at lines 237--242
+[] 
+ []
+
+Missing character: There is no á in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no á in font cmr10!
+
+Underfull \hbox (badness 3635) in paragraph at lines 247--249
+\OT1/cmr/m/n/10.95 hec-i-men-tos, de carter
+ []
+
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no Ç in font cmr10!
+Missing character: There is no Õ in font cmr10!
+Missing character: There is no á in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 251--255
+\OT1/cmr/m/n/10.95 PRE-LIM-INARES DO
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 251--255
+\OT1/cmr/m/n/10.95 CON-CURSO e de
+ []
+
+
+Underfull \hbox (badness 1838) in paragraph at lines 251--255
+\OT1/cmr/m/n/10.95 prova ser apli-cada si-
+ []
+
+Missing character: There is no á in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ô in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--263
+[]\OT1/cmr/m/n/10.95 A Prova Es-crita de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--263
+\OT1/cmr/m/n/10.95 Con-hec-i-men-tos, que
+ []
+
+
+Underfull \hbox (badness 1142) in paragraph at lines 257--263
+\OT1/cmr/m/n/10.95 de questes e abranger
+ []
+
+
+Underfull \hbox (badness 2809) in paragraph at lines 257--263
+\OT1/cmr/m/n/10.95 os ob-je-tos de avaliao
+ []
+
+
+Underfull \hbox (badness 1888) in paragraph at lines 257--263
+\OT1/cmr/m/n/10.95 (ha-bil-i-dades e con-hec-
+ []
+
+
+Underfull \hbox (badness 1968) in paragraph at lines 257--263
+\OT1/cmr/m/n/10.95 i-men-tos), de-scritos no
+ []
+
+
+Underfull \hbox (badness 1831) in paragraph at lines 257--263
+\OT1/cmr/m/n/10.95 Avaliao para a Prova
+ []
+
+
+Underfull \hbox (badness 4886) in paragraph at lines 257--263
+\OT1/cmr/m/n/10.95 Didtica e Es-crita de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--263
+\OT1/cmr/m/n/10.95 Con-hec-i-men-tos. O
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--263
+\OT1/cmr/m/n/10.95 Quadro dos Ob-je-tos
+ []
+
+
+Underfull \hbox (badness 4686) in paragraph at lines 257--263
+\OT1/cmr/m/n/10.95 de Avaliao far parte
+ []
+
+
+Overfull \hbox (22.12482pt too wide) in paragraph at lines 257--263
+\OT1/cmr/m/n/10.95 http://srh.unb.br/concursos.| 
+ []
+
+Missing character: There is no á in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no à in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no ã in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--272
+[]\OT1/cmr/m/n/10.95 O can-didato de-ver
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--272
+\OT1/cmr/m/n/10.95 apor sua assi-natura
+ []
+
+
+Underfull \hbox (badness 4505) in paragraph at lines 268--272
+\OT1/cmr/m/n/10.95 na capa do Caderno
+ []
+
+
+Underfull \hbox (badness 3199) in paragraph at lines 268--272
+\OT1/cmr/m/n/10.95 de Questes da Prova
+ []
+
+
+Underfull \hbox (badness 1184) in paragraph at lines 268--272
+\OT1/cmr/m/n/10.95 tos. Qual-quer marca
+ []
+
+
+Underfull \hbox (badness 1546) in paragraph at lines 268--272
+\OT1/cmr/m/n/10.95 iden-ti-fi-cadora re-al-izada
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--272
+\OT1/cmr/m/n/10.95 des-ti-nado  tran-scrio
+ []
+
+
+Underfull \hbox (badness 5563) in paragraph at lines 268--272
+\OT1/cmr/m/n/10.95 da Prova Es-crita de
+ []
+
+
+Underfull \hbox (badness 4699) in paragraph at lines 268--272
+\OT1/cmr/m/n/10.95 Con-hec-i-men-tos en-se-jar
+ []
+
+
+Overfull \hbox (109.7135pt too wide) in paragraph at lines 243--274
+[][] 
+ []
+
+[7]
+Overfull \vbox (122.29993pt too high) has occurred while \output is active []
+
+
+[8] (./use-cases.aux) ) 
+Here is how much of TeX's memory you used:
+ 248 strings out of 493887
+ 2830 string characters out of 1151122
+ 62889 words of memory out of 3000000
+ 3596 multiletter control sequences out of 10000+50000
+ 8811 words of font info for 31 fonts, out of 3000000 for 5000
+ 714 hyphenation exceptions out of 8191
+ 21i,8n,19p,152b,193s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on use-cases.dvi (8 pages, 21504 bytes).
