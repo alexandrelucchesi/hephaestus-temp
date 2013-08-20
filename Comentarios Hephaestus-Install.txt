@@ -1,0 +1,107 @@
+RUNNING HEPHAESTUS
+===========================
+
+1. INSTALLING DEPENDENCIES
+===========================
+
+1.1. QUICKCHECK
+===========================
+
+- Steps:
+
+    $ cabal install quickcheck
+
+1.1. FUNSAT
+===========================
+
+The following version of FUNSAT compiles in Haskell 7.4.1 platform:
+
+    https://github.com/rbonifacio/funsat
+
+- Steps:
+
+    $ cabal install bimap-0.2.4 bitset-1.1 parse-dimacs-1.3
+    $ git clone https://github.com/rbonifacio/funsat.git
+    $ cd funsat
+  * $ runhaskell Setup.hs configure --user
+    $ runhaskell Setup.hs build
+    $ runhaskell Setup.hs install
+
+    * NOTE: Here it shows a warning telling about a possible compilation 
+        failure due to QuickCheck versions. Just ignore it. 
+
+===========================
+1.2. HXT
+===========================
+
+- Steps:
+
+    $ cabal install hxt hxt-relaxng
+
+===========================
+1.3. UI - GTK
+===========================
+
+- Steps:
+
+    $ sudo apt-get install libpango1.0-dev libgtk2.0-dev glade libglade2-dev
+    $ cabal install gtk2hs-buildtools
+    $ export PATH=$PATH:~/.cabal/bin
+    $ cabal install glib gtk glade
+
+Please install `gtk2hs-buildtools` first and check that the install directory is in your PATH (e.g. HOME/.cabal/bin).
+cabal: Error: some packages failed to install:
+cairo-0.12.4 failed during the configure step. The exception was:
+ExitFailure 1
+gio-0.12.4 depends on glib-0.12.4 which failed to install.
+glade-0.12.1 depends on glib-0.12.4 which failed to install.
+glib-0.12.4 failed during the configure step. The exception was:
+ExitFailure 1
+gtk-0.12.4 depends on glib-0.12.4 which failed to install.
+pango-0.12.4 depends on glib-0.12.4 which failed to install.
+
+http://blog.jedf.com/
+sudo ln ~/.cabal/bin/gtk2hsC2hs /usr/bin/gtk2hsC2hs
+sudo ln ~/.cabal/bin/gtk2hsHookGenerator /usr/bin/gtk2hsHookGenerator
+sudo ln ~/.cabal/bin/gtk2hsTypeGen /usr/bin/gtk2hsTypeGen
+
+==========================
+2. RUNNING
+==========================
+
+- Checkout branch "hephaestus-7.4.1";
+- Run one of the build scripts in "main"  folder;
+- Run the executable file generated at "src" folder.
+
+- Steps:
+
+    $ cd YOUR_HEPHAESTUS_DIR
+    $ git checkout hephaestus-7.4.1
+    $ cd main/
+    $ ./compileGUI.sh
+    $ cd src/
+    $ ./VMGui
+
+
+luiz@luiz:~/hephaestus/feature-modeling/src$ ghci -i../../util/src/ FeatureModel/Main.hs
+GHCi, version 7.4.1: http://www.haskell.org/ghc/  :? for help
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+
+FeatureModel/Main.hs:24:8:
+    Could not find module `OBDD'
+    Use -v to see a list of the files searched for.
+Failed, modules loaded: none.
+Prelude> 
+
+FeatureModel/Types.hs:220:15:
+    Couldn't match expected type `containers-0.4.2.1:Data.Set.Set
+                                    Clause'
+                with actual type `Set.Set a0'
+    In the return type of a call of `Set.fromList'
+    In the `clauses' field of a record
+    In the expression:
+      CNF
+
+
