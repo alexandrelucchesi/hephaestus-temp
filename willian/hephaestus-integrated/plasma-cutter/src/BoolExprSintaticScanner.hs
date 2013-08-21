@@ -2,7 +2,7 @@
 module BoolExprSintaticScanner (parseFunction) where
 
 import BoolExprLexicalScanner
-import BasicTypes
+import PCBasicTypes
 
 -- parser produced by Happy Version 1.18.9
 

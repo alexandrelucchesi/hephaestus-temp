@@ -2,7 +2,7 @@
 module LineSintaticScanner (parseLine) where
 
 import LineLexicalScanner
-import BasicTypes
+import PCBasicTypes
 
 -- parser produced by Happy Version 1.18.9
 

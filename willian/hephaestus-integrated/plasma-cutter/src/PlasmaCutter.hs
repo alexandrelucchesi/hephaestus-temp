@@ -1,6 +1,6 @@
 module PlasmaCutter where
 
-import qualified BasicTypes as PC-Types
+import PCBasicTypes
 import LineSintaticScanner
 import BoolExprSintaticScanner
 
