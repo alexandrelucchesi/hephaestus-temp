@@ -19,4 +19,4 @@ social4
 /*#*/
 
 
-extractCode ["int main", "teste", "/*#SOCIAL*/", "social1", "social2", "/*#FACEBOOK*/", "face1", "face2", "/*#*/", "/*#TWITTER || FACEBOOK*/", "social3", "/*#*/", "/*#TWITTER*/", "tw1", "tw2", "/*#*/", "social4", "/*#*/", "end"] ([("FACEBOOK",True),("SOCIAL", True),("TWITTER", True)], [True])
+extractCode ["int main", "teste", "/*#SOCIAL*/", "social1", "social2", "/*#FACEBOOK*/", "face1", "face2", "/*#*/", "/*#TWITTER || FACEBOOK*/", "social3", "/*#*/", "/*#TWITTER*/", "tw1", "tw2", "/*#*/", "social4", "/*#*/", "end"] (["FACEBOOK","SOCIAL","TWITTER"], [True])

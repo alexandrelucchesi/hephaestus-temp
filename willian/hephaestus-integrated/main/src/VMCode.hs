@@ -46,6 +46,8 @@ ckSchema = "schema-configuration-knowledge.rng"
 
 normalizedSchema cDir sch = cDir </> sch 
 
+this = main
+
 main = do 
  cDir <- getCurrentDirectory
  let ns = normalizedSchema cDir

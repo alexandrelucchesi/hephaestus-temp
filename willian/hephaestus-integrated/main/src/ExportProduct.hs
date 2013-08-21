@@ -12,6 +12,7 @@ import Control.Exception
 import Ensemble.Types
 import ComponentModel.Types
 import SPL.Types
+import FeatureModel.Types
 import UseCaseModel.Types
 import UseCaseModel.PrettyPrinter.Latex
 import UseCaseModel.PrettyPrinter.LatexUserActions
@@ -41,9 +42,9 @@ exportProduct s o p =
 
 exportSourceCode :: FilePath -> FilePath -> InstanceModel -> IO ()
 exportSourceCode s o p = 
- let bd = buildData $ instanceAssetBase p 
+ let bd = buildData $ instanceAssetBase p
  in do
-  copySourceFiles s o (components bd)
+  copySourceFiles s o (components bd) (flattenIM p, [True])
   exportBuildFile  (o ++ "/build.lst") (buildEntries bd)
   preprocessFiles (o ++ "/build.lst") (preProcessFiles bd) o
 
@@ -83,12 +84,12 @@ exportAspectInterfacesToLatex f ucm =
 -- ----------------------------------------------------------------------
 -- Copy selected source files to the output directory
 -- ----------------------------------------------------------------------
-copySourceFiles source out [] = return ()
-copySourceFiles source out (c:cs) = 
+copySourceFiles source out [] _ = return ()
+copySourceFiles source out (c:cs) env = 
  do 
   createOutDir out c 
-  copySourceFile source out c
-  copySourceFiles source out cs
+  copySourceFile source out c env
+  copySourceFiles source out cs env
 
 -- --------------------------------------------------------------------
 -- Exports the list of build entries as a build file. The format of this 
@@ -114,7 +115,7 @@ createOutDir out c =
 -- Note that a component is a pair of ids (Id, Id), indicating the 
 -- names of the input and output files. Usually they have the same 
 -- name. 
-copySourceFile source out c = 
+copySourceFile source out c env = 
  do 
   let old = source </> (fst c)
   let new = out </> (snd c)
@@ -122,12 +123,18 @@ copySourceFile source out c =
   isDirectory <- doesDirectoryExist old
   if isFile then do
    codeLines <- getLinesFromFile old
-   writeLinesToFile new codeLines
+   putStrLn "this code"
+   print codeLines 
+   putStrLn "end"
+   putStrLn "env"
+   print $ fst env
+   let newCodeLines = extractCode codeLines env
+   writeLinesToFile new newCodeLines
   else if isDirectory then do
    contents <- getDirectoryContents old
    let contents' = normalizeContents contents
    let newSource = source </> (fst c)
-   copySourceFiles newSource new contents'
+   copySourceFiles newSource new contents' env
   else do
    undefined
   
@@ -154,4 +161,11 @@ printLinesToHandler handler (x:xs) = do
 	hPutStrLn handler x
 	printLinesToHandler handler xs
 
+flattenIM :: InstanceModel -> [String]
+flattenIM im = flat [fcTree $ fc im]
 
+flat :: [FeatureTree] -> [String]
+flat [] = []
+flat [(Leaf f)] = [fName f]
+flat [(Root f ft)] = [fName f] ++ flat ft
+flat ((Root f ft):xs) = [fName f] ++ flat ft ++ flat xs

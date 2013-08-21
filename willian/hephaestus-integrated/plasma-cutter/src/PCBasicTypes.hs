@@ -1,9 +1,7 @@
 module PCBasicTypes where
 
 type Variables = [Variable]
-type Variable = (VarName, Value)
-type VarName = String
-type Value = Bool
+type Variable = String
 
 type Environment = (Variables, Stack)
 

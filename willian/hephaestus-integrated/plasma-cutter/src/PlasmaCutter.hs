@@ -28,7 +28,7 @@ evalFunction env (And lhs rhs) = (evalFunction env lhs) && (evalFunction env rhs
 evalFunction env (Or lhs rhs) = (evalFunction env lhs) || (evalFunction env rhs)
 evalFunction env (Not exp) = not (evalFunction env exp)
 evalFunction env (ExpId var) =   
-  let exp = [snd x | x <- env, var == fst x] 
+  let exp = [x | x <- env, var == x] 
   in case exp of 
-       []  -> error (var ++ " not in scope.")
-       [x] -> x
+       []  -> False
+       _ -> True
