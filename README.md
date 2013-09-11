@@ -6,7 +6,7 @@ This is a temporary repository for making improvements on Hephaestus SPL, hosted
 
 It's highly recommended to use sandboxes (requires 'cabal-install' >= 1.18.0) when installing, as follows:
 
-    $ cd alexandre/feature-modeling
+    $ cd ${YOUR_CHECKOUT_DIR}/alexandre/feature-modeling
     $ cabal sandbox init
     $ cabal sandbox add-source trouble-deps/benchpress-0.2.2.6
     $ cabal sandbox add-source trouble-deps/funsat-0.6.2
@@ -16,4 +16,8 @@ NOTE: In order to install benchpress, one must first have installed the C lib 'g
 
     $ brew update
     $ brew install gmp
+
+## Running
+
+If the above steps ran correctly, an executable file named 'hfm' must be placed inside ".cabal-sandbox/bin".
 
