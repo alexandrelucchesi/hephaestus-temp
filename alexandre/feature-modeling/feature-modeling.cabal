@@ -1,0 +1,30 @@
+Name:                hephaestus-fm
+Version:             0.1
+Synopsis:            Project Synopsis Here
+Description:         Project Description Here
+License:             AllRightsReserved
+Author:              Author
+Maintainer:          maintainer@example.com
+Stability:           Experimental
+Category:            LPS
+Build-type:          Simple
+Cabal-version:       >=1.2
+
+Executable hfm
+  hs-source-dirs: . src ../util/src
+  main-is: Main.hs
+
+  Build-depends:
+    array,
+    base,
+    benchpress,
+    containers,
+    filepath,
+    funsat,
+    hxt,
+    hxt-relaxng,
+    network,
+    parsec,
+    process,
+    syb
+

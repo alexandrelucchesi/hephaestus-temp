@@ -1,0 +1,25 @@
+THIS FILE DESCRIBES PROBLEMS THAT OCCURED WHEN BUILDING
+THE FEATURE MODEL MODULE AND THEIR CORRESPONDING SOLUTIONS.
+
+EDIT IT FREELY (AND PLEASE, DO SO...).
+
+======================================================
+funsat:
+======================================================
+- Cabal file included dependencies whose versions 
+were prior to the versions included in the actual 
+Haskell Platform. Installing them was not possible 
+because it would break other packages ("Cabal Hell").
+
+======================================================
+benchpress:
+======================================================
+- Same as funsat plus the fact it needs a C lib to 
+run: 'gmp'. You have to install it by yourself. 
+On Mac, simply issuing the command:
+
+    $ brew install gmp
+
+solved the problem. On Ubuntu, a simple apt-get 
+should work as well.
+
