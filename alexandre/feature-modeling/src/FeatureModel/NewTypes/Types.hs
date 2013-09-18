@@ -2,11 +2,13 @@
 --
 -- This module defines the basic types and type synonyms used by Hephaestus.
 
-{-# LANGUAGE GADTs, StandaloneDeriving #-}
+{-# LANGUAGE GADTs, StandaloneDeriving, DeriveDataTypeable #-}
 
 module FeatureModel.NewTypes.Types
 ( Cardinality(..)
+, Constraints
 , FeatureCardinality
+, FeatureExpression
 , FeatureId
 , FeatureModel(..)
 , FeatureName
@@ -17,6 +19,9 @@ module FeatureModel.NewTypes.Types
 where
 
 import qualified Data.Tree as T
+
+import Funsat.Types
+import Data.Generics
 
 ------------------------------------------------
 -- Simplified Feature
@@ -87,6 +92,12 @@ node = T.Node . Feature
 ------------------------------------------------
 -- Constraints
 ------------------------------------------------
-data FeatureExpression = Val Bool -- TODO: Use Hephaestus' current.
-                       deriving (Eq, Show)
+data FeatureExpression = ConstantExpression Bool
+                       | FeatureRef String
+                       | Not FeatureExpression
+                       | And FeatureExpression FeatureExpression
+                       | Or FeatureExpression FeatureExpression
+                       deriving (Eq, Show, Typeable)
+
+deriving instance Data FeatureExpression
 
