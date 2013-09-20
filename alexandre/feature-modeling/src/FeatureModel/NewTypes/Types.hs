@@ -17,6 +17,7 @@ module FeatureModel.NewTypes.Types
 , alternative
 , basic
 , featureToPropositionalLogic
+, fmToPropositionalLogic
 , mandatory
 , node
 , optional
@@ -24,6 +25,7 @@ module FeatureModel.NewTypes.Types
 )
 where
 
+--import qualified Data.Foldable as F
 import Data.Generics
 
 import qualified Data.List as L
@@ -181,21 +183,16 @@ simplifyNot e
     | e == expFalse = expTrue
     | otherwise = Not (simplifyExpression e)
 
--- Feature Model to Propositional Logic
---fmToPropositionalLogic :: FeatureModel -> [FeatureExpression]
---fmToPropositionalLogic fm = rootProposition ++ ftPropositions ++ csPropositions 
---    where 
---        (Root f fs) = fmTree fm
---        ftPropositions  = foldFTree (++) (\(Leaf f) -> []) (featureToPropositionalLogic) [] (Root f fs)
---        csPropositions  = fmConstraints fm
---        rootProposition = [ref f]
+-- TODO: Is it possible to change this function for foldr or foldMap (Data.Foldable)?
+foldFTree :: (b -> b -> b) -> (T.Tree (Feature a) -> b) -> (T.Tree (Feature a) -> b) -> b -> T.Tree (Feature a) -> b
+foldFTree f1 f2 f3 f4 (T.Node f [])  = f2 (T.Node f [])
+foldFTree f1 f2 f3 f4 (T.Node f fs) = f1 (f3 (T.Node f fs)) (foldr (f1) f4 [foldFTree f1 f2 f3 f4 x | x <- fs])
 
--- TODO!
 fmToPropositionalLogic :: FeatureModel a -> [FeatureExpression]
 fmToPropositionalLogic fm = rootProposition ++ ftPropositions ++ csPropositions
     where
-        f = T.rootLabel $ fModel fm
-        ftPropositions = undefined
+        (T.Node f fs) = fModel fm
+        ftPropositions  = foldFTree (++) (\(T.Node _ []) -> []) (featureToPropositionalLogic) [] (T.Node f fs)
         csPropositions = constraints fm
         rootProposition = [ref f]
 

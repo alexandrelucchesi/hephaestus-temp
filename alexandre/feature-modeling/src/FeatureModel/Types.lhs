@@ -28,6 +28,7 @@ module FeatureModel.Types
 , FeatureTree(..)
 , GroupType(..)
 , featureToPropositionalLogic
+, fmToPropositionalLogic
 ) where
 
 import BasicTypes
@@ -113,7 +114,7 @@ data FeatureConfiguration = FeatureConfiguration {
 
 foldFTree::  (b -> b -> b) -> (FeatureTree -> b) -> (FeatureTree -> b) -> b -> FeatureTree ->  b
 foldFTree f1 f2 f3 f4 (Leaf f)  = f2 (Leaf f)
-foldFTree f1 f2 f3 f4 (Root f fs) = f1 (f3 (Root f fs)) (foldr (f1) f4 [foldFTree f1 f2 f3 f4 x | x <- fs])  
+foldFTree f1 f2 f3 f4 (Root f fs) = f1 (f3 (Root f fs)) (foldr (f1) f4 [foldFTree f1 f2 f3 f4 x | x <- fs])
 \end{code}
 
 A feature is either a concrete description of a product capability (with a 
