@@ -9,6 +9,7 @@ module FeatureModel.NewTypes.Types
 , Constraints
 , Feature(..)
 , FeatureCardinality
+, FeatureConfiguration(..)
 --, FeatureExpression(..)
 , FeatureId
 , FeatureModel(..)
@@ -21,13 +22,16 @@ module FeatureModel.NewTypes.Types
 , node
 , optional
 , or
-)
-where
+, getVars
+, getClauses
+, expToLiterals
+) where
 
 --import qualified Data.Foldable as F
 import Data.Generics
 
 import qualified Data.List as L
+import qualified Data.Maybe as M
 import qualified Data.Tree as T
 
 --import FeatureModel.Logic
@@ -63,6 +67,7 @@ instance Show (Feature a) where
     show (Feature x) = show x
 
 -- Kind of fmap.
+
 instance SimplifiedFeature (Feature a) where
     fId          (Feature f) = fId f
     fName        (Feature f) = fName f
@@ -77,9 +82,9 @@ instance SimplifiedFeature (Feature a) where
 -- the book Real World Haskell.
 -- I consider ADT better in this case.
 data Cardinality = Cardinality {
-                      min :: Int,
-                      max :: Int
-                   } deriving (Eq, Show)
+    min :: Int,
+    max :: Int
+    } deriving (Eq, Show)
 
 -- Feature types
 optional  = Cardinality 0 1
@@ -96,9 +101,9 @@ or          = Cardinality 1 -- Expects 'max' to be informed.
 type Constraints = FeatureExpression
 
 data FeatureModel a = FeatureModel {
-                        fModel     :: T.Tree (Feature a),
-                        constraints :: [Constraints]
-                    } deriving (Show)
+    fModel      :: T.Tree (Feature a),
+    constraints :: [Constraints]
+    } deriving (Show)
 
 -- Constructor exported for creating Feature Models.
 -- It ensures that every feature created will be inside the GADT 'Feature'.
@@ -126,4 +131,41 @@ node = T.Node . Feature
 --  show (ConstantExpression False) = "False"
 --
 --deriving instance Data FeatureExpression
+
+newtype FeatureConfiguration a = FeatureConfiguration {
+    fcTree :: T.Tree (Feature a)
+    } deriving (Show, Typeable)
+
+-- TODO: Add the following instance declaration.
+--deriving instance Data (FeatureConfiguration a)
+
+------------------------------------------------
+-- Functions
+------------------------------------------------
+
+getVars :: FeatureExpression -> [FeatureExpression]
+getVars (And exp1 exp2)  = L.nub ((getVars exp1) ++ (getVars exp2))
+getVars (Or  exp1 exp2)  = L.nub ((getVars exp1) ++ (getVars exp2))
+getVars (Not exp1)       =  getVars exp1
+getVars (FeatureRef f)   = [(FeatureRef f)]
+getVars otherwise        = []
+
+getClauses :: FeatureExpression -> [FeatureExpression]
+getClauses (And exp1 exp2) = (getClauses exp1) ++ (getClauses exp2)
+getClauses (Or  exp1 exp2) = [Or exp1 exp2]
+getClauses (Not exp1)      = [Not exp1]
+getClauses (FeatureRef f)  = [FeatureRef f]
+getClauses otherwhise      = []
+
+expToLiterals :: [FeatureExpression] -> FeatureExpression -> Clause
+expToLiterals fs e = map intToLiteral (expToLiterals' fs e)
+    where
+        expToLiterals' fs (Or  exp1 exp2) = (expToLiterals' fs exp1) ++ (expToLiterals' fs exp2)
+        expToLiterals' fs (Not exp1)      = map (*(-1)) (expToLiterals' fs exp1)
+        expToLiterals' fs (FeatureRef f)  =
+            if M.isJust (L.elemIndex (FeatureRef f) fs)
+               then [M.fromJust(L.elemIndex (FeatureRef f) fs) + 1]
+               else []
+        expToLiterals' fs otherwise = []
+        intToLiteral x = L { unLit = x }
 
