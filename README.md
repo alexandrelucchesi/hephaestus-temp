@@ -1,6 +1,4 @@
-# Hephaestus SPL Temporary Repository
-
-This is a temporary repository for making improvements on Hephaestus SPL, hosted in http://gitorious.org/hephaestus.
+# Hephaestus SPL
 
 ## Installation
 
@@ -17,7 +15,7 @@ NOTE: In order to install benchpress, one must first have installed the C lib "g
     $ brew update
     $ brew install gmp
 
-**: Before running the steps above, ensure that "main-is" is set to "Main.hs" inside "feature-modeling.cabal".
+*: Before running the steps above, ensure that "main-is" is set to "Main.hs" inside "feature-modeling.cabal".
 
 ## Running
 
