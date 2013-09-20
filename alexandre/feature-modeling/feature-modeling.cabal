@@ -12,7 +12,7 @@ Cabal-version:       >=1.2
 
 Executable hfm
   hs-source-dirs: . src ../util/src
-  main-is: Test.hs
+  main-is: Main.hs
 
   Build-depends:
     array,

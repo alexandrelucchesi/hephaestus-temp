@@ -20,16 +20,7 @@ is a valid instance of a feature model.
 %if False
 \begin{code}
 {-# OPTIONS -fglasgow-exts #-}
-module FeatureModel.Types
-( Feature(..)
-, FeatureExpression(..)
-, FeatureModel(..)
-, FeatureType(..)
-, FeatureTree(..)
-, GroupType(..)
-, featureToPropositionalLogic
-, fmToPropositionalLogic
-) where
+module FeatureModel.Types where
 
 import BasicTypes
 
