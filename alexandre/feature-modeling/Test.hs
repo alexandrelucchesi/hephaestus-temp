@@ -2,7 +2,8 @@
 -- Test file
 -----------------------------------------------
 import FeatureModel.Types as Old
-import FeatureModel.NewTypes.Types as New
+import FeatureModel.NewTypes.Types as New hiding (Feature)
+import FeatureModel.Logic as New
 
 import Data.List hiding (or)
 import Prelude hiding (or)

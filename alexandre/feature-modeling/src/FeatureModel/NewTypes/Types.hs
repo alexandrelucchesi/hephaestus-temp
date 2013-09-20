@@ -7,6 +7,7 @@
 module FeatureModel.NewTypes.Types
 ( Cardinality(..)
 , Constraints
+, Feature(..)
 , FeatureCardinality
 --, FeatureExpression(..)
 , FeatureId
@@ -16,8 +17,6 @@ module FeatureModel.NewTypes.Types
 , SimplifiedFeature(..)
 , alternative
 , basic
-, featureToPropositionalLogic
-, fmToPropositionalLogic
 , mandatory
 , node
 , optional
@@ -31,6 +30,7 @@ import Data.Generics
 import qualified Data.List as L
 import qualified Data.Tree as T
 
+--import FeatureModel.Logic
 import FeatureModel.Types (FeatureExpression(..))
 import Funsat.Types
 
@@ -126,88 +126,4 @@ node = T.Node . Feature
 --  show (ConstantExpression False) = "False"
 --
 --deriving instance Data FeatureExpression
-
--- The constant expressions for representing True and False.
-expTrue = ConstantExpression True
-expFalse = ConstantExpression False
-
--- Check if a expression is an implies expression.
-isImpliesExpression :: FeatureExpression -> Bool
-isImpliesExpression (Or (Not e1) (e2)) = True
-isImpliesExpression otherwise = False
-
--- Syntatic sugars for building expressions.
-(|=>) :: FeatureExpression -> FeatureExpression -> FeatureExpression
-e1 |=> e2 = Or (Not e1) e2
-
-(<=>) :: FeatureExpression -> FeatureExpression -> FeatureExpression
-e1 <=> e2 = And (Or (Not e1) e2) (Or (Not e2) e1)
-
-(/\) :: FeatureExpression -> FeatureExpression -> FeatureExpression
-e1 /\ e2 = And e1 e2
-
-(\/) :: FeatureExpression -> FeatureExpression -> FeatureExpression
-e1 \/ e2 = Or e1 e2
-
-foldAnd xs = simplifyExpression (foldr And (expTrue) xs)
-foldOr xs  = simplifyExpression (foldr Or  (expFalse) xs)
-
-ref :: Feature a -> FeatureExpression
-ref f = FeatureRef (fId f)
---
--- Expression simplifications
-simplifyExpression :: FeatureExpression -> FeatureExpression
-simplifyExpression (And e1 e2) = simplifyAnd e1 e2
-simplifyExpression (Or e1 e2)  = simplifyOr e1 e2
-simplifyExpression (Not e)     = simplifyNot e
-simplifyExpression (FeatureRef f)         = FeatureRef f
-simplifyExpression (ConstantExpression b) = ConstantExpression b
-
-simplifyAnd :: FeatureExpression -> FeatureExpression -> FeatureExpression
-simplifyAnd e1 e2
-    | (e1 == expFalse) || (e2 == expFalse) = expFalse
-    | e1 == expTrue = simplifyExpression e2
-    | e2 == expTrue = simplifyExpression e1
-    | otherwise = And (simplifyExpression e1) (simplifyExpression e2)
-
-simplifyOr :: FeatureExpression -> FeatureExpression -> FeatureExpression
-simplifyOr e1 e2
-    | (e1 == expTrue) || (e2 == expTrue) = expTrue
-    | e1 == expFalse = simplifyExpression e2
-    | e2 == expFalse = simplifyExpression e1
-    | otherwise = Or (simplifyExpression e1) (simplifyExpression e2)
-
-simplifyNot :: FeatureExpression -> FeatureExpression
-simplifyNot e
-    | e == expTrue = expFalse
-    | e == expFalse = expTrue
-    | otherwise = Not (simplifyExpression e)
-
--- TODO: Is it possible to change this function for foldr or foldMap (Data.Foldable)?
-foldFTree :: (b -> b -> b) -> (T.Tree (Feature a) -> b) -> (T.Tree (Feature a) -> b) -> b -> T.Tree (Feature a) -> b
-foldFTree f1 f2 f3 f4 (T.Node f [])  = f2 (T.Node f [])
-foldFTree f1 f2 f3 f4 (T.Node f fs) = f1 (f3 (T.Node f fs)) (foldr (f1) f4 [foldFTree f1 f2 f3 f4 x | x <- fs])
-
-fmToPropositionalLogic :: FeatureModel a -> [FeatureExpression]
-fmToPropositionalLogic fm = rootProposition ++ ftPropositions ++ csPropositions
-    where
-        (T.Node f fs) = fModel fm
-        ftPropositions  = foldFTree (++) (\(T.Node _ []) -> []) (featureToPropositionalLogic) [] (T.Node f fs)
-        csPropositions = constraints fm
-        rootProposition = [ref f]
-
-featureToPropositionalLogic :: T.Tree (Feature a) -> [FeatureExpression]
-featureToPropositionalLogic ftree =
-    let
-        f  = T.rootLabel ftree
-        cs = map T.rootLabel (T.subForest ftree)
-    in (
-        case gCardinality f of
-            (Cardinality 0 0)  -> [(ref f) |=> (ref c) | c <- cs, fCardinality c == mandatory]
-            (Cardinality 1 1) -> [(ref f) |=> (foldOr [xor x (L.delete x cs) | x <- cs])]
-            (Cardinality 1 _) -> [(ref f) |=> (foldOr [ref x | x <- cs])]
-    ) ++ [(ref c) |=> (ref f) | c <- cs]
-
-xor f [] = ref f
-xor f xs = And (ref f) (foldAnd [Not (ref x) | x <- xs])
 
