@@ -1,7 +1,9 @@
 module FeatureModel.Logic
-( featureToPropositionalLogic
-, fmToPropositionalLogic
+( dimacsFormat
 , eval
+, featureToPropositionalLogic
+, fmToPropositionalLogic
+, fmToTseitinEncode
 ) where
 
 import Data.Generics
@@ -81,9 +83,9 @@ foldFTree f1 f2 f3 f4 (T.Node f fs) = f1 (f3 (T.Node f fs)) (foldr (f1) f4 [fold
 fmToPropositionalLogic :: FeatureModel a -> [FeatureExpression]
 fmToPropositionalLogic fm = rootProposition ++ ftPropositions ++ csPropositions
     where
-        (T.Node f fs) = fModel fm
+        (T.Node f fs) = fmTree fm
         ftPropositions  = foldFTree (++) (\(T.Node _ []) -> []) (featureToPropositionalLogic) [] (T.Node f fs)
-        csPropositions = constraints fm
+        csPropositions = fmConstraints fm
         rootProposition = [ref f]
 
 featureToPropositionalLogic :: T.Tree (Feature a) -> [FeatureExpression]

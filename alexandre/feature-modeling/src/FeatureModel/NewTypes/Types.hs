@@ -101,8 +101,8 @@ or          = Cardinality 1 -- Expects 'max' to be informed.
 type Constraints = FeatureExpression
 
 data FeatureModel a = FeatureModel {
-    fModel      :: T.Tree (Feature a),
-    constraints :: [Constraints]
+    fmTree      :: T.Tree (Feature a),
+    fmConstraints :: [Constraints]
     } deriving (Show)
 
 -- Constructor exported for creating Feature Models.

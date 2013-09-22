@@ -1,9 +1,14 @@
 -----------------------------------------------
 -- Test file
 -----------------------------------------------
+import Control.Applicative ((<$>))
+
 import FeatureModel.Types as Old
 import FeatureModel.NewTypes.Types as New hiding (Feature)
 import FeatureModel.Logic as New
+
+import OldMain as Old
+import NewMain as New
 
 import Data.List hiding (or)
 import Prelude hiding (or)
@@ -15,6 +20,22 @@ import Data.Tree
 assertTrue_ftree1 = Old.featureToPropositionalLogic ftree1_old == New.featureToPropositionalLogic ftree1_new
 assertTrue_treeMobilePhone = Old.featureToPropositionalLogic treeMobilePhone_old == New.featureToPropositionalLogic treeMobilePhone_new
 assertTrue_fmMobilePhone = Old.fmToPropositionalLogic fmMobilePhone_old == New.fmToPropositionalLogic fmMobilePhone_new
+
+-- HELPERS
+assertIO :: (Monad m, Eq a) => m a -> m a -> m Bool
+assertIO action1 action2 = do
+    x <- action1
+    y <- action2
+    return (x == y)
+
+-- MAIN FUNCTIONS
+assertTrue_execSummary = assertIO (Old.execSummary fmMobilePhone_old) (New.execSummary fmMobilePhone_new)
+assertFalse_execSummary = not <$> assertIO (Old.execSummary fmTree1_old) (New.execSummary fmMobilePhone_new)
+    where
+        fmTree1_old = Old.FeatureModel ftree1_old []
+-- The test below is "dummy". Check the files "mobile_*.cnf" generated, they must be equal (tip: use "vimdiff" tool).
+-- NOTE: Maybe the function exec2Fm2Cnf would be more testable if it took a Handler instead of a String as its first parameter.
+assertTrue_execFm2Cnf = assertIO (Old.execFm2Cnf "mobile_old.cnf" fmMobilePhone_old) (New.execFm2Cnf "mobile_new.cnf" fmMobilePhone_new)
 
 -----------------------------------------------
 -- OLD
