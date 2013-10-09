@@ -10,8 +10,9 @@ module FeatureModel.Logic
 , isMandatory
 , isAlternative
 , isOptional
-, orChildren
 , optionalFeatures
+, orChildren
+, ref
 ) where
 
 import Data.Generics

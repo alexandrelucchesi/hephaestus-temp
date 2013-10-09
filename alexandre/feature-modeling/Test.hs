@@ -76,4 +76,6 @@ assertTrue_missingAlternatives =
               then and $ zipWith equals new old
               else False
 assertTrue_checkConstraintImposingAlternative = False
+assertTrue_checkConstraintImposingOptional = False
+assertTrue_superimposedOptional = False
 

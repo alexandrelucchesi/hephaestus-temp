@@ -104,3 +104,17 @@ checkConstraintImposingOptional (FeatureRef r) ftree =
               then Just f
               else Nothing
 
+superimposedOptional :: FeatureModel a -> [Feature a]
+superimposedOptional fm =
+    let ftree = fmTree fm
+        in
+        [ f
+        | f <- nub (optionalFeatures ftree ++ alternativeChildren ftree ++ orChildren ftree)
+        , not (isSatisfiable (addConstraint fm (Not (ref f))))
+        ]
+    where
+        addConstraint :: FeatureModel a -> FeatureExpression -> FeatureModel a
+        addConstraint fm exp = fm { fmConstraints = exp : cs}
+            where
+            cs = fmConstraints fm
+
