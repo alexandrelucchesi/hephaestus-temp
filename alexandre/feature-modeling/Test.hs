@@ -79,4 +79,5 @@ assertTrue_checkConstraintImposingAlternative = False
 assertTrue_checkConstraintImposingOptional = False
 assertTrue_superimposedOptional = False
 assertTrue_checkDeadFeatures = False
+assertTrue_findBadSmells = False
 

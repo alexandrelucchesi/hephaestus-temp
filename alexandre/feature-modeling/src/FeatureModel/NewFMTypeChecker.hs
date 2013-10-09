@@ -125,14 +125,14 @@ checkDeadFeatures fm = [ fnode f
                        , not (isSatisfiable (addConstraint fm (ref (fnode f))))
                        ]
 
---type BadSmell = String
---
---findBadSmells :: FeatureModel a -> [BadSmell]
---findBadSmells fm =
---    if ((fmTypeChecker fm == Success) && isSatisfiable fm)
---       then
---       ["Expecting at least 2 children in feature " ++ show (f) | f <- missingAlternatives fm] ++
---           ["Feature " ++ show f ++ " is a dead feature" | f <- checkDeadFeatures fm] ++
---               ["Constraint " ++ show c ++ " impose alternative feature " ++ show f | (c,f) <- checkConstraintImposingAlternative fm]
---               else
---               ["The feature model is either incorrect or inconsistent (unsatisfiable)"]
+type BadSmell = String
+
+findBadSmells :: FeatureModel a -> [BadSmell]
+findBadSmells fm =
+    if ((fmTypeChecker fm == Success) && isSatisfiable fm)
+       then
+       ["Expecting at least 2 children in feature " ++ show (f) | f <- missingAlternatives fm] ++
+           ["Feature " ++ show f ++ " is a dead feature" | f <- checkDeadFeatures fm] ++
+               ["Constraint " ++ show c ++ " impose alternative feature " ++ show f | (c,f) <- checkConstraintImposingAlternative fm]
+               else
+               ["The feature model is either incorrect or inconsistent (unsatisfiable)"]
