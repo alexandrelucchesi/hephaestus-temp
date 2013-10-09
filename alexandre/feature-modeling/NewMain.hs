@@ -38,14 +38,14 @@ execSummary fmodel = print $ summary fmodel
 execCheck1 :: FeatureModel a -> IO ()
 execCheck1 fmodel = do print $ fmTypeChecker fmodel
 
----- translate the fm to cnf and run the
----- minisat solver.
---execMinisat :: String -> FeatureModel -> IO()
---execMinisat out fmodel = do
---    execFm2Cnf out fmodel
---    code <- system ("minisat " ++ out)
---    print $ code
---
+-- translate the fm to cnf and run the
+-- minisat solver.
+execMinisat :: String -> FeatureModel a -> IO ()
+execMinisat out fmodel = do
+    execFm2Cnf out fmodel
+    code <- system ("minisat " ++ out)
+    print $ code
+
 --execSAT :: FeatureModel -> IO ()
 --execSAT fmodel = do print $ fmSATSolver fmodel
 --
