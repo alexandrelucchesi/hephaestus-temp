@@ -9,7 +9,8 @@ import FeatureModel.NewTypes.Types
 import FeatureModel.Logic
 import FeatureModel.Types (FMSummary(..))
 
-import FeatureModel.FMTypeChecker
+--import FeatureModel.FMTypeChecker
+import FeatureModel.NewFMTypeChecker
 import FeatureModel.FCTypeChecker
 import FeatureModel.Parsers.GenericParser
 

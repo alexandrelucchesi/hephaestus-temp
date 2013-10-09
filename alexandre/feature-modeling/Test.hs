@@ -3,33 +3,60 @@
 -----------------------------------------------
 import Control.Applicative ((<$>))
 
-import FeatureModel.Types as Old
+import FeatureModel.Types as Old hiding (eval)
 import FeatureModel.NewTypes.Types as New hiding (Feature)
-import FeatureModel.Logic as New
+import FeatureModel.Logic as New hiding (eval)
 
 import OldMain as Old
 import NewMain as New
 
-import Data.List hiding (or)
-import Prelude hiding (or)
-import Data.Tree
+import FeatureModel.FMTypeChecker as Old
+import FeatureModel.NewFMTypeChecker as New
 
+import TestSetup
 -----------------------------------------------
 -- ASSERTS
 -----------------------------------------------
+tests =
+    [
+        ("assertTrue_ftree1", assertTrue_ftree1),
+        ("assertTrue_checkFeatureTree", assertTrue_checkFeatureTree),
+        ("assertTrue_checkFeatureTree'", assertTrue_checkFeatureTree),
+        ("assertTrue_checkFeatureTree''", assertTrue_checkFeatureTree),
+        ("assertTrue_missingAlternative", assertTrue_missingAlternatives),
+        ("assertFalse_dummy", True),
+        ("assertFalse_dummy", False)
+    ]
+
+-- []     means no error occurred.
+-- (x:xs) contains the errors' names.
+runAllTests = let res = foldr eval [] tests
+                  in case res of
+                          [] -> putStrLn "All tests were executed SUCCESSFULLY!"
+                          xs -> putStrLn $ "The following tests FAILED: " ++ show xs ++ "."
+
+eval :: (String, Bool) -> [String] -> [String]
+eval (name, v) s =
+    let prefix = takeWhile (/= '_')
+        suffix = dropWhile (\x -> x /= 'F' && x /= 'T')
+        expectedRes = read $ (prefix . suffix) name :: Bool
+        in if v == expectedRes
+              then s
+              else name : s
+
 assertTrue_ftree1 = Old.featureToPropositionalLogic ftree1_old == New.featureToPropositionalLogic ftree1_new
 assertTrue_treeMobilePhone = Old.featureToPropositionalLogic treeMobilePhone_old == New.featureToPropositionalLogic treeMobilePhone_new
 assertTrue_fmMobilePhone = Old.fmToPropositionalLogic fmMobilePhone_old == New.fmToPropositionalLogic fmMobilePhone_new
 
--- HELPERS
+-- Helpers
 assertIO :: (Monad m, Eq a) => m a -> m a -> m Bool
 assertIO action1 action2 = do
     x <- action1
     y <- action2
     return (x == y)
 
--- MAIN FUNCTIONS
-assertTrue_execSummary = assertIO (Old.execSummary fmMobilePhone_old) (New.execSummary fmMobilePhone_new)
+-- Main Functions
+assertTrue_execSummary  = assertIO (Old.execSummary fmMobilePhone_old) (New.execSummary fmMobilePhone_new)
 assertFalse_execSummary = not <$> assertIO (Old.execSummary fmTree1_old) (New.execSummary fmMobilePhone_new)
     where
         fmTree1_old = Old.FeatureModel ftree1_old []
@@ -37,139 +64,13 @@ assertFalse_execSummary = not <$> assertIO (Old.execSummary fmTree1_old) (New.ex
 -- NOTE: Maybe the function exec2Fm2Cnf would be more testable if it took a Handler instead of a String as its first parameter.
 assertTrue_execFm2Cnf = assertIO (Old.execFm2Cnf "mobile_old.cnf" fmMobilePhone_old) (New.execFm2Cnf "mobile_new.cnf" fmMobilePhone_new)
 
------------------------------------------------
--- OLD
------------------------------------------------
-
--- SAMPLE 01 ----------------------------------
-ftree1_old =
-    Root (Feature "F1" "F1" Mandatory "F1" BasicFeature [])
-    [
-        Root (Feature "F2" "F2" Mandatory "F2" BasicFeature [])
-        [
-            Leaf (Feature "F4" "F4" Mandatory "F4" BasicFeature [])
-        ],
-        Root (Feature "F3" "F3" Mandatory "F3" BasicFeature [])
-        [
-            Leaf (Feature "F5" "F5" Mandatory "F5" BasicFeature [])
-        ]
-    ]
-
--- SAMPLE 02 ----------------------------------
--- Features
-oldfMobilePhone = Feature "mobile-phone" "Mobile Phone" Mandatory "Mobile Phone" BasicFeature []
-oldfCalls       = Feature "calls" "Calls" Mandatory "Calls" BasicFeature []
-oldfGPS         = Feature "gps" "GPS" Optional "GPS" BasicFeature []
-oldfScreen      = Feature "screen" "Screen" Mandatory "Screen" AlternativeFeature []
-oldfBasic       = Feature "basic" "Basic" Optional "Basic" BasicFeature []
-oldfColour      = Feature "colour" "Colour" Optional "Colour" BasicFeature []
-oldfHighRes     = Feature "high-res" "High Resolution" Optional "High Resolution" BasicFeature []
-oldfMedia       = Feature "media" "Media" Optional "Media" OrFeature []
-oldfCamera      = Feature "cam" "Camera" Optional "Camera" BasicFeature []
-oldfMP3         = Feature "mp3" "MP3" Optional "MP3" BasicFeature []
-
--- Feature tree
-treeMobilePhone_old =
-    Root oldfMobilePhone
-    [
-        Leaf oldfCalls,
-        Leaf oldfGPS,
-        Root oldfScreen
-        [
-           Leaf oldfBasic,
-           Leaf oldfColour,
-           Leaf oldfHighRes
-        ],
-        Root oldfMedia
-        [
-           Leaf oldfCamera,
-           Leaf oldfMP3
-        ]
-    ]
-
-fmMobilePhone_old = Old.FeatureModel treeMobilePhone_old []
-
------------------------------------------------
--- NEW
------------------------------------------------
-
--- SAMPLE 01 ----------------------------------
-ftree1_new =
-    node (MockFeature "F1" "F1" mandatory basic)
-    [
-        node (MockFeature "F2" "F2" mandatory basic)
-        [
-            node (MockFeature "F4" "F4" mandatory basic) []
-        ],
-        node (MockFeature "F3" "F3" mandatory basic)
-        [
-            node (MockFeature "F5" "F5" mandatory basic) []
-        ]
-    ]
-
--- SAMPLE 02 ----------------------------------
--- Features
-newfMobilePhone = MockFeature "mobile-phone" "Mobile Phone" mandatory basic
-newfCalls       = MockFeature "calls" "Calls" mandatory basic
-newfGPS         = MockFeature "gps" "GPS" optional basic
-newfScreen      = MockFeature "screen" "Screen" mandatory alternative
-newfBasic       = MockFeature "basic" "Basic" optional basic
-newfColour      = MockFeature "colour" "Colour" optional basic
-newfHighRes     = MockFeature "high-res" "High Resolution" optional basic
-newfMedia       = MockFeature "media" "Media" optional (or 2)
-newfCamera      = MockFeature "cam" "Camera" optional basic
-newfMP3         = MockFeature "mp3" "MP3" optional basic
-
--- Feature tree
-treeMobilePhone_new =
-    node newfMobilePhone
-    [
-        node newfCalls  [],
-        node newfGPS    [],
-        node newfScreen
-        [
-           node newfBasic   [],
-           node newfColour  [],
-           node newfHighRes []
-        ],
-        node newfMedia
-        [
-           node newfCamera [],
-           node newfMP3    []
-        ]
-    ]
-
-fmMobilePhone_new = New.FeatureModel treeMobilePhone_new []
-
------------------------------------------------
--- SETUP
------------------------------------------------
---
--- Definition of a "Mock" Feature.
-data MockFeature = MockFeature {
-        myFId          :: FeatureId,
-        myFName        :: FeatureName,
-        myFCardinality :: FeatureCardinality,
-        myGCardinality :: GroupCardinality
-    } deriving (Eq)
-
-instance Show MockFeature where
-    show f = myFId f
-
-instance SimplifiedFeature MockFeature where
-    fId = myFId
-    fName = myFName
-    fCardinality = myFCardinality
-    gCardinality = myGCardinality
-
--- Function to "override" the default implementation of Tree.show
--- so that the output looks like the old implementation.
-show' :: Show a => Tree a -> String
-show' t =
-    let
-        c  = rootLabel t
-        cs = subForest t
-    in
-        case cs of
-            [] -> "Leaf " ++ show c
-            x  -> "Root " ++ show c ++ " [" ++ intercalate ", " [show' x | x <- cs] ++ "]"
+-- FMTypeChecker Functions
+assertTrue_checkFeatureTree   = Old.checkFeatureTree ftree1_old == New.checkFeatureTree ftree1_new
+assertTrue_checkFeatureTree'  = Old.checkFeatureTree (Old.fmTree fmMobilePhone_old) == New.checkFeatureTree (New.fmTree fmMobilePhone_new)
+assertTrue_checkFeatureTree'' = Old.checkFeatureTree ftree1_old == New.checkFeatureTree (New.fmTree fmMobilePhone_new)
+assertTrue_missingAlternatives =
+    let new = New.missingAlternatives fmTree1_new
+        old = Old.missingAlternatives fmTree1_old
+        in if length new == length old
+              then and $ zipWith equals new old
+              else False

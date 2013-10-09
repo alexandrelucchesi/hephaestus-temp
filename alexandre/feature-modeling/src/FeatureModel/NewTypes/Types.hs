@@ -6,6 +6,7 @@
 
 module FeatureModel.NewTypes.Types
 ( Cardinality(..)
+--, CheckerResult
 , Constraints
 , Feature(..)
 , FeatureCardinality
@@ -14,10 +15,16 @@ module FeatureModel.NewTypes.Types
 , FeatureId
 , FeatureModel(..)
 , FeatureName
+, FeatureTree
+, FeatureForest
 , GroupCardinality
 , SimplifiedFeature(..)
 , alternative
 , basic
+, children
+, flatten
+, fnode
+, foldFTree
 , mandatory
 , node
 , optional
@@ -25,6 +32,7 @@ module FeatureModel.NewTypes.Types
 , getVars
 , getClauses
 , expToLiterals
+, subtrees
 ) where
 
 --import qualified Data.Foldable as F
@@ -99,15 +107,17 @@ or          = Cardinality 1 -- Expects 'max' to be informed.
 -- Feature Model
 ------------------------------------------------
 type Constraints = FeatureExpression
+type FeatureTree   a = T.Tree (Feature a)
+type FeatureForest a = [FeatureTree a]
 
 data FeatureModel a = FeatureModel {
-    fmTree      :: T.Tree (Feature a),
+    fmTree        :: FeatureTree a,
     fmConstraints :: [Constraints]
     } deriving (Show)
 
 -- Constructor exported for creating Feature Models.
 -- It ensures that every feature created will be inside the GADT 'Feature'.
-node :: (SimplifiedFeature a) => a -> T.Forest (Feature a) -> T.Tree (Feature a)
+node :: (SimplifiedFeature a) => a -> FeatureForest a -> FeatureTree a
 node = T.Node . Feature
 
 ------------------------------------------------
@@ -133,15 +143,29 @@ node = T.Node . Feature
 --deriving instance Data FeatureExpression
 
 newtype FeatureConfiguration a = FeatureConfiguration {
-    fcTree :: T.Tree (Feature a)
+    fcTree :: FeatureTree a
     } deriving (Show, Typeable)
 
 -- TODO: Add the following instance declaration.
 --deriving instance Data (FeatureConfiguration a)
 
+
 ------------------------------------------------
 -- Functions
 ------------------------------------------------
+fnode    = T.rootLabel
+children = \xs -> map fnode (T.subForest xs)
+-- NOTE: "subtrees" is "flatten" in the old version.
+flatten  = T.flatten
+subtrees :: T.Tree a -> [T.Tree a]
+subtrees t = grab t []
+    where
+    grab st@(T.Node _ ts) xs = st : foldr grab xs ts
+
+-- TODO: Is it possible to change this function for foldr or foldMap (Data.Foldable)?
+foldFTree :: (b -> b -> b) -> (FeatureTree a -> b) -> (FeatureTree a -> b) -> b -> FeatureTree a -> b
+foldFTree f1 f2 f3 f4 (T.Node f [])  = f2 (T.Node f [])
+foldFTree f1 f2 f3 f4 (T.Node f fs) = f1 (f3 (T.Node f fs)) (foldr (f1) f4 [foldFTree f1 f2 f3 f4 x | x <- fs])
 
 getVars :: FeatureExpression -> [FeatureExpression]
 getVars (And exp1 exp2)  = L.nub ((getVars exp1) ++ (getVars exp2))

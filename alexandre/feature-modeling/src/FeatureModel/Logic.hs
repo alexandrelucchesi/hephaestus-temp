@@ -2,6 +2,7 @@ module FeatureModel.Logic
 ( dimacsFormat
 , eval
 , featureToPropositionalLogic
+, fmToCNFExpression
 , fmToPropositionalLogic
 , fmToTseitinEncode
 ) where
@@ -12,7 +13,7 @@ import FeatureModel.NewTypes.Types
 
 import qualified Data.List as L
 import qualified Data.Set as S
-import qualified Data.Tree as T
+import qualified Data.Tree as T (Tree(Node))
 
 import FeatureModel.Types (FeatureExpression(..))
 import Funsat.Types
@@ -75,11 +76,6 @@ simplifyNot e
     | e == expFalse = expTrue
     | otherwise = Not (simplifyExpression e)
 
--- TODO: Is it possible to change this function for foldr or foldMap (Data.Foldable)?
-foldFTree :: (b -> b -> b) -> (T.Tree (Feature a) -> b) -> (T.Tree (Feature a) -> b) -> b -> T.Tree (Feature a) -> b
-foldFTree f1 f2 f3 f4 (T.Node f [])  = f2 (T.Node f [])
-foldFTree f1 f2 f3 f4 (T.Node f fs) = f1 (f3 (T.Node f fs)) (foldr (f1) f4 [foldFTree f1 f2 f3 f4 x | x <- fs])
-
 fmToPropositionalLogic :: FeatureModel a -> [FeatureExpression]
 fmToPropositionalLogic fm = rootProposition ++ ftPropositions ++ csPropositions
     where
@@ -90,8 +86,8 @@ fmToPropositionalLogic fm = rootProposition ++ ftPropositions ++ csPropositions
 
 featureToPropositionalLogic :: T.Tree (Feature a) -> [FeatureExpression]
 featureToPropositionalLogic ftree =
-    let f  = T.rootLabel ftree
-        cs = map T.rootLabel (T.subForest ftree)
+    let f  = fnode ftree
+        cs = children ftree
     in (
         case gCardinality f of
              (Cardinality 0 0)  -> [(ref f) |=> (ref c) | c <- cs, fCardinality c == mandatory]
@@ -198,7 +194,7 @@ dimacsFormat exp =
             }
 
 eval :: FeatureConfiguration a -> FeatureExpression -> Bool
-eval config (FeatureRef f) = elem f [fId x | x <- T.flatten (fcTree config)]
+eval config (FeatureRef f) = elem f [fId x | x <- flatten (fcTree config)]
 eval config (Not e) = not (eval config e)
 eval config (And e1 e2) = (eval config e1) && (eval config e2)
 eval config (Or e1 e2) = (eval config e1) || (eval config e2)
