@@ -112,9 +112,27 @@ superimposedOptional fm =
         | f <- nub (optionalFeatures ftree ++ alternativeChildren ftree ++ orChildren ftree)
         , not (isSatisfiable (addConstraint fm (Not (ref f))))
         ]
-    where
-        addConstraint :: FeatureModel a -> FeatureExpression -> FeatureModel a
-        addConstraint fm exp = fm { fmConstraints = exp : cs}
-            where
-            cs = fmConstraints fm
 
+addConstraint :: FeatureModel a -> FeatureExpression -> FeatureModel a
+addConstraint fm exp = fm { fmConstraints = exp : cs}
+    where
+    cs = fmConstraints fm
+
+checkDeadFeatures :: FeatureModel a -> [Feature a]
+checkDeadFeatures fm = [ fnode f
+                       | f <- subtrees (fmTree fm)
+                       , isOptional (fnode f)
+                       , not (isSatisfiable (addConstraint fm (ref (fnode f))))
+                       ]
+
+--type BadSmell = String
+--
+--findBadSmells :: FeatureModel a -> [BadSmell]
+--findBadSmells fm =
+--    if ((fmTypeChecker fm == Success) && isSatisfiable fm)
+--       then
+--       ["Expecting at least 2 children in feature " ++ show (f) | f <- missingAlternatives fm] ++
+--           ["Feature " ++ show f ++ " is a dead feature" | f <- checkDeadFeatures fm] ++
+--               ["Constraint " ++ show c ++ " impose alternative feature " ++ show f | (c,f) <- checkConstraintImposingAlternative fm]
+--               else
+--               ["The feature model is either incorrect or inconsistent (unsatisfiable)"]
