@@ -61,6 +61,7 @@ assertTrue_execSummary  = assertIO (Old.execSummary fmMobilePhone_old) (New.exec
 assertFalse_execSummary = not <$> assertIO (Old.execSummary fmTree1_old) (New.execSummary fmMobilePhone_new)
     where
         fmTree1_old = Old.FeatureModel ftree1_old []
+assertTrue_execCheck1 = False
 -- The test below is "dummy". Check the files "mobile_*.cnf" generated, they must be equal (tip: use "vimdiff" tool).
 -- NOTE: Maybe the function exec2Fm2Cnf would be more testable if it took a Handler instead of a String as its first parameter.
 assertTrue_execFm2Cnf = assertIO (Old.execFm2Cnf "mobile_old.cnf" fmMobilePhone_old) (New.execFm2Cnf "mobile_new.cnf" fmMobilePhone_new)

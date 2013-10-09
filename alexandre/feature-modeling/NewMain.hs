@@ -34,10 +34,10 @@ summary fm =
 execSummary :: FeatureModel a -> IO ()
 execSummary fmodel = print $ summary fmodel
 
----- check if the feature model is well typed.
---execCheck1 :: FeatureModel -> IO ()
---execCheck1 fmodel = do print $ fmTypeChecker fmodel
---
+-- check if the feature model is well typed.
+execCheck1 :: FeatureModel a -> IO ()
+execCheck1 fmodel = do print $ fmTypeChecker fmodel
+
 ---- translate the fm to cnf and run the
 ---- minisat solver.
 --execMinisat :: String -> FeatureModel -> IO()
