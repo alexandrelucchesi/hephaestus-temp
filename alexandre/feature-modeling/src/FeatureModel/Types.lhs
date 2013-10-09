@@ -610,7 +610,7 @@ isAlternative f = (groupType f) == AlternativeFeature
 
 isOrFeature :: Feature -> Bool
 isOrFeature FeatureError = False
-isOrFeatire f = (groupType f) == OrFeature
+isOrFeature f = (groupType f) == OrFeature
 
 \end{code}
 %endif

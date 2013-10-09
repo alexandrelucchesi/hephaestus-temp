@@ -1,10 +1,17 @@
 module FeatureModel.Logic
-( dimacsFormat
+( alternativeChildren
+, dimacsFormat
+, essentialFeatures
 , eval
 , featureToPropositionalLogic
 , fmToCNFExpression
 , fmToPropositionalLogic
 , fmToTseitinEncode
+, isMandatory
+, isAlternative
+, isOptional
+, orChildren
+, optionalFeatures
 ) where
 
 import Data.Generics
@@ -75,6 +82,37 @@ simplifyNot e
     | e == expTrue = expFalse
     | e == expFalse = expTrue
     | otherwise = Not (simplifyExpression e)
+
+essentialFeatures :: T.Tree (Feature a) -> [Feature a]
+essentialFeatures ftree =
+    foldFTree (++) (filterMandatory) (filterMandatory) [] ftree
+    where
+    filterMandatory ftree = if isMandatory (fnode ftree)
+                               then [fnode ftree]
+                               else []
+
+alternativeChildren :: T.Tree (Feature a) -> [Feature a]
+alternativeChildren ftree = concat [children f | f <- subtrees ftree, isAlternative (fnode f)]
+
+orChildren :: T.Tree (Feature a) -> [Feature a]
+orChildren ftree = concat [children f | f <- subtrees ftree, isOrFeature (fnode f)]
+
+optionalFeatures :: T.Tree (Feature a) -> [Feature a]
+optionalFeatures ftree = [fnode f | f <- subtrees ftree, isOptional (fnode f)]
+
+isMandatory :: Feature a -> Bool
+isMandatory f = (fCardinality f) == mandatory
+
+isOptional :: Feature a -> Bool
+isOptional f = (fCardinality f) == optional
+
+isAlternative :: Feature a -> Bool
+isAlternative f = (gCardinality f) == alternative
+
+isOrFeature :: Feature a -> Bool
+isOrFeature f = case gCardinality f of
+                     (Cardinality 1 _) -> True
+                     _ -> False
 
 fmToPropositionalLogic :: FeatureModel a -> [FeatureExpression]
 fmToPropositionalLogic fm = rootProposition ++ ftPropositions ++ csPropositions

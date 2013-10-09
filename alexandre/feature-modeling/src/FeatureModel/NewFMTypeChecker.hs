@@ -11,6 +11,7 @@ import Funsat.Resolution
 import Data.List
 import Data.Maybe
 import qualified Data.Set as S
+import Data.Tree (Tree(Node))
 
 --data CheckerResult = Success
 --                   | Fail { errorList :: [ErrorMessage] }
@@ -75,4 +76,31 @@ missingAlternatives fm = [ fnode f
                          , gCardinality (fnode f) /= basic
                          , length (children f) < 2
                          ]
+
+checkConstraintImposingAlternative :: FeatureModel a -> [(FeatureExpression, Feature a)]
+checkConstraintImposingAlternative fm =
+    let cs = [(c, constraintImposingAlternative c (fmTree fm)) | c <- fmConstraints fm]
+        in [(c, fromJust f) | (c,f) <- cs, isJust f]
+    where
+    constraintImposingAlternative :: FeatureExpression -> Tree (Feature a) -> Maybe (Feature a)
+    constraintImposingAlternative (FeatureRef r) ftree =
+     let f = head [fnode x | x <- (subtrees ftree), (fId (fnode x)) == r]
+     in if f `elem` (alternativeChildren ftree)
+         then Just f
+         else Nothing
+    constraintImposingAlternative (Or (Not (FeatureRef r1)) (FeatureRef r2)) ftree =
+        let
+        f1 = head [fnode x | x <- (subtrees ftree), (fId (fnode x)) == r1]
+        f2 = head [fnode x | x <- (subtrees ftree), (fId (fnode x)) == r2]
+        in if (f1 `elem` (essentialFeatures ftree)) && (f2 `elem` alternativeChildren ftree)
+              then Just f2
+              else Nothing
+    constraintImposingAlternative otherwise ftree = Nothing
+
+checkConstraintImposingOptional :: FeatureExpression -> Tree (Feature a) -> Maybe (Feature a)
+checkConstraintImposingOptional (FeatureRef r) ftree =
+    let f = head [fnode x | x <- (subtrees ftree), (fId (fnode x)) == r]
+        in if (f `elem` (orChildren ftree ++ optionalFeatures ftree))
+              then Just f
+              else Nothing
 

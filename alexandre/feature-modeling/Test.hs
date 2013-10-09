@@ -24,6 +24,7 @@ tests =
         ("assertTrue_checkFeatureTree'", assertTrue_checkFeatureTree),
         ("assertTrue_checkFeatureTree''", assertTrue_checkFeatureTree),
         ("assertTrue_missingAlternative", assertTrue_missingAlternatives),
+        ("assertTrue_checkConstraintImposingAlternative", assertTrue_checkConstraintImposingAlternative),
         ("assertFalse_dummy", True),
         ("assertFalse_dummy", False)
     ]
@@ -74,3 +75,5 @@ assertTrue_missingAlternatives =
         in if length new == length old
               then and $ zipWith equals new old
               else False
+assertTrue_checkConstraintImposingAlternative = False
+
