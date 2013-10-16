@@ -1,7 +1,7 @@
 module FeatureModel.Parsers.GenericParser (
  parseFeatureModel, 
  parseInstanceModel, 
- FmFormat ( FMPlugin, FMIde, FMGrammar, SXFM ) 
+ FmFormat ( FMPlugin, FMIde, FMGrammar, SXFM, SPLOT ) 
 )
 where 
 
@@ -28,6 +28,14 @@ import qualified FeatureModel.Parsers.FMGrammar.AbsFMGrammar as AFMG
 import qualified FeatureModel.Parsers.FMGrammar.ParFMGrammar as PFMG 
 import qualified FeatureModel.Parsers.FMGrammar.ErrM as EFMG
 
+--modules related to the SPLOT parser
+import FeatureModel.Parsers.SPLOT.NewSPLOT2FeatureModel
+import qualified FeatureModel.Parsers.SPLOT.LexSPLOT as LexSPLOT
+import FeatureModel.Parsers.SPLOT.SkelSPLOT
+import qualified FeatureModel.Parsers.SPLOT.AbsSPLOT as AbsSPLOT
+import qualified FeatureModel.Parsers.SPLOT.ParSPLOT as ParSPLOT
+import qualified FeatureModel.Parsers.SPLOT.ErrM as ErrSPLOT
+
 -- modules related to the SXFM parser
 import  qualified FeatureModel.Parsers.SXFM.ParsecSXFM as ParsecSXFM
 
@@ -38,34 +46,37 @@ import Text.ParserCombinators.Parsec.Language( haskellStyle )
 import Text.XML.HXT.Core
 import Text.XML.HXT.RelaxNG
 
-data FmFormat = FMPlugin | FMIde | FMGrammar | SXFM
+data FmFormat = FMPlugin | FMIde | FMGrammar | SXFM | SPLOT
 
--- |
 -- The top most function for parsing feature models 
 -- in different formats. 
 -- 
 parseFeatureModel (schema, fileName) format = do
  x <- readFile (fileName) 
  case (format) of 
-  FMPlugin -> do
-    fm <- translateFMPToFm schema fileName
+--  FMPlugin -> do
+--    fm <- translateFMPToFm schema fileName
+--    return fm
+--   
+--  FMIde -> do
+--    let fm = translateFMIdeToFm (pGrammar (myLexer x))
+--    return fm
+--
+--  FMGrammar -> do 
+--    let fm = translateFMGrammarToFm (PFMG.pFMGrammar (PFMG.myLexer x))
+--    return fm 
+
+  SPLOT -> do
+    let fm = translateFMSPLOTToFm (ParSPLOT.pSPLOTModel (ParSPLOT.myLexer x))
     return fm
-   
-  FMIde -> do
-    let fm = translateFMIdeToFm (pGrammar (myLexer x))
-    return fm
-
-  FMGrammar -> do 
-    let fm = translateFMGrammarToFm (PFMG.pFMGrammar (PFMG.myLexer x))
-    return fm 
-
-  SXFM  -> do
-    r <- parseFromFile ParsecSXFM.parseFeatureModel fileName ; 
-    case (r) of
-      Left err  -> return $ Core.Fail (show err)
-      Right f  -> do let fm = f
-                     return $ Core.Success fm
-
+	 
+--  SXFM  -> do
+--    r <- parseFromFile ParsecSXFM.parseFeatureModel fileName ; 
+--    case (r) of
+--      Left err  -> return $ Core.Fail (show err)
+--      Right f  -> do let fm = f
+--                     return $ Core.Success fm
+--
 -- | 
 -- Parse a feature configuration. This parser 
 -- is based on the exported instance models from 
@@ -102,6 +113,9 @@ translateFMIdeToFm (Bad s) = Core.Fail s
 translateFMGrammarToFm (EFMG.Ok g) = Core.Success (GFMG.grammarToFeatureModel g)  
 translateFMGrammarToFm (EFMG.Bad s) = Core.Fail s
 
+translateFMSPLOTToFm (ErrSPLOT.Ok g) = Core.Success (splotToFeatureModel g)
+translateFMSPLOTToFm (ErrSPLOT.Bad s) = Core.Fail s
+
 translateFMPToFm schema fileName = 
  do
    errs <- checkXMLFile schema fileName
@@ -132,3 +146,5 @@ checkXMLFile schema fileName =
                   getErrorMessages
                 ) ;
    return errs
+   
+

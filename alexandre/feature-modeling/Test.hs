@@ -13,7 +13,11 @@ import NewMain as New
 import FeatureModel.FMTypeChecker as Old
 import FeatureModel.NewFMTypeChecker as New
 
+import FeatureModel.Parsers.SPLOT.SPLOT2FeatureModel as Old
+import FeatureModel.Parsers.SPLOT.NewSPLOT2FeatureModel as New
+
 import TestSetup
+
 -----------------------------------------------
 -- ASSERTS
 -----------------------------------------------

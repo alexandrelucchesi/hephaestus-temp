@@ -5,7 +5,7 @@ import FeatureModel.Types
 import FeatureModel.FMTypeChecker
 import FeatureModel.FCTypeChecker
 
-import FeatureModel.Parsers.GenericParser
+import FeatureModel.Parsers.OldGenericParser
 
 import Funsat.Types
 
